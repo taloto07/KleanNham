@@ -1,4 +1,4 @@
-<p align="center">Klean Nham</p>
+<h1 align="center">Klean Nham</h1>
 
 ## About KleanNham
 
