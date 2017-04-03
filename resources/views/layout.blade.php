@@ -10,6 +10,8 @@
 
         <div class="container">
 
+            @include("partials._searchbox")
+
             @yield("content")
 
         

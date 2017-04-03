@@ -3,7 +3,6 @@
 @section('title', 'Home')
 
 @section('content')
-    
 
     <!-- Page Heading -->
     <div class="row">

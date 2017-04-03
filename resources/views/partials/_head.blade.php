@@ -19,4 +19,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+<link href="{{ url('css/search_box.css') }}" rel="stylesheet">
+
 @yield("stylesheet")
