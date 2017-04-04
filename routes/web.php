@@ -22,3 +22,5 @@ Route::get('about', function(){
 Route::get('contact', function(){
 	return view('contact');
 });
+
+Route::get('locale/{locale}', 'LocaleController@index');
