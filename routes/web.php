@@ -24,3 +24,4 @@ Route::get('contact', function(){
 });
 
 Route::get('locale/{locale}', 'LocaleController@index');
+Auth::routes();

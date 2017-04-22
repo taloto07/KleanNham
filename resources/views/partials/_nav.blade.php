@@ -25,16 +25,49 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@if (App::isLocale('kh')) <img src="{{url('flags/1x1/kh.svg')}}" width="25px" /> @else <img src="{{url('flags/1x1/us.svg')}}" width="25px" /> @endif Language <span class="caret"></span></a>
+                @if( Auth::guest() )
+                    <li class="{{Request::is('login') ? 'active' : ''}}">
+                        <a href="{{ url('/login') }}">@lang('authentication.Login')</a>
+                    </li>
+                    <li class="{{Request::is('register') ? 'active' : ''}}">
+                        <a href="{{ url('/register') }}">@lang('authentication.Register')</a>
+                    </li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                            <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu">
-                            <li class="{{ App::isLocale('kh') ? 'active' : '' }}">
-                                <a href="{{url('/locale/kh')}}"><img src="{{url('flags/4x3/kh.svg')}}" width="25px" /> Khmer</a>
-                            </li>
-                            <li class="{{ App::isLocale('en') ? 'active' : '' }}">
-                                <a href="{{url('/locale/en')}}"><img src="{{url('flags/4x3/us.svg')}}" width="25px"/> English</a>
-                            </li>
+                            <li>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                            </li>       
                         </ul>
+                        
+                    </li>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                @endif
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    @if (App::isLocale('kh')) 
+                        <img src="{{url('flags/1x1/kh.svg')}}" width="25px" />
+                    @else 
+                        <img src="{{url('flags/1x1/us.svg')}}" width="25px" /> 
+                    @endif 
+                    Language <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ App::isLocale('kh') ? 'active' : '' }}">
+                            <a href="{{url('/locale/kh')}}"><img src="{{url('flags/4x3/kh.svg')}}" width="25px" /> Khmer</a>
+                        </li>
+                        <li class="{{ App::isLocale('en') ? 'active' : '' }}">
+                            <a href="{{url('/locale/en')}}"><img src="{{url('flags/4x3/us.svg')}}" width="25px"/> English</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
