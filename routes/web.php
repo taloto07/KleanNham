@@ -25,3 +25,7 @@ Route::get('contact', function(){
 
 Route::get('locale/{locale}', 'LocaleController@index');
 Auth::routes();
+
+Route::get('test', function(){
+	\App\Place::first()->tags()->attach(3);
+});
