@@ -17,12 +17,12 @@ class CreatePlacesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('address');
-            $table->integer('level_id')->unsigned();
+            $table->integer('price_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('level_id')
+            $table->foreign('price_id')
                   ->references('id')
-                  ->on('levels')
+                  ->on('prices')
                   ->onDelete('cascade');
         });
 

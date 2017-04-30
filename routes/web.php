@@ -29,3 +29,5 @@ Auth::routes();
 Route::get('test', function(){
 	\App\Place::first()->tags()->attach(3);
 });
+
+Route::resource('places', 'PlaceController');

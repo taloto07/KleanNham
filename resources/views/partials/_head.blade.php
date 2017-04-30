@@ -20,5 +20,6 @@
 <![endif]-->
 
 <link href="{{ url('css/search_box.css') }}" rel="stylesheet">
+<link href="{{ asset('font-awesome-4.7.0/css/font-awesome.css') }}" rel="stylesheet">
 
 @yield("stylesheet")

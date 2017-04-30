@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Level extends Model
+class Price extends Model
 {
     protected $fillable = [
-    	'name'
+    	'name', 'image'
     ];
 
     public function places(){
