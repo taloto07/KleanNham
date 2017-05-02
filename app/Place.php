@@ -21,4 +21,8 @@ class Place extends Model
     public function pictures(){
     	return $this->hasMany('App\Picture');
     }
+
+    public function menus(){
+        return $this->belongsToMany('App\Menu')->withPivot('id');
+    }
 }
