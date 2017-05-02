@@ -23,6 +23,14 @@ class Place extends Model
     }
 
     public function menus(){
-        return $this->belongsToMany('App\Menu')->withPivot('id');
+        return $this->belongsToMany('App\Menu')
+                    ->withPivot('id')
+                    ->withTimestamps();
+    }
+
+    public function hours(){
+        return $this->belongsToMany('App\Hour')
+                    ->withPivot('fromHour', 'fromMinute', 'untilHour', 'untilMinute')
+                    ->withTimestamps();
     }
 }
