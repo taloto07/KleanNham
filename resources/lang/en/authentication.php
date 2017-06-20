@@ -10,5 +10,7 @@ return [
 	'Name'					=> 'Name',
 	'ConfirmPassword'		=> 'Confirm Password',
 	'ResetPassword'			=> 'Reset Password',
-	'SendPasswordResetLink'	=> 'Send Password Reset Link'
+	'SendPasswordResetLink'	=> 'Send Password Reset Link',
+	'Logout'				=> 'Logout',
+	'Language'				=> 'Language'
 ];

@@ -22,10 +22,8 @@ class CreateHoursTable extends Migration
         Schema::create('hour_place', function (Blueprint $table) {
             $table->integer('place_id')->unsigned();
             $table->integer('hour_id')->unsigned();
-            $table->integer('fromHour');
-            $table->integer('fromMinute');
-            $table->integer('untilHour');
-            $table->integer('untilminute');
+            $table->string('open');
+            $table->string('close');
             $table->timestamps();
 
             $table->foreign('place_id')

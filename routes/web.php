@@ -26,6 +26,12 @@ Route::get('contact', function(){
 Route::get('locale/{locale}', 'LocaleController@index');
 Auth::routes();
 
-Route::get('test', 'TestController@index');
+Route::delete('pictures/{id}', 'PictureController@destroy')
+->name('pictures.destroy');
 
+
+Route::get('places/{id}/menus/create', 'MenuController@create')->name('places.menus.create');
+Route::post('places/{id}/menus', 'MenuController@store')->name('places.menus.store');
 Route::resource('places', 'PlaceController');
+
+

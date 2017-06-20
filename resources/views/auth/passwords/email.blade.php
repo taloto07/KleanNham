@@ -1,46 +1,41 @@
 @extends('layout')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">@lang('authentication.ResetPassword')</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@section('title', 'Reset Password')
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">@lang('authentication.Email')</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    @lang('authentication.SendPasswordResetLink')
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@section('page-title')
+    @include('partials._page-title', ['title' => __('authentication.ResetPassword')])
 @endsection
+            
+@section('content')
+
+<div class="container">
+    <div class="row mb80">
+        <div class="col-sm-4 offset-sm-4">
+            <h3 class="page-title-small">@lang('authentication.ResetPassword')</h3>
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            {!! Form::open([ 'route' => 'password.email', 'class' => 'mb80' ]) !!}
+                <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                    {{ Form::label('email', __('authentication.Email'), ['class' => 'control-label'] ) }}
+                    {{ Form::email('email', null, ['class' => 'form-control', 'aria-describedby' => 'emailErrorMessage']) }}
+                    <span id="emailErrorMessage" class="help-block">{{ $errors->first('email') }}</span>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">@lang('authentication.SendPasswordResetLink')</button>
+                </div>
+                <!-- /.form-group -->
+            {!! Form::close() !!}
+        </div>
+        <!-- /.col-sm-4 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+
+@endsection
+
+

@@ -1,68 +1,49 @@
 @extends('layout')
 
+@section('title', 'Login')
+
+@section('page-title')
+    @include('partials._page-title', ['title' => __('authentication.Login')])
+@endsection
+            
 @section('content')
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">@lang('authentication.Login')</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">@lang('authentication.Email')</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">@lang('authentication.Password')</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> @lang('authentication.RememberMe')
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    @lang('authentication.Login')
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    @lang('authentication.ForgotPassword')
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+    <div class="row mb80">
+        <div class="col-sm-4 offset-sm-4">
+            <h3 class="page-title-small">@lang('authentication.Login')</h3>
+            {!! Form::open([ 'url' => 'login', 'class' => 'mb80' ]) !!}
+                <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                    {{ Form::label('email', __('authentication.Email'), ['class' => 'control-label'] ) }}
+                    {{ Form::email('email', null, ['class' => 'form-control', 'aria-describedby' => 'emailErrorMessage']) }}
+                    <span id="emailErrorMessage" class="help-block">{{ $errors->first('email') }}</span>
                 </div>
-            </div>
+                <!-- /.form-group -->
+                <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
+                    {{ Form::label('password', __('authentication.Password'), ['class' => 'control-label'] ) }}
+                    <input type="password" class="form-control" name="password" aria-describedby="passwordErrorMessage" required>
+                    <span id="passwordErrorMessage" class="help-block">{{ $errors->first('password') }}</span>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    <label class="form-check-label">
+                        <input type="checkbox" name="remember" class="form-check-input" {{ old('remember') ? 'checked' : '' }}> @lang('authentication.RememberMe')
+                    </label>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">@lang('authentication.Login')</button>
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        @lang('authentication.ForgotPassword')
+                    </a>
+                </div>
+                <!-- /.form-group -->
+            {!! Form::close() !!}
         </div>
+        <!-- /.col-sm-4 -->
     </div>
+    <!-- /.row -->
 </div>
+<!-- /.container-fluid -->
+
 @endsection

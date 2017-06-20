@@ -12,7 +12,9 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
+    'hour'                 => 'The :attribute must valid hour.',
+    'hour_before'          => 'The :attribute must be before :second_hour.',
+    'hour_after'           => 'The :attribute must be after :second_hour.',
     'accepted'             => 'The :attribute must be accepted.',
     'active_url'           => 'The :attribute is not a valid URL.',
     'after'                => 'The :attribute must be a date after :date.',

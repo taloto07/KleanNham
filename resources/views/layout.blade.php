@@ -5,19 +5,31 @@
     </head>
 
     <body>
-        
-        @include("partials._nav")
 
-        <div class="container">
+        <div class="page-wrapper">
+
+            @include("partials._nav")
     
             <!-- @include("partials._searchbox") -->
 
-            @yield("content")
+            @yield("hero-image-wrapper")
 
-        
+            <div class="main-wrapper">
+                <div class="main">
+                    <div class="main-inner">
+                        @yield("page-title")
+                        @yield("content")
+                    </div>
+                    <!-- /.main-inner -->
+                </div>
+                <!-- /.main -->
+            </div>
+            <!-- /.main-wrapper -->
+
             @include("partials._footer")
 
-        </div> {{-- /container --}}
+        </div> 
+        <!-- /.page-wrapper -->
 
         @include("partials._javascript")
     </body>

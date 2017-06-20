@@ -18,6 +18,8 @@ class CreatePlacesTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->integer('price_id')->unsigned();
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
 
             $table->foreign('price_id')

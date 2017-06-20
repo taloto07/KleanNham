@@ -8,6 +8,14 @@ use App\Price;
 use App\Tag;
 use App\Place;
 use App\Picture;
+use App\Sangkat;
+use App\Khan;
+use App\City;
+use App\Contact;
+use App\Telephone;
+use App\Menu;
+
+use Carbon\Carbon;
 
 class PlaceController extends Controller
 {
@@ -35,11 +43,9 @@ class PlaceController extends Controller
         foreach($tags as $tag){
             if (!is_numeric($tag)){
 
-                $newTag = Tag::where('name', $tag);
-
-                $newTag = $newTag->count() ? $tag->first() : new Tag(['name' => $tag]);
-                $newTag->save();
+                $newTag = Tag::firstOrCreate(['name' => $tag]);
                 $collectTags->push($newTag);
+
             } else {
                 $collectTags->push(Tag::find($tag));
             }
@@ -47,6 +53,127 @@ class PlaceController extends Controller
         
         return $place->tags()->syncWithoutDetaching($collectTags->pluck('id'));
 
+    }
+
+    protected function saveSangkat($sangkat){
+        $sangkat = strtolower($sangkat);
+        if (!is_numeric($sangkat)){
+            return Sangkat::firstOrCreate(['name' => $sangkat]);    
+        } 
+        
+        return Sangkat::findOrFail($sangkat);
+    }
+
+    protected function saveKhan($khan){
+        $khan = strtolower($khan);
+        if (!is_numeric($khan)){
+            return Khan::firstOrCreate(['name' => $khan]);    
+        } 
+        
+        return Khan::findOrFail($khan);
+    }
+
+    protected function saveCity($city){
+        $city = strtolower($city);
+        if (!is_numeric($city)){
+            return City::firstOrCreate(['name' => $city]);    
+        } 
+        
+        return City::findOrFail($city);
+    }
+
+    // return Array [open hour, close hour]
+    protected function getActualOpenAndClose($open, $close){
+        if ($open === 'close' || $close === 'close'){
+            return [ 'open' => 'close', 'close' => 'close'];
+        } 
+            
+        return ['open' => $open, 'close' => $close];
+    }
+
+    // save contact
+    protected function saveContact($place, $request){
+        // save contact
+        $contact = new Contact([
+            'email'     => $request->email,
+            'website'   => $request->website,
+            'facebook'  => $request->facebook,
+            'place_id'  => $place->id
+        ]);
+
+        $contact->save();
+
+        $telephones = collect();
+        foreach ($request->phones as $telephone){
+            if (!empty($telephone)){
+                $telephones->push( new Telephone(['number' => $telephone]) );
+            }
+        }
+
+        if ( !$telephones->isEmpty() ){
+            $contact->telephones()->saveMany( $telephones );
+        }
+        
+    }
+
+    // save operation hours
+    protected function saveHour($place, $request){
+        $monday     = $this->getActualOpenAndClose($request->monday_open, $request->monday_close);
+        $tuesday    = $this->getActualOpenAndClose($request->tuesday_open, $request->tuesday_close);
+        $wednesday  = $this->getActualOpenAndClose($request->wednesday_open, $request->wednesday_close);
+        $thursday   = $this->getActualOpenAndClose($request->thursday_open, $request->thursday_close);
+        $friday     = $this->getActualOpenAndClose($request->friday_open, $request->friday_close);
+        $saturday   = $this->getActualOpenAndClose($request->saturday_open, $request->saturday_close);
+        $sunday     = $this->getActualOpenAndClose($request->sunday_open, $request->sunday_close);
+
+        $place->hours()->syncWithoutDetaching([
+            1 => ['open' => $monday['open'], 'close' => $monday['close']],
+            2 => ['open' => $tuesday['open'], 'close' => $tuesday['close']],
+            3 => ['open' => $wednesday['open'], 'close' => $wednesday['close']],
+            4 => ['open' => $thursday['open'], 'close' => $thursday['close']],
+            5 => ['open' => $friday['open'], 'close' => $friday['close']],
+            6 => ['open' => $saturday['open'], 'close' => $saturday['close']],
+            7 => ['open' => $sunday['open'], 'close' => $sunday['close']],
+        ]);
+    }
+
+    protected function getPrices(){
+        return Price::all()->mapWithKeys(function($item){
+            return [$item['id'] => $item['description']];
+        });
+    }
+
+    protected function getTags(){
+        return Tag::all()->mapWithKeys(function($tag){
+            return [ $tag['id'] => $tag['name'] ];
+        });
+    }
+
+    protected function getSangkats(){
+        return Sangkat::all()->mapWithKeys(function($sangkat){
+            return [ $sangkat['id'] => $sangkat['name'] ];
+        });
+    }
+
+    protected function getKhans(){
+        return Khan::all()->mapWithKeys(function($khan){
+            return [ $khan['id'] => $khan['name'] ];
+        });
+    }
+
+    protected function getMinutesAndHours(){
+        $minutes    = ['00', '30'];
+        $hours      = ['close' => 'close'];
+        for($i = 0; $i <= 24; $i++){
+            for($j = 0; $j < 2; $j++){
+                $hour = $i;
+                $minute = $minutes[$j];
+                $hours["$hour:$minute"] = "$hour:$minute";
+                if ($i === 24) break;  
+            }
+        }
+
+        return ['minutes' => $minutes, 'hours' => $hours];
     }
 
     /**
@@ -68,15 +195,16 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        $prices = Price::all()->mapWithKeys(function($item){
-            return [$item['id'] => $item['description']];
-        });
 
-        $tags = Tag::all()->mapWithKeys(function($tag){
-            return [ $tag['id'] => $tag['name'] ];
-        });
+        $prices     = $this->getPrices();
+        $tags       = $this->getTags();
+        $sangkats   = $this->getSangkats();
+        $khans      = $this->getKhans();
+        $times      = $this->getMinutesAndHours();
+        $minutes    = $times['minutes'];
+        $hours      = $times['hours'];
 
-        return view('places.create', compact('prices', 'tags'));
+        return view('places.create', compact('prices', 'tags', 'sangkats', 'khans', 'hours', 'minutes'));
     }
 
     /**
@@ -87,35 +215,76 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, 
             [
-                'name'      => 'required|string|max:255',
-                'address'   => 'required|string|max:255',
-                'price'     => 'required|exists:prices,id',
-                'tags.*'    => 'sometimes',
-                'images.*'  => 'sometimes|image|max:3000',
+                'name'              => 'sometimes|string|max:255',
+                'address'           => 'required|string|max:255',
+                'price'             => 'required|exists:prices,id',
+                'tags.*'            => 'sometimes|nullable|max:255',
+                'images.*'          => 'sometimes|nullable|image|max:3000',
+                'sangkat'           => 'required|max:255',
+                'khan'              => 'required|max:255',
+                'latitude'          => 'required|max:255',
+                'longitude'         => 'required|max:255',
+                'city'              => 'required|max:255',
+                'phones.*'          => 'sometimes|nullable|numeric|digits_between:9,10',
+                'email'             => 'sometimes|nullable|email|max:255',
+                'monday_close'      => 'required|hour',
+                'monday_open'       => 'required|hour',
+                'tuesday_close'     => 'required|hour',
+                'tuesday_open'      => 'required|hour',
+                'wednesday_close'   => 'required|hour',
+                'wednesday_open'    => 'required|hour',
+                'thursday_close'    => 'required|hour',
+                'thursday_open'     => 'required|hour',
+                'friday_close'      => 'required|hour',
+                'friday_open'       => 'required|hour',
+                'saturday_close'    => 'required|hour',
+                'saturday_open'     => 'required|hour',
+                'sunday_close'      => 'required|hour',
+                'sunday_open'       => 'required|hour',
             ]
         );
 
+        $sangkat    = $this->saveSangkat($request->sangkat);
+        $khan       = $this->saveKhan($request->khan);
+        $city       = $this->saveCity($request->city);
+        $address    = strip_tags($request->address);
+
         $place = new Place();
 
-        $place->name = strip_tags($request->name);
-        $place->address = strip_tags($request->address);
-        $place->price_id = $request->price;
+        $place->name        = strip_tags($request->name);
+        $place->address     = $address;
+        $place->price_id    = $request->price;
+        $place->latitude    = $request->latitude;
+        $place->longitude   = $request->longitude;
+        $place->sangkat_id  = $sangkat->id;
+        $place->khan_id     = $khan->id;
+        $place->city_id     = $city->id;
         $place->save();
+
+        // save contact
+        $this->saveContact($place, $request);
+
+        // save hours
+        $this->saveHour($place, $request);
 
         // // save picture
         if ($request->hasFile('images')){
             $this->storeImage($request->file('images'), $place);
         }
+        // -- save picture
 
         // save tags
         if ($request->has('tags')){
             $this->saveTag($request->tags, $place);
         }
+        // -- save tags
 
-        return back()->withSuccess('Successfully created!');
+        return back()->with([
+            'success'   => 'Successfully created!',
+            'place'   => $place
+        ]);
     }
 
     /**
@@ -126,7 +295,23 @@ class PlaceController extends Controller
      */
     public function show($id)
     {
-        //
+        $place = Place::findOrFail($id);
+        
+        $menus = Menu::with(
+            [
+                'places' => function($q) use ($id){
+                    return $q->where('places.id', $id);
+                }
+            ]
+        )
+        ->orderBy('id')
+        ->get()
+        ->filter(function($menu){
+            return $menu->places->isNotEmpty();
+        })
+        ->values();
+
+        return view('places.show', compact('place', 'menus'));
     }
 
     /**
@@ -137,7 +322,16 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $place = Place::findOrFail($id);
+        $prices     = $this->getPrices();
+        $tags       = $this->getTags();
+        $sangkats   = $this->getSangkats();
+        $khans      = $this->getKhans();
+        $times      = $this->getMinutesAndHours();
+        $minutes    = $times['minutes'];
+        $hours      = $times['hours'];
+
+        return view('places.edit', compact('place', 'prices', 'tags', 'sangkats', 'khans', 'minutes', 'hours'));
     }
 
     /**

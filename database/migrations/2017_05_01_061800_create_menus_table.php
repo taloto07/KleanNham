@@ -23,6 +23,11 @@ class CreateMenusTable extends Migration
             $table->increments('id');
             $table->integer('place_id')->unsigned();
             $table->integer('menu_id')->unsigned();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('ingredient')->nullable();
+            $table->double('price')->nullable();
             $table->timestamps();
 
             $table->foreign('place_id')
@@ -34,8 +39,6 @@ class CreateMenusTable extends Migration
                   ->references('id')
                   ->on('menus')
                   ->onDelete('cascade');
-
-            $table->unique(['place_id', 'menu_id']);
         });
     }
 
