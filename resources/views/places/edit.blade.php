@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Edit')
+@section('title', 'Edit ' . ucwords($place->name))
 
 @section('stylesheet')
 	{!! Html::style('css/select2/select2.css') !!}
@@ -37,31 +37,31 @@
         <!-- /.alert alert-danger -->
     @endif
 		
-	{!! Form::open([ 'route' => 'places.store', 'files' => true, 'class' => 'mb80' ]) !!}
+	{!! Form::open([ 'route' => ['places.update', $place->id], 'method' => 'put', 'files' => true, 'class' => 'mb80' ]) !!}
     	{{-- Basic Information --}}
       	<fieldset>
 	    	<legend>Basic Information</legend>
-		  	<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-		 		{{ Form::label( 'name', 'Name:', ['class' => 'control-label'] ) }}
-  			 	{{ Form::text('name', $place->name, ['class' => 'form-control', 'aria-describedby' => 'nameErrorMessage']) }}
-              	<span id="nameErrorMessage" class="help-block">{{ $errors->first('name') }}</span>
-			  	</div>
-			  	<!-- /.form-group -->
-			  	<div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-		  		{{ Form::label('price', 'Price:', ['class' => 'control-label'] ) }}
-	  			{{ Form::select('price', $prices, $place->price_id, ['class' => 'form-control', 'aria-describedby' => 'priceErrorMessage']) }}
-			  	<span id="priceErrorMessage" class="help-block">{{ $errors->first('price') }}</span>
+		  	<div class="form-group {{ $errors->has('name') ? 'has-danger' : '' }}">
+		 		{{ Form::label( 'name', 'Name:', ['class' => 'control-label col-form-label'] ) }}
+  			 	{{ Form::text('name', $place->name, ['class' => 'form-control form-control-danger']) }}
+              	<div class="form-control-feedback">{{ $errors->first('name') }}</div>
+		  	</div>
+		  	<!-- /.form-group -->
+			  	<div class="form-group {{ $errors->has('price') ? 'has-danger' : '' }}">
+		  		{{ Form::label('price', 'Price:', ['class' => 'control-label col-form-label'] ) }}
+	  			{{ Form::select('price', $prices, $place->price_id, ['class' => 'form-control form-control-danger']) }}
+			  	<div>{{ $errors->first('price') }}</div>
             </div>
 		 	<!-- /.form-group -->
-		 	<div class="form-group {{ count($errors->get('tags.*')) > 0 || $errors->has('tags') ? 'has-error' : '' }}">
-          		{{ Form::label('tags[]', 'Tags:', ['class' => 'control-label'] ) }}
-				{{ Form::select('tags[]', $tags, $place->tags()->pluck('id')->all(), ['class' => 'form-control tags', 'multiple' => 'multiple', 'aria-describedby' => 'tagsErrorMessage', 'style' => 'width: 100%']) }}
-				<span id="tagsErrorMessage" class="help-block">
-						{{ $errors->first('tags') }}
-						@foreach($errors->get('tags.*') as $message)
-							{{ $message[0] }} <br/>
-						@endforeach
-	            </span>
+		 	<div class="form-group {{ count($errors->get('tags.*')) > 0 || $errors->has('tags') ? 'has-danger' : '' }}">
+          		{{ Form::label('tags[]', 'Tags:', ['class' => 'control-label col-form-label'] ) }}
+				{{ Form::select('tags[]', $tags, $place->tags()->pluck('id')->all(), ['class' => 'form-control form-control-danger tags', 'multiple' => 'multiple', 'style' => 'width: 100%']) }}
+				<div>
+					{{ $errors->first('tags') }}
+					@foreach($errors->get('tags.*') as $message)
+						{{ $message[0] }} <br/>
+					@endforeach
+	            </div>
           	</div>
           	<!-- /.form-group -->
 	  	</fieldset>
@@ -74,46 +74,46 @@
   					<div id="map"></div>
     			</div>
     			<div class="col-md-6">
-      				<div class="form-group {{ $errors->has('address') ? 'has-error' : '' }}">
-						{{ Form::label('address', 'Address:', ['class' => 'control-label'] ) }}
-						{{ Form::text('address', $place->address, ['class' => 'form-control', 'aria-describedby' => 'addressErrorMessage', "placeholder" => "Address", 'id' => 'address']) }}
-						<span id="addressErrorMessage" class="help-block">{{ $errors->first('address') }}</span>
+      				<div class="form-group {{ $errors->has('address') ? 'has-danger' : '' }}">
+						{{ Form::label('address', 'Address:', ['class' => 'control-label col-form-label'] ) }}
+						{{ Form::text('address', $place->address, ['class' => 'form-control form-control-danger', "placeholder" => "Address", 'id' => 'address']) }}
+						<div class="form-control-feedback">{{ $errors->first('address') }}</div>
 	             	</div>
       				<!-- /.form-group -->
-      				<div class="form-group {{ $errors->has('latitude') ? 'has-error' : '' }}">
-						{{ Form::label('latitude', 'Latitude', ['class' => 'control-label'] ) }}
-						{{ Form::text('latitude', $place->latitude, ['class' => 'form-control', 'id' => 'latitude', 'aria-describedby' => 'latitudeErrorMessage']) }}	
-						<span id="addressErrorMessage" class="help-block">{{ $errors->first('latitude') }}</span>
+      				<div class="form-group {{ $errors->has('latitude') ? 'has-danger' : '' }}">
+						{{ Form::label('latitude', 'Latitude', ['class' => 'control-label col-form-label'] ) }}
+						{{ Form::text('latitude', $place->latitude, ['class' => 'form-control form-control-danger', 'id' => 'latitude']) }}	
+						<div class="form-control-feedback">{{ $errors->first('latitude') }}</div>
 		            </div>
       				<!-- /.form-group -->
-      				<div class="form-group {{ $errors->has('longitude') ? 'has-error' : '' }}">
-						{{ Form::label('longitude', 'Longitude', ['class' => 'control-label'] ) }}
-						{{ Form::text('longitude', $place->longitude, ['class' => 'form-control', 'id' => 'longitude', 'aria-describedby' => 'longitudeErrorMessage']) }}
-						<span id="addressErrorMessage" class="help-block">{{ $errors->first('longitude') }}</span>
+      				<div class="form-group {{ $errors->has('longitude') ? 'has-danger' : '' }}">
+						{{ Form::label('longitude', 'Longitude', ['class' => 'control-label col-form-label'] ) }}
+						{{ Form::text('longitude', $place->longitude, ['class' => 'form-control form-control-danger', 'id' => 'longitude']) }}
+						<div class="form-control-feedback">{{ $errors->first('longitude') }}</div>
 		            </div>
       				<!-- /.form-group -->
-      				<div class="form-group {{ $errors->has('sangkat') ? 'has-error' : '' }}">
-						{{ Form::label('sangkat', 'Sangkat:', ['class' => 'control-label'] ) }}
-						{{ Form::select('sangkat', $sangkats, $place->sangkat_id, ['class' => 'form-control sangkat', 'aria-describedby' => 'sangkatErrorMessage', 'placeholder' => 'Pick sangkat', 'style' => 'width: 100%']) }}
-						<span id="sangkatErrorMessage" class="help-block">
+      				<div class="form-group {{ $errors->has('sangkat') ? 'has-danger' : '' }}">
+						{{ Form::label('sangkat', 'Sangkat:', ['class' => 'control-label col-form-label'] ) }}
+						{{ Form::select('sangkat', $sangkats, $place->sangkat_id, ['class' => 'form-control form-control-danger sangkat', 'placeholder' => 'Pick sangkat', 'style' => 'width: 100%']) }}
+						<div class="form-control-feedback">
 							{{ $errors->first('sangkat') }}
-						</span>
+						</div>
 		            </div>
       				<!-- /.form-group -->
-      				<div class="form-group {{ $errors->has('khan') ? 'has-error' : '' }}">
-							{{ Form::label('khan', 'Khan:', ['class' => 'control-label'] ) }}
-							{{ Form::select('khan', $khans, $place->khan_id, ['class' => 'form-control khan1', 'aria-describedby' => 'khanErrorMessage', 'placeholder' => 'Pick khan', 'id' => 'khan', 'style' => 'width: 100%']) }}
-							<span id="khanErrorMessage" class="help-block">
+      				<div class="form-group {{ $errors->has('khan') ? 'has-danger' : '' }}">
+							{{ Form::label('khan', 'Khan:', ['class' => 'control-label col-form-label'] ) }}
+							{{ Form::select('khan', $khans, $place->khan_id, ['class' => 'form-control form-control-danger khan1', 'placeholder' => 'Pick khan', 'id' => 'khan', 'style' => 'width: 100%']) }}
+							<div class="form-control-feedback">
 								{{ $errors->first('khan') }}
-							</span>
+							</div>
 		            </div>
       				<!-- /.form-group -->
-      				<div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
-							{{ Form::label('city', 'City:', ['class' => 'control-label'] ) }}
-							{{ Form::text('city', $place->city->name, ['id' => 'city', 'class' => 'form-control khan', 'aria-describedby' => 'cityErrorMessage', 'readonly']) }}
-							<span id="cityErrorMessage" class="help-block">
+      				<div class="form-group {{ $errors->has('city') ? 'has-danger' : '' }}">
+							{{ Form::label('city', 'City:', ['class' => 'control-label col-form-label'] ) }}
+							{{ Form::text('city', $place->city->name, ['id' => 'city', 'class' => 'form-control form-control-danger khan', 'readonly']) }}
+							<div class="form-control-feedback">
 								{{ $errors->first('city') }}
-							</span>
+							</div>
 		            </div>
       				<!-- /.form-group -->
     			</div>
@@ -125,55 +125,55 @@
   			<legend>Contact Information</legend>
   			<div class="row">
     			<div class="col-sm-4">
-      				<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-    					{{ Form::label('email', 'Email', ['class' => 'control-label'] ) }}
-                    	{{ Form::text('email', $place->contact->email, ['class' => 'form-control', 'aria-describedby' => 'emailErrorMessage']) }}
-			            <span id="emailErrorMessage" class="help-block">{{ $errors->first('email') }}</span>
+      				<div class="form-group {{ $errors->has('email') ? 'has-danger' : '' }}">
+    					{{ Form::label('email', 'Email', ['class' => 'control-label col-form-label'] ) }}
+                    	{{ Form::text('email', $place->contact->email, ['class' => 'form-control form-control-danger']) }}
+			            <div class="form-control-feedback">{{ $errors->first('email') }}</div>
                   	</div>
                   	<!-- /.form-group -->
     			</div>
     			<!-- /.col-* -->
     			<div class="col-sm-4">
-      				<div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
-    					{{ Form::label('website', 'Website', ['class' => 'control-label'] ) }}
-                        {{ Form::text('website', $place->contact->website, ['class' => 'form-control', 'aria-describedby' => 'websiteErrorMessage']) }}
-			            <span id="websiteErrorMessage" class="help-block">{{ $errors->first('website') }}</span>
+      				<div class="form-group {{ $errors->has('website') ? 'has-danger' : '' }}">
+    					{{ Form::label('website', 'Website', ['class' => 'control-label col-form-label'] ) }}
+                        {{ Form::text('website', $place->contact->website, ['class' => 'form-control form-control-danger']) }}
+			            <div class="form-control-feedback">{{ $errors->first('website') }}</div>
       				</div>
       				<!-- /.form-group -->
     			</div>
     			<!-- /.col-* -->
     			<div class="col-sm-4">
-      				<div class="form-group {{ $errors->has('facebook') ? 'has-error' : '' }}">
-					    {{ Form::label('facebook', 'Facebook', ['class' => 'control-label'] ) }}
-                      	{{ Form::text('facebook', $place->contact->facebook, ['class' => 'form-control', 'aria-describedby' => 'facebookErrorMessage']) }}
-			            <span id="facebookErrorMessage" class="help-block">{{ $errors->first('facebook') }}</span>
+      				<div class="form-group {{ $errors->has('facebook') ? 'has-danger' : '' }}">
+					    {{ Form::label('facebook', 'Facebook', ['class' => 'control-label col-form-label'] ) }}
+                      	{{ Form::text('facebook', $place->contact->facebook, ['class' => 'form-control form-control-danger']) }}
+			            <div class="form-control-feedback">{{ $errors->first('facebook') }}</div>
       				</div>
       				<!-- /.form-group -->
     			</div>
     			<!-- /.col-* -->
     			<div class="col-sm-4">
-      				<div class="form-group {{ $errors->has('phones.0') ? 'has-error' : '' }}">
-      					<label>Phone</label>
-      					<input type="text" name="phones[]" class="form-control" aria-describedby="phone1ErrorMessage" value="{{ old('phones.0') ? old('phones.0') : count($place->telephones) > 0 ? $place->telephones[0]->number : '' }}">
-      					<span id="phone1ErrorMessage" class="help-block">{{ $errors->first('phones.0') }}</span>
+      				<div class="form-group {{ $errors->has('phones.0') ? 'has-danger' : '' }}">
+      					<label for="phones[]" class="control-label col-form-label">Phone</label>
+      					<input type="text" name="phones[]" class="form-control form-control-danger" id="phones[]" value="{{ (old('phones.0') ? old('phones.0') : (count($place->telephones) > 0 ? $place->telephones[0]->number : '')) }}">
+      					<div class="form-control-feedback">{{ $errors->first('phones.0') }}</div>
       				</div>
       				<!-- /.form-group -->
     			</div>
     			<!-- /.col-* -->
     			<div class="col-sm-4">
-      				<div class="form-group {{ $errors->has('phones.1') ? 'has-error' : '' }}">
-      					<label>Phone</label>
-      					<input type="text" name="phones[]" class="form-control" aria-describedby="phonesErrorMessage" value="{{ old('phones.1') ? old('phones.1') : count($place->telephones) > 1 ? $place->telephones[1]->number : '' }}">
-      					<span id="phonesErrorMessage" class="help-block">{{ $errors->first('phones.1') }}</span>
+      				<div class="form-group {{ $errors->has('phones.1') ? 'has-danger' : '' }}">
+      					<label for="phones[]" class="control-label col-form-label">Phone</label>
+      					<input type="text" name="phones[]" class="form-control form-control-danger" id="phones[]" value="{{ (old('phones.1') ? old('phones.1') : (count($place->telephones) > 1 ? $place->telephones[1]->number : '')) }}">
+      					<dive class="form-control-feedback">{{ $errors->first('phones.1') }}</dive>
       				</div>
       				<!-- /.form-group -->
     			</div>
     			<!-- /.col-* -->
     			<div class="col-sm-4">
-      				<div class="form-group {{ $errors->has('phones.2') ? 'has-error' : '' }}">
-        					<label>Phone</label>
-        					<input type="text" name="phones[]" class="form-control" aria-describedby="phonesErrorMessage" value="{{ old('phones.2') ? old('phones.2') : count($place->telephones) > 2 ? $place->telephones[2]->number : '' }}">
-        					<span id="phonesErrorMessage" class="help-block">{{ $errors->first('phones.2') }}</span>
+      				<div class="form-group {{ $errors->has('phones.2') ? 'has-danger' : '' }}">
+    					<label for="phones[]" class="control-label col-form-label">Phone</label>
+    					<input type="text" name="phones[]" class="form-control form-control-danger"value="{{ (old('phones.2') ? old('phones.2') : (count($place->telephones) > 2 ? $place->telephones[2]->number : '')) }}">
+    					<dive class="form-control-feedback">{{ $errors->first('phones.2') }}</dive>
       				</div>
       				<!-- /.form-group -->
     			</div>
@@ -256,7 +256,7 @@
 		</fieldset>
 		<div class="text-center">
 				{!! Html::linkRoute('places.index', 'Cancel', [], ['class' => 'btn btn-warning btn-lg']) !!}
-				{!! Form::submit('Submit', ['class' => 'btn btn-primary btn-lg']) !!}
+				{!! Form::submit('Update', ['class' => 'btn btn-primary btn-lg']) !!}
 		</div>
 		{!! Form::close() !!}
 </div>

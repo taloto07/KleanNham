@@ -13,7 +13,7 @@
 {{ Html::style('assets/css/jquery.raty.css') }}
 {{ Html::style('assets/fonts/font-awesome/css/font-awesome.min.css') }}
 {{ Html::style('assets/css/nouislider.min.css') }}
-{{ Html::style('assets/css/explorer-turquoise.css') }}
+{{ Html::style('assets/css/explorer-blue.css') }}
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePlace;
 
 use App\Price;
 use App\Tag;
@@ -341,9 +342,9 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePlace $request, $id)
     {
-        //
+        return $request->all();
     }
 
     /**
