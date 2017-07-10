@@ -62,12 +62,11 @@
         address.value = input.value.substr(0, input.value.indexOf(',')); 
         addressComponents = place.address_components;
         
-        addressComponents.forEach(function(addressComponent){
-          
+        // addressComponents.forEach(function(addressComponent){
           // get city          
-          if (addressComponent.types[0] === 'locality'){
-            city.value = addressComponent.long_name;
-          }
+          // if (addressComponent.types[0] === 'administrative_area_level_1'){
+          //   city.value = addressComponent.long_name;
+          // }
 
           // get khan
           // if (addressComponent.types[0] === 'administrative_area_level_2'){
@@ -93,7 +92,7 @@
           //   }
           // }
 
-        });
+        // });
 
         // console.log('city = ' + city.value);
 

@@ -192,37 +192,37 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="{{ $errors->has('monday_open') ? 'danger' : '' }}">
+						<tr class="{{ $errors->has('monday_open') ? 'has-danger' : '' }}">
 								<th scope="row">Monday</th>
 								<td>{{ Form::select('monday_open', $hours, $place->hours()->where('id', 1)->first()->pivot->open, ['class' => 'form-control']) }}</td>
 								<td>{{ Form::select('monday_close', $hours, $place->hours()->where('id', 1)->first()->pivot->close, ['class' => 'form-control']) }}</td>
 						</tr>
-						<tr class="{{ $errors->has('tuesday_open') ? 'danger' : '' }}">
+						<tr class="{{ $errors->has('tuesday_open') ? 'has-danger' : '' }}">
 								<th scope="row">Tuesday</th>
 								<td>{{ Form::select('tuesday_open', $hours, $place->hours()->where('id', 2)->first()->pivot->open, ['class' => 'form-control']) }}</td>
 								<td>{{ Form::select('tuesday_close', $hours, $place->hours()->where('id', 2)->first()->pivot->close, ['class' => 'form-control']) }}</td>
 						</tr>
-						<tr class="{{ $errors->has('wednesday_open') ? 'danger' : '' }}">
+						<tr class="{{ $errors->has('wednesday_open') ? 'has-danger' : '' }}">
 								<th scope="row">Wednesday</th>
 	                      	<td>{{ Form::select('wednesday_open', $hours, $place->hours()->where('id', 3)->first()->pivot->open, ['class' => 'form-control']) }}</td>
 								<td>{{ Form::select('wednesday_close', $hours, $place->hours()->where('id', 3)->first()->pivot->close, ['class' => 'form-control']) }}</td>
 						</tr>
-						<tr class="{{ $errors->has('thursday_open') ? 'danger' : '' }}">
+						<tr class="{{ $errors->has('thursday_open') ? 'has-danger' : '' }}">
 								<th scope="row">Thursday</th>
 	                      	<td>{{ Form::select('thursday_open', $hours, $place->hours()->where('id', 4)->first()->pivot->open, ['class' => 'form-control']) }}</td>
 								<td>{{ Form::select('thursday_close', $hours, $place->hours()->where('id', 4)->first()->pivot->close, ['class' => 'form-control']) }}</td>
 						</tr>
-						<tr class="{{ $errors->has('friday_open') ? 'danger' : '' }}">
+						<tr class="{{ $errors->has('friday_open') ? 'has-danger' : '' }}">
 								<th scope="row">Friday</th>
 	                      	<td>{{ Form::select('friday_open', $hours, $place->hours()->where('id', 5)->first()->pivot->open, ['class' => 'form-control']) }}</td>
 								<td>{{ Form::select('friday_close', $hours, $place->hours()->where('id', 5)->first()->pivot->close, ['class' => 'form-control']) }}</td>
 						</tr>
-						<tr class="{{ $errors->has('saturday_open') ? 'danger' : '' }}">
+						<tr class="{{ $errors->has('saturday_open') ? 'has-danger' : '' }}">
 								<th scope="row">Saturday</th>
 	                      	<td>{{ Form::select('saturday_open', $hours, $place->hours()->where('id', 6)->first()->pivot->open, ['class' => 'form-control']) }}</td>
 								<td>{{ Form::select('saturday_close', $hours, $place->hours()->where('id', 6)->first()->pivot->close, ['class' => 'form-control']) }}</td>
 						</tr>
-						<tr class="{{ $errors->has('sunday_open') ? 'danger' : '' }}">
+						<tr class="{{ $errors->has('sunday_open') ? 'has-danger' : '' }}">
 								<th scope="row">Sunday</th>
 	                      	<td>{{ Form::select('sunday_open', $hours, $place->hours()->where('id', 7)->first()->pivot->open, ['class' => 'form-control']) }}</td>
 								<td>{{ Form::select('sunday_close', $hours, $place->hours()->where('id', 7)->first()->pivot->close, ['class' => 'form-control']) }}</td>
@@ -276,31 +276,13 @@
 	{!! Html::script('js/google-map/autocomplete.js') !!}
   	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1rhBa5RxvE6mSIBXEvCE_3DOeKj3oG3U&libraries=places&callback=initAutocomplete"
          async defer></script>
-	<script type="text/javascript">
-		
-		$(document).ready(function() {
-		  
-			$(".tags").select2({
-			  	tags: true,
-			  	placeholder: 'Pick tags...'
-			});
+	
+	{!! Html::script('js/tag.js') !!}
+    
+    <script type="text/javascript">
+	    $(document).ready(function() {
 
-			$(".khan1").select2({
-			  	placeholder: 'Pick khan...',
-			  	tags: true
-			});
-
-			$(".sangkat").select2({
-			  	placeholder: 'Pick sangkat...',
-			  	tags: true
-			});
-
-            $(".menu").select2({
-                placeholder: 'Pick menu...',
-                tags: true
-            });
-
-            var _token = $('Form').find('input[name=_token]').val();
+			var _token = $('Form').find('input[name=_token]').val();
 
 			$('#images').fileinput({
 				showUpload: false,
@@ -328,7 +310,6 @@
 				validateInitialCount: true,
 			});
 
-		});
-
-	</script>
+		});	
+    </script>
 @endsection

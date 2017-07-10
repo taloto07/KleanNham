@@ -52,7 +52,7 @@ class PlaceController extends Controller
             }
         }
         
-        return $place->tags()->syncWithoutDetaching($collectTags->pluck('id'));
+        return $place->tags()->sync($collectTags->pluck('id'));
 
     }
 
@@ -95,13 +95,13 @@ class PlaceController extends Controller
     // save contact
     protected function saveContact($place, $request){
         // save contact
-        $contact = new Contact([
-            'email'     => $request->email,
-            'website'   => $request->website,
-            'facebook'  => $request->facebook,
-            'place_id'  => $place->id
-        ]);
-
+        $contact = $place->contact ? $place->contact : new Contact();
+        
+        $contact->email     = $request->email;
+        $contact->website   = $request->website;
+        $contact->facebook  = $request->facebook;
+        $contact->place_id  = $place->id;
+        
         $contact->save();
 
         $telephones = collect();
@@ -112,6 +112,7 @@ class PlaceController extends Controller
         }
 
         if ( !$telephones->isEmpty() ){
+            $contact->telephones()->delete();
             $contact->telephones()->saveMany( $telephones );
         }
         
@@ -214,39 +215,8 @@ class PlaceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePlace $request)
     {
-        $this->validate($request, 
-            [
-                'name'              => 'sometimes|string|max:255',
-                'address'           => 'required|string|max:255',
-                'price'             => 'required|exists:prices,id',
-                'tags.*'            => 'sometimes|nullable|max:255',
-                'images.*'          => 'sometimes|nullable|image|max:3000',
-                'sangkat'           => 'required|max:255',
-                'khan'              => 'required|max:255',
-                'latitude'          => 'required|max:255',
-                'longitude'         => 'required|max:255',
-                'city'              => 'required|max:255',
-                'phones.*'          => 'sometimes|nullable|numeric|digits_between:9,10',
-                'email'             => 'sometimes|nullable|email|max:255',
-                'monday_close'      => 'required|hour',
-                'monday_open'       => 'required|hour',
-                'tuesday_close'     => 'required|hour',
-                'tuesday_open'      => 'required|hour',
-                'wednesday_close'   => 'required|hour',
-                'wednesday_open'    => 'required|hour',
-                'thursday_close'    => 'required|hour',
-                'thursday_open'     => 'required|hour',
-                'friday_close'      => 'required|hour',
-                'friday_open'       => 'required|hour',
-                'saturday_close'    => 'required|hour',
-                'saturday_open'     => 'required|hour',
-                'sunday_close'      => 'required|hour',
-                'sunday_open'       => 'required|hour',
-            ]
-        );
-
         $sangkat    = $this->saveSangkat($request->sangkat);
         $khan       = $this->saveKhan($request->khan);
         $city       = $this->saveCity($request->city);
@@ -344,7 +314,44 @@ class PlaceController extends Controller
      */
     public function update(StorePlace $request, $id)
     {
-        return $request->all();
+        $place = Place::findOrFail($id);
+
+        $sangkat    = $this->saveSangkat($request->sangkat);
+        $khan       = $this->saveKhan($request->khan);
+        $city       = $this->saveCity($request->city);
+        $address    = strip_tags($request->address);
+
+        $place->name        = strip_tags($request->name);
+        $place->address     = $address;
+        $place->price_id    = $request->price;
+        $place->latitude    = $request->latitude;
+        $place->longitude   = $request->longitude;
+        $place->sangkat_id  = $sangkat->id;
+        $place->khan_id     = $khan->id;
+        $place->city_id     = $city->id;
+        $place->save();
+
+        // save contact
+        $this->saveContact($place, $request);
+
+        // save hours
+        $this->saveHour($place, $request);
+
+        // save tags
+        if ($request->has('tags')){
+            $this->saveTag($request->tags, $place);
+        }
+        // -- save tags
+
+        // // save picture
+        if ($request->hasFile('images')){
+            $this->storeImage($request->file('images'), $place);
+        }
+
+        return back()->with([
+            'success'   => 'Successfully created!',
+            'place'   => $place
+        ]);
     }
 
     /**
