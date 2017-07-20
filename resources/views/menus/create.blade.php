@@ -82,8 +82,8 @@
 	  	</fieldset>
 
 		<div class="text-center">
-				{!! Html::linkRoute('places.index', 'Cancel', [], ['class' => 'btn btn-warning btn-lg']) !!}
-				{!! Form::submit('Add', ['class' => 'btn btn-primary btn-lg']) !!}
+				<button type="reset" class="btn-lg btn-warning">Cancel</button>
+				{!! Form::submit('Add', ['class' => 'btn-lg btn-primary']) !!}
 		</div>
 		{!! Form::close() !!}
 </div>

@@ -14,6 +14,7 @@
 {{ Html::style('assets/fonts/font-awesome/css/font-awesome.min.css') }}
 {{ Html::style('assets/css/nouislider.min.css') }}
 {{ Html::style('assets/css/explorer-blue.css') }}
+{{ Html::style('css/override.css') }}
 
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 

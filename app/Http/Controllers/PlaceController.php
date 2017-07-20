@@ -21,6 +21,10 @@ use Carbon\Carbon;
 class PlaceController extends Controller
 {
 
+    public function __construct(){
+        
+    }
+
     protected function storeImage($images, $place){
         
         $location     = "images/places/$place->id";
@@ -264,7 +268,7 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $place = Place::findOrFail($id);
         
@@ -283,6 +287,10 @@ class PlaceController extends Controller
         ->values();
 
         return view('places.show', compact('place', 'menus'));
+    }
+
+    public function comment(Request $request, $id){
+        return $request->all();
     }
 
     /**

@@ -12,5 +12,6 @@ return [
 	'ResetPassword'			=> 'Reset Password',
 	'SendPasswordResetLink'	=> 'Send Password Reset Link',
 	'Logout'				=> 'Logout',
-	'Language'				=> 'Language'
+	'Language'				=> 'Language',
+	'AlreadyHaveAnAccount'	=> 'Already have an account?'
 ];

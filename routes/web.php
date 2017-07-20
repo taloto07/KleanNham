@@ -32,6 +32,7 @@ Route::delete('pictures/{id}', 'PictureController@destroy')
 
 Route::get('places/{id}/menus/create', 'MenuController@create')->name('places.menus.create');
 Route::post('places/{id}/menus', 'MenuController@store')->name('places.menus.store');
+Route::post('places/{id}/comments', 'PlaceController@comment')->name('places.comment');
 Route::resource('places', 'PlaceController');
 
 

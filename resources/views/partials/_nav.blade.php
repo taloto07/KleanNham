@@ -17,8 +17,8 @@
           <!-- /.header-logo -->
           <div class="header-nav">
             <div class="primary-nav-wrapper">
-              {{-- <ul class="nav">
-                <li class="nav-item has-sub-menu">
+              <ul class="nav">
+                {{-- <li class="nav-item has-sub-menu">
                   <a href="#" class="nav-link ">Home</a>
                   <ul class="sub-menu">
                     <li><a href="index-directory.html"><b>1.</b> &nbsp;&nbsp;Directory Version</a></li>
@@ -158,8 +158,8 @@
                     <li><a href="blog-detail.html">Blog Detail Right Sidebar</a></li>
                     <li><a href="blog-detail-left.html">Blog Detail Left Sidebar</a></li>
                   </ul>
-                </li>
-              </ul> --}}
+                </li>--}}
+              </ul> 
             </div>
             <!-- /.primary-nav-wrapper -->
             <div class="primary-nav-wrapper" style="float:right">

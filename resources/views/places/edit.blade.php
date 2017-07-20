@@ -259,6 +259,11 @@
 				{!! Form::submit('Update', ['class' => 'btn btn-primary btn-lg']) !!}
 		</div>
 		{!! Form::close() !!}
+		<i class="glyphicon glyphicon-trash"></i>
+		
+		<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+		<i class="fa fa-trash" aria-hidden="true"></i>
+		hello world
 </div>
 <!-- /.container-fluid -->
           	
@@ -290,12 +295,13 @@
 				allowedPreviewTypes: ['image'],
 				previewFileType: 'image',
 				browseLabel: "Pick Images",
-				browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+				browseIcon: '<i class="fa fa-picture-o" aria-hidden="true"></i>',
 				removeClass: "btn btn-danger",
 				maxFileSize: 3000,
+				// removeIcon: "<i class=\"fa fa-address-book-o\" aria-hidden=\"true\"></i>",
 
 				initialPreviewAsData: true,
-				overwriteInitial: false,
+				overwriteInitial: true	,
 				initialPreview: [
 					@foreach($place->pictures as $image)
 						"{{ url(asset('storage/' . $image->path)) }}",
@@ -303,11 +309,13 @@
 				],
 				initialPreviewConfig: [
 					@foreach($place->pictures as $image)
-						{ url: "{{ route( 'pictures.destroy', ['id' => $image->id] ) }}" },
+						{ url: "{{ route( 'pictures.destroy', ['id' => $image->id] ) }}", showDelete: true },
 					@endforeach
 				],
 				deleteExtraData: {_method: 'delete', _token: _token},
 				validateInitialCount: true,
+			}).on('filepredelete', function(e, key, jqXHR, data){
+				return ( !confirm('Are you sure you want to delete the image?') );
 			});
 
 		});	

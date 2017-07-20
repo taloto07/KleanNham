@@ -255,8 +255,8 @@
   			<!-- /.form-check -->
 		</fieldset>
 		<div class="text-center">
-				{!! Html::linkRoute('places.index', 'Cancel', [], ['class' => 'btn btn-warning btn-lg']) !!}
-				{!! Form::submit('Submit', ['class' => 'btn btn-primary btn-lg']) !!}
+				{!! Html::linkRoute('places.index', 'Cancel', [], ['class' => 'btn btn-warning']) !!}
+				{!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
 		</div>
 		{!! Form::close() !!}
 </div>

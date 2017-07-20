@@ -18,14 +18,14 @@
                 </div>
             @endif
             {!! Form::open([ 'route' => 'password.email', 'class' => 'mb80' ]) !!}
-                <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                    {{ Form::label('email', __('authentication.Email'), ['class' => 'control-label'] ) }}
-                    {{ Form::email('email', null, ['class' => 'form-control', 'aria-describedby' => 'emailErrorMessage']) }}
-                    <span id="emailErrorMessage" class="help-block">{{ $errors->first('email') }}</span>
+                <div class="form-group {{ $errors->has('email') ? 'has-danger' : '' }}">
+                    {{ Form::label('email', __('authentication.Email'), ['class' => 'control-label col-form-label'] ) }}
+                    {{ Form::email('email', null, ['class' => 'form-control form-control-danger']) }}
+                    <div class="form-control-feedback">{{ $errors->first('email') }}</div>
                 </div>
                 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">@lang('authentication.SendPasswordResetLink')</button>
+                    <button type="submit" class="btn btn-primary btn-block">@lang('authentication.SendPasswordResetLink')</button>
                 </div>
                 <!-- /.form-group -->
             {!! Form::close() !!}

@@ -19,33 +19,33 @@
             @endif
             {{ Form::open(['route' => 'password.request', 'class' => 'mb80']) }}
                 <input type="hidden" name="token" value="{{ $token }}">
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="email" class="control-label">@lang('authentication.Email')</label>
-                    <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+                <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                    <label for="email" class="control-label col-form-label">@lang('authentication.Email')</label>
+                    <input id="email" type="email" class="form-control form-control-danger" name="email" value="{{ $email or old('email') }}" required autofocus>
                     @if ($errors->has('email'))
-                        <span class="help-block">
+                        <div class="form-control-feedback">
                             <strong>{{ $errors->first('email') }}</strong>
-                        </span>
+                        </div>
                     @endif
                 </div>
                 <!-- /.form-group -->
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <label for="password" class="control-label">@lang('authentication.Password')</label>
-                    <input id="password" type="password" class="form-control" name="password" required>
+                <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                    <label for="password" class="control-label col-form-label">@lang('authentication.Password')</label>
+                    <input id="password" type="password" class="form-control form-control-danger" name="password" required>
                     @if ($errors->has('password'))
-                        <span class="help-block">
+                        <div class="form-control-feedback">
                             <strong>{{ $errors->first('password') }}</strong>
-                        </span>
+                        </div>
                     @endif
                 </div>
                 <!-- /.form-group -->
-                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                    <label for="password-confirm" class="control-label">@lang('authentication.ConfirmPassword')</label>
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-danger' : '' }}">
+                    <label for="password-confirm" class="control-label col-form-label">@lang('authentication.ConfirmPassword')</label>
+                    <input id="password-confirm" type="password" class="form-control form-control-danger" name="password_confirmation" required>
                     @if ($errors->has('password_confirmation'))
-                        <span class="help-block">
+                        <div class="form-control-feedback">
                             <strong>{{ $errors->first('password_confirmation') }}</strong>
-                        </span>
+                        </div>
                     @endif
                 </div>
                 <!-- /.form-group -->

@@ -1,53 +1,53 @@
 @extends('layout')
 
-@section('title', 'Show')
+@section('title', $place->name)
 
 @section('stylesheet')
 	{!! Html::style('css/file-input/fileinput.css') !!}
 @endsection
 
 @section('page-title')
-<div class="listing-hero">
-  	<div class="listing-hero-inner">
-        <div class="container">
-          	<div class="listing-hero-image" style="background-image: url({{ $place->isPictureExist() ? asset('storage/' . $place->getThumbnail()) : asset('assets/img/tmp/listing-9.jpg') }})"></div>
-                <h1>
-                    {{ strtoupper($place->name) }} 
-                </h1>
-                <span data-toggle="tooltip" data-placement="top" title="{{ $place->price->description }}">
-                    @for($i = $place->price->amount; $i > 0; $i--)
-                        <i class="fa fa-usd" aria-hidden="true"></i>
-                    @endfor
-                </span>
-          		<address>
-          			{{ ucwords( $place->getAddress() ) }}<br>
-                	{{ ucfirst($place->city->name) }}, Cambodia
-              	</address>
+    <div class="listing-hero">
+      	<div class="listing-hero-inner">
+            <div class="container">
+              	<div class="listing-hero-image" style="background-image: url({{ $place->isPictureExist() ? asset('storage/' . $place->getThumbnail()) : asset('assets/img/tmp/listing-9.jpg') }})"></div>
+                    <h1>
+                        {{ strtoupper($place->name) }} 
+                    </h1>
+                    <span data-toggle="tooltip" data-placement="top" title="{{ $place->price->description }}">
+                        @for($i = $place->price->amount; $i > 0; $i--)
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                        @endfor
+                    </span>
+              		<address>
+              			{{ ucwords( $place->getAddress() ) }}<br>
+                    	{{ ucfirst($place->city->name) }}, Cambodia
+                  	</address>
 
-              	<ul class="social">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google"></i></a></li>
+                  	<ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google"></i></a></li>
+                  	</ul>
+                </div>
+                <!-- /.listing-hero-image -->
+            <!-- /.container -->
+      	</div>
+      	<!-- /.listing-hero-inner -->
+    </div>
+    <!-- /.listing-hero -->
+    <div class="listing-toolbar-wrapper">
+      	<div class="listing-toolbar" data-spy="affix" data-offset-top="203">
+            <div class="container">
+              	<ul class="nav">
               	</ul>
+              	<!-- /.nav -->
             </div>
-            <!-- /.listing-hero-image -->
-        <!-- /.container -->
-  	</div>
-  	<!-- /.listing-hero-inner -->
-</div>
-<!-- /.listing-hero -->
-<div class="listing-toolbar-wrapper">
-  	<div class="listing-toolbar" data-spy="affix" data-offset-top="203">
-        <div class="container">
-          	<ul class="nav">
-          	</ul>
-          	<!-- /.nav -->
-        </div>
-        <!-- /.container -->
-  	</div>
-  	<!-- /.listing-toolbar -->
-</div>
-<!-- /.listing-toolbar-wrapper -->
+            <!-- /.container -->
+      	</div>
+      	<!-- /.listing-toolbar -->
+    </div>
+    <!-- /.listing-toolbar-wrapper -->
 @endsection
 
 @section('content')
@@ -176,6 +176,131 @@
                 <!-- ./filter-tabs -->
             </div>
             <!-- /.listing-detail-section menu-->
+            <div class="listing-detail-section mb80" id="listing-detail-section-reviews" data-title="Reviews">
+                <div class="box">
+                    <div class="box-inner">
+                        <div class="box-title">
+                          <h2>Recent Reviews</h2>
+                        </div>
+                        <!-- /.box-title -->
+                        <ul class="comments">
+                            <li>
+                                <div class="comment">
+                                    <div class="comment-author">
+                                        <a href="#" style="background-image: url( {{asset('assets/img/tmp/user-3.jpg')}} );"></a>
+                                    </div>
+                                    <!-- /.comment-author -->
+                                    <div class="comment-content">
+                                        <div class="comment-meta">
+                                            <div class="comment-meta-author">
+                                                Nettie G. Grubbs
+                                            </div>
+                                            <!-- /.comment-meta-author -->
+                                            <div class="comment-meta-date">
+                                                <span>8:54 PM 11/23/2016</span>
+                                            </div>
+                                        </div>
+                                        <!-- /.comment -->
+                                        <div class="comment-body">
+                                            <div class="comment-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </div>
+                                            <!-- /.comment-rating -->
+                                            <p>
+                                                Quisque nec sollicitudin nisl, ut feugiat mi. Maecenas auctor, nibh id placerat finibus, neque felis ultricies urna, id aliquet arcu sem viverra enim. 
+                                            </p>
+                                        </div>
+                                        <!-- /.comment-body -->
+                                    </div>
+                                    <!-- /.comment-content -->
+                                </div>
+                                <!-- /.comment -->
+                            </li>
+                        </ul>
+                        <hr>
+                        @if (Auth::guest())
+                            <h4 class="overview">
+                                <a href="{{route('login')}}">Login to comment</a>
+                            </h4>
+                        @else
+                            <h4>Create New Review</h4>
+                            <form method="post" action="{{ route('places.comment', ['id' => $place->id]) }}">
+                                {{ csrf_field() }}
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>Message</label>
+                                            <textarea class="form-control" style="height: 191px;" name="message" value="{{old('message')}}"></textarea>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                    <!-- /.col-* -->
+                                </div>
+                                <!-- /.row -->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Overall</label>
+                                            <div class="rating-item"></div>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                    <!-- /.col -->
+                                    {{-- <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Meal Quality</label>
+                                            <div class="rating-item"></div>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Staff</label>
+                                            <div class="rating-item"></div>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Parking</label>
+                                            <div class="rating-item"></div>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Payment Options</label>
+                                            <div class="rating-item"></div>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label>Location</label>
+                                            <div class="rating-item"></div>
+                                        </div>
+                                        <!-- /.form-group -->
+                                    </div>
+                                    <!-- /.col --> --}}
+                                </div>
+                                <!-- /.row -->
+                                <button type="submit" class="btn btn-primary pull-right">Post Comment</button>
+                            </form>
+                        @endif
+                    </div>
+                    <!-- /.box-inner -->
+                </div>
+                <!-- /.box-->
+            </div>
+            <!-- /.listing-detail-section -->
 		</div>
 		<!-- ./col-md-8 col-lg-9 -->
 		<div class="col-md-4 col-lg-3">

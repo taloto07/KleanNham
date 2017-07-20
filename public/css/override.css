@@ -1,0 +1,31 @@
+.listing-hero address{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.boxer {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	background-color: green;
+	overflow:visible;
+	z-index: 9999;
+}
+
+ .boxer > .closex {
+ 	display: inline;
+ 	background-color: grey;
+ 	position: relative;
+ 	top: -29.5px;
+ 	right: 0px;
+ 	float:right;
+ 	padding: 5px 5px;
+ 	z-index: 5;
+ }
+
+ .boxer > div.closex:hover {
+ 	background-color: blue;
+ 	cursor: pointer;
+ 	color: white;
+ }

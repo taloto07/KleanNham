@@ -671,7 +671,7 @@
                     showUpload: true,
                     showZoom: true,
                     showDrag: true,
-                    removeIcon: '<i class="glyphicon glyphicon-trash text-danger"></i>',
+                    removeIcon: '<i class="fa fa-trash"></i>',
                     removeClass: 'btn btn-xs btn-default',
                     removeTitle: 'Remove file',
                     uploadIcon: '<i class="glyphicon glyphicon-upload text-info"></i>',
