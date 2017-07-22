@@ -24,8 +24,6 @@ class PlaceController extends Controller
     public function __construct(){
         $this->middleware('can:create,App\Place,')
         ->only(['create', 'store', 'edit', 'update', 'delete']);
-
-        $this->middleware('auth')->only('');
     }
 
     protected function storeImage($images, $place){
@@ -298,9 +296,8 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Place $place)
     {
-        $place = Place::findOrFail($id);
         $prices     = $this->getPrices();
         $tags       = $this->getTags();
         $sangkats   = $this->getSangkats();

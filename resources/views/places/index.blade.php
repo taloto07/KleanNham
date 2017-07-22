@@ -44,11 +44,11 @@
 				                      	<span></span>
 	                    			</div>
 	                    			<!-- /.actions-button -->
-	                    			<ul class="actions-list">
-	                      				<li><a href="#">Add to compare</a></li>
-	                      				<li><a href="#">Add to favorites</a></li>
-	                      				<li><a href="#">Report listing</a></li>
-	                    			</ul>
+                            @can('update', $place)
+  	                    			<ul class="actions-list">
+  	                      				<li><a href="{{route('places.edit', $place->id)}}">Edit</a></li>
+  	                    			</ul>
+                            @endcan
 	                    			<!-- /.actions-list -->
 	                  			</div>
 	                  			<!-- /.actions -->

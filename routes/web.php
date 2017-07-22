@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Place;
 Route::get('/', function () {
     return view('home', ['projects' => 5]);
 })->name('home');

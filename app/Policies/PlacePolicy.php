@@ -42,7 +42,7 @@ class PlacePolicy
      */
     public function update(User $user, Place $place)
     {
-        return $user->hasRoles(['administrator']);
+        return $user->hasRoles('administrator');
     }
 
     /**
