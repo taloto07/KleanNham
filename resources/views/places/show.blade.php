@@ -13,12 +13,14 @@
               	<div class="listing-hero-image" style="background-image: url({{ $place->isPictureExist() ? asset('storage/' . $place->getThumbnail()) : asset('assets/img/tmp/listing-9.jpg') }})"></div>
                     <h1>
                         {{ strtoupper($place->name) }} 
+                        <span class="listing-row-rating place-rating" data-score="{{ $place->rate() }}"></span>
                     </h1>
                     <span data-toggle="tooltip" data-placement="top" title="{{ $place->price->description }}">
                         @for($i = $place->price->amount; $i > 0; $i--)
                             <i class="fa fa-usd" aria-hidden="true"></i>
                         @endfor
                     </span>
+                    
               		<address>
               			{{ ucwords( $place->getAddress() ) }}<br>
                     	{{ ucfirst($place->city->name) }}, Cambodia
@@ -53,6 +55,19 @@
 @section('content')
 <div class="container">
 
+    @if ( $errors->any() )
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                <strong>
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    Comment Errors!
+                </strong>
+            </div>
+            <!-- /.alert alert-danger -->
+            </div>
+        </div>
+    @endif
 	<div class="row">
 		<div class="col-md-8 col-lg-9">
 			<div class="listing-detail-section" id="listing-detail-section-description" data-title="Gallery">
@@ -89,7 +104,7 @@
             <div class="listing-detail-section" id="listing-detail-section-contact-information" data-title="Contact">
                 <h2>Contact Information</h2>
                 <div class="box">
-                      <div class="box-inner">
+                    <div class="box-inner">
                         <div class="overview overview-half overview-no-margin">
                           <ul>
                             <li><strong>Country</strong><span>Cambodia</span></li>
@@ -117,10 +132,10 @@
                           </ul>
                         </div>
                         <!-- /.overview -->
-                      </div>
-                      <!-- /.box-inner -->
                     </div>
-                    <!-- /.box -->
+                    <!-- /.box-inner -->
+                </div>
+                <!-- /.box -->
             </div>
             <!-- /. listing-detail-section contact information -->
             <div class="listing-detail-section" id="listing-detail-section-map-position" data-title="Map Position">
@@ -184,42 +199,40 @@
                         </div>
                         <!-- /.box-title -->
                         <ul class="comments">
-                            <li>
-                                <div class="comment">
-                                    <div class="comment-author">
-                                        <a href="#" style="background-image: url( {{asset('assets/img/tmp/user-3.jpg')}} );"></a>
-                                    </div>
-                                    <!-- /.comment-author -->
-                                    <div class="comment-content">
-                                        <div class="comment-meta">
-                                            <div class="comment-meta-author">
-                                                Nettie G. Grubbs
-                                            </div>
-                                            <!-- /.comment-meta-author -->
-                                            <div class="comment-meta-date">
-                                                <span>8:54 PM 11/23/2016</span>
-                                            </div>
+                            @foreach ( $place->comments as $comment )
+                                <li>
+                                    <div class="comment">
+                                        <div class="comment-author">
+                                            <a href="#" style="background-image: url( {{asset('assets/img/tmp/user-3.jpg')}} );"></a>
                                         </div>
-                                        <!-- /.comment -->
-                                        <div class="comment-body">
-                                            <div class="comment-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
+                                        <!-- /.comment-author -->
+                                        <div class="comment-content">
+                                            <div class="comment-meta">
+                                                <div class="comment-meta-author">
+                                                    {{ $comment->user->name }}
+                                                </div>
+                                                <!-- /.comment-meta-author -->
+                                                <div class="comment-meta-date">
+                                                    <span> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',  $comment->created_at)->format('g:i A m/d/Y') }} </span>
+                                                </div>
                                             </div>
-                                            <!-- /.comment-rating -->
-                                            <p>
-                                                Quisque nec sollicitudin nisl, ut feugiat mi. Maecenas auctor, nibh id placerat finibus, neque felis ultricies urna, id aliquet arcu sem viverra enim. 
-                                            </p>
+                                            <!-- /.comment -->
+                                            <div class="comment-body">
+                                                <div class="comment-rating" data-score="{{ $comment->rate() }}">
+                                                    {{ $comment->rate() }}
+                                                </div>
+                                                <!-- /.comment-rating -->
+                                                <p>
+                                                    {{ $comment->message }}
+                                                </p>
+                                            </div>
+                                            <!-- /.comment-body -->
                                         </div>
-                                        <!-- /.comment-body -->
+                                        <!-- /.comment-content -->
                                     </div>
-                                    <!-- /.comment-content -->
-                                </div>
-                                <!-- /.comment -->
-                            </li>
+                                    <!-- /.comment -->
+                                </li>
+                            @endforeach
                         </ul>
                         <hr>
                         @if (Auth::guest())
@@ -228,13 +241,14 @@
                             </h4>
                         @else
                             <h4>Create New Review</h4>
-                            <form method="post" action="{{ route('places.comment', ['id' => $place->id]) }}">
+                            <form method="post" action="{{ route('comments.store', ['id' => $place->id]) }}">
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>Message</label>
-                                            <textarea class="form-control" style="height: 191px;" name="message" value="{{old('message')}}"></textarea>
+                                        <div class="form-group {{ $errors->has('message') ? 'has-danger' : '' }}">
+                                            <label class="control-label col-form-label" for="message">Message</label>
+                                            <textarea class="form-control form-control-danger" style="height: 191px;" name="message">{{old('message')}}</textarea>
+                                            <div class="form-control-feedback">{{ $errors->first('message') }}</div>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
@@ -245,15 +259,15 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Overall</label>
-                                            <div class="rating-item"></div>
+                                            <div class="rating-item rating-overall"></div>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
                                     <!-- /.col -->
-                                    {{-- <div class="col-sm-4">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Meal Quality</label>
-                                            <div class="rating-item"></div>
+                                            <div class="rating-item rating-meal-quality"></div>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
@@ -261,7 +275,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Staff</label>
-                                            <div class="rating-item"></div>
+                                            <div class="rating-item rating-staff"></div>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
@@ -269,15 +283,15 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Parking</label>
-                                            <div class="rating-item"></div>
+                                            <div class="rating-item rating-parking"></div>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Payment Options</label>
-                                            <div class="rating-item"></div>
+                                            <label>Hygiene</label>
+                                            <div class="rating-item rating-hygiene"></div>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
@@ -285,11 +299,11 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label>Location</label>
-                                            <div class="rating-item"></div>
+                                            <div class="rating-item rating-location"></div>
                                         </div>
                                         <!-- /.form-group -->
                                     </div>
-                                    <!-- /.col --> --}}
+                                    <!-- /.col -->
                                 </div>
                                 <!-- /.row -->
                                 <button type="submit" class="btn btn-primary pull-right">Post Comment</button>
@@ -361,9 +375,51 @@
 @endsection	
 
 @section('javascript')
+    
     <script type="text/javascript">
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
+
+            var items = ['overall', 'meal_quality', 'staff', 'parking', 'hygiene', 'location'];
+            
+            $('div.rating-item').each(function(i){
+                $(this).raty({
+                    half: true,
+                    starType: 'i',
+                    starOn: 'fa fa-star',
+                    starHalf: 'fa fa-star-half-o',
+                    starOff: 'fa fa-star-o',
+                    scoreName: 'rating_' + items[i],
+                });
+            });
+
+            $('div.comment-rating').each(function(){
+                $(this).raty({
+                    half: true,
+                    starType: 'i',
+                    starOn: 'fa fa-star',
+                    starHalf: 'fa fa-star-half-o',
+                    starOff: 'fa fa-star-o',
+                    score: function(){
+                        return $(this).attr('data-score');
+                    },
+                    readOnly: true
+                });
+            });
+
+            $('span.place-rating').raty({
+                
+                half: true,
+                starType: 'i',
+                starOn: 'fa fa-star',
+                starHalf: 'fa fa-star-half-o',
+                starOff: 'fa fa-star-o',
+                score: function(){
+                    return $(this).attr('data-score');
+                },
+                readOnly: true
+                
+            });
         })
     </script>
 @endsection

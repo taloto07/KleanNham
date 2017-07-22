@@ -69,4 +69,20 @@ class Place extends Model
     public function getThumbnail(){
         return $this->pictures[0]->path;
     }
+
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
+
+    public function rate(){
+        $comments = $this->comments();
+        $rates = 0;
+        foreach($comments->get() as $comment){
+            $rates += $comment->rate();
+        }
+
+        $score = $rates ? $rates / $comments->count() : 0;
+
+        return number_format( (float)$score, 1, '.', '' );
+    }
 }

@@ -57,11 +57,9 @@
 	                		<div class="listing-row-content-meta">
 	                			<div class="listing-row-content-meta-item listing-row-content-meta-category">
 	                    			<span class="listing-row-rating">
-	                      				<i class="fa fa-star"></i>
-	                      				<i class="fa fa-star"></i>
-	                  					<i class="fa fa-star"></i>
-	                      				<i class="fa fa-star"></i>
-	                      				<i class="fa fa-star"></i>
+                              <div class="rating" data-score="{{ $place->rate() }}">
+                                {{ $place->rate() }}
+                              </div>
 	                    			</span>
 			                  	</div>
 	                  			<div class="listing-row-content-meta-item listing-row-content-meta-rating">
@@ -225,6 +223,20 @@
     <script type="text/javascript">
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
+
+            $('div.rating').each(function(){
+              $(this).raty({
+                half: true,
+                starType: 'i',
+                starOn: 'fa fa-star',
+                starHalf: 'fa fa-star-half-o',
+                starOff: 'fa fa-star-o',
+                score: function(){
+                    return $(this).attr('data-score');
+                },
+                readOnly: true
+              });
+            });
         })
     </script>
 @endsection

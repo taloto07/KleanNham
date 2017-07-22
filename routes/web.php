@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('home', ['projects' => 5]);
-});
+})->name('home');
 
 Route::get('about', function(){
 	return view('about');
@@ -30,9 +30,15 @@ Route::delete('pictures/{id}', 'PictureController@destroy')
 ->name('pictures.destroy');
 
 
-Route::get('places/{id}/menus/create', 'MenuController@create')->name('places.menus.create');
-Route::post('places/{id}/menus', 'MenuController@store')->name('places.menus.store');
-Route::post('places/{id}/comments', 'PlaceController@comment')->name('places.comment');
+Route::get('places/{id}/menus/create', 'MenuController@create')
+->name('places.menus.create');
+
+Route::post('places/{id}/menus', 'MenuController@store')
+->name('places.menus.store');
+
+Route::post('places/{id}/comments', 'CommentController@store')
+->name('comments.store')->middleware('auth');
+
 Route::resource('places', 'PlaceController');
 
 

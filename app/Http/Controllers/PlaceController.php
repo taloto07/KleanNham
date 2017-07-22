@@ -22,7 +22,10 @@ class PlaceController extends Controller
 {
 
     public function __construct(){
-        
+        $this->middleware('can:create,App\Place,')
+        ->only(['create', 'store', 'edit', 'update', 'delete']);
+
+        $this->middleware('auth')->only('');
     }
 
     protected function storeImage($images, $place){
@@ -287,10 +290,6 @@ class PlaceController extends Controller
         ->values();
 
         return view('places.show', compact('place', 'menus'));
-    }
-
-    public function comment(Request $request, $id){
-        return $request->all();
     }
 
     /**

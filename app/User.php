@@ -30,4 +30,11 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany('App\Role');
     }
+
+    public function hasRoles($roles){
+        
+        $myRoles = is_array($roles) ? $roles : array($roles);
+        
+        return $this->roles()->whereIn('name', $myRoles)->count();
+    }
 }
