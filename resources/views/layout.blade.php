@@ -18,6 +18,7 @@
                 <div class="main">
                     <div class="main-inner">
                         @yield("page-title")
+                        <div class="m-b-40"></div>
                         @yield("content")
                     </div>
                     <!-- /.main-inner -->

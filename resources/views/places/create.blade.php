@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Home')
+@section('title', 'Submit Place')
 
 @section('stylesheet')
 	{!! Html::style('css/select2/select2.css') !!}
@@ -9,7 +9,7 @@
 @endsection
 
 @section('page-title')
-    @include('partials._page-title', ['title' => 'Submit Listing'])
+    @include('partials._page-title', ['title' => 'Submit Place'])
 @endsection
 
 @section('content')

@@ -368,4 +368,50 @@ class PlaceController extends Controller
     {
         //
     }
+
+    public function search(Request $request){
+
+        $keyword = $request->keyword;
+        
+        $places = Place::where('name', 'like', '%' . $keyword . '%')
+                    ->orWhereHas('tags', function($query) use ($keyword){
+                        $query->where('name', 'like', '%' . $keyword . '%');
+                    })
+                    ->orWhereHas('sangkat', function($query) use ($keyword){
+                        $query->where('name', 'like', '%' . $keyword . '%');
+                    })
+                    ->orWhereHas('khan', function($query) use ($keyword){
+                        $query->where('name', 'like', '%' . $keyword . '%');
+                    });
+
+        // order_by (asc or desc)
+        $sort_order = $request->input('sort_order', 'asc');
+        $request['sort_order'] = $sort_order;
+
+        // sort_by
+        $request['sort_by'] = $request->input('sort_by', 'name');
+
+        switch($request->sort_by){
+            case 'price':
+                $places = $places->orderBy('price_id', $sort_order);
+                break;
+
+            case 'date':
+                $places = $places->orderBy('created_at', $sort_order);
+                break;
+
+            default:
+                $places = $places->orderBy('name', $sort_order);
+        }
+
+        $places = $places->get();
+
+        // flash old input to session, so old input can use in search page by "old('field_name')"
+        $request->flash();
+
+        return view('places.search')->with([
+                'places' => $places,
+                'keyword' => $request->keyword,
+            ]);
+    }
 }

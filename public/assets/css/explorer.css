@@ -7189,12 +7189,12 @@ input[type=radio]::-ms-expand {
     display: none;
     left: 0;
     position: absolute;
-    right: 0;
+    right: 0px;
     top: 60px; }
     .navigation-open .primary-nav-wrapper {
       display: block; }
     .primary-nav-wrapper ul {
-      display: block;
+      display: block; 
       list-style: none;
       margin: 0;
       padding: 0; }

@@ -2,9 +2,9 @@
 
 @section('title', 'Register')
 
-@section('page-title')
+{{-- @section('page-title')
     @include('partials._page-title', ['title' => __('authentication.Register')])
-@endsection
+@endsection --}}
 
 @section('content')
 

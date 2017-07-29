@@ -14,12 +14,12 @@
             <div class="center">
               <h1 class="hero-image-content-title-simple float-none">Discover Best Resturants</h1>
               <p class="float-none">Find any resturants within your finger tips.</p>
-              <form method="post" action="?">
+              <form method="GET" action="{{route('search')}}">
                 <div class="row justify-content-sm-center">
                   <div class="col-sm-4">
                     <div class="input-group">
                       <span class="input-group-addon no-border"><i class="fa fa-location-arrow"></i></span>
-                      <input type="text" class="form-control no-border form-control-xl" placeholder="Type your address ...">
+                      <input type="text" class="form-control no-border form-control-xl" name="keyword" placeholder="Search by keyword ...">
                     </div>
                     <!-- /.form-group -->
                   </div>

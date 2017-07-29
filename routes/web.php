@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 Route::get('about', function(){
 	return view('about');
-});
+})->name('about');
 
 Route::get('contact', function(){
 	return view('contact');
-});
+})->name('contact');
 
 Route::get('locale/{locale}', 'LocaleController@index');
 Auth::routes();
@@ -38,6 +38,9 @@ Route::post('places/{id}/menus', 'MenuController@store')
 
 Route::post('places/{id}/comments', 'CommentController@store')
 ->name('comments.store')->middleware('auth');
+
+Route::get('search', 'PlaceController@search')
+->name('search');
 
 Route::resource('places', 'PlaceController');
 

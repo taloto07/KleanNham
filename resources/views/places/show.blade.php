@@ -27,9 +27,12 @@
                   	</address>
 
                   	<ul class="social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google"></i></a></li>
+                        @if ( !is_null($place->contact->facebook) )
+                            <li><a href="http://{{$place->contact->facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        @endif
+                        @if ( !is_null($place->contact->email) )
+                            <li><a href="mailto:{{$place->contact->email}}"><i class="fa fa-envelope"></i></a></li>
+                        @endif
                   	</ul>
                 </div>
                 <!-- /.listing-hero-image -->
@@ -119,8 +122,8 @@
                                     @endforeach
                                 </span>
                             </li>
-                            <li><strong>Website</strong><span><a href="http://{{ $place->contact->website }}">{{ $place->contact->website }}</a></span></li>
-                            <li><strong>Facebook</strong><span><a href="http://{{ $place->contact->facebook }}">{{ $place->contact->facebook }}</a></span></li>
+                            <li><strong>Website</strong><span><a href="http://{{ $place->contact->website }}" target="_blank">{{ $place->contact->website }}</a></span></li>
+                            <li><strong>Facebook</strong><span><a href="http://{{ $place->contact->facebook }}" target="_blank">{{ $place->contact->facebook }}</a></span></li>
                             <li>
                                 <strong>Price</strong>
                                 <span data-toggle="tooltip" data-placement="top" title="{{ $place->price->description }}">
