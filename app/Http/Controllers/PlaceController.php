@@ -146,7 +146,7 @@ class PlaceController extends Controller
 
     protected function getPrices(){
         return Price::all()->mapWithKeys(function($item){
-            return [$item['id'] => $item['description']];
+            return [$item['id'] => ucfirst($item['description'])];
         });
     }
 
@@ -370,27 +370,69 @@ class PlaceController extends Controller
     }
 
     public function search(Request $request){
-
+        // return $request->all();
         $keyword = $request->keyword;
-        
-        $places = Place::where('name', 'like', '%' . $keyword . '%')
-                    ->orWhereHas('tags', function($query) use ($keyword){
-                        $query->where('name', 'like', '%' . $keyword . '%');
-                    })
-                    ->orWhereHas('sangkat', function($query) use ($keyword){
-                        $query->where('name', 'like', '%' . $keyword . '%');
-                    })
-                    ->orWhereHas('khan', function($query) use ($keyword){
-                        $query->where('name', 'like', '%' . $keyword . '%');
+        $filterTags = $request->input('filterTags', []);
+
+        $places = Place::where( function($query) use ($keyword){
+                        $query->where('name', 'like', '%' . $keyword . '%')
+                        ->orWhereHas('tags', function($q) use ($keyword){
+                            $q->where('name', 'like', '%' . $keyword . '%');
+                        })
+                        ->orWhereHas('sangkat', function($q) use ($keyword){
+                            $q->where('name', 'like', '%' . $keyword . '%');
+                        })
+                        ->orWhereHas('khan', function($q) use ($keyword){
+                            $q->where('name', 'like', '%' . $keyword . '%');
+                        })->where('name', 'king pot');
                     });
+
+        // filter tags
+        foreach ($filterTags as $tag){
+            $places = $places->whereHas('tags', function($query) use ($tag){
+                $query->where('id', $tag);
+            });
+        }
+
+        // filter tags for meal
+        foreach(['breakfast', 'lunch', 'dinner'] as $meal){
+            if ( $request->has($meal) )
+                $places = $places->whereHas('tags', function($query) use ($meal){
+                    $query->where('name', $meal);
+                });
+        }
+
+        // filter price
+        if ( $request->has('price') ){
+            $price = $request->price;
+            $places = $places->whereHas('price', function($query) use ($price){
+                $query->where('id', $price);
+            });
+        }
+
+        // filter khan or sangkat
+        if ( $request->khanOrSangkat ){
+            $khanOrSangkat = $request->khanOrSangkat;
+            
+            // khan
+            $khan = Khan::where('name', $khanOrSangkat);
+            if ($khan->count()){
+                $places = $places->where('khan_id', $khan->first()->id);
+            } else {
+                // sangket
+                $sangkat = Sangkat::where('name', $khanOrSangkat);
+                if ($sangkat->count()){
+                    $places = $places->where('khan_id', $sangkat->first()->id);
+                }
+            }
+        }
 
         // order_by (asc or desc)
         $sort_order = $request->input('sort_order', 'asc');
         $request['sort_order'] = $sort_order;
 
-        // sort_by
+        // sort_by. Default to name
         $request['sort_by'] = $request->input('sort_by', 'name');
-
         switch($request->sort_by){
             case 'price':
                 $places = $places->orderBy('price_id', $sort_order);
@@ -404,14 +446,27 @@ class PlaceController extends Controller
                 $places = $places->orderBy('name', $sort_order);
         }
 
-        $places = $places->get();
+        // get all places
+        $places = $places->paginate(2);
+        
+        $places->load(['sangkat', 'khan', 'price']);
 
         // flash old input to session, so old input can use in search page by "old('field_name')"
         $request->flash();
 
+        // get tags for view
+        $tags           = Tag::all();
+        $prices         = $this->getPrices();
+        $khans    = Khan::all();
+        $sangkats = Sangkat::all();
+
         return view('places.search')->with([
-                'places' => $places,
-                'keyword' => $request->keyword,
+                'places'    => $places,
+                'keyword'   => $request->keyword,
+                'tags'      => $tags,
+                'prices'    => $prices,
+                'sangkats'  => $sangkats,
+                'khans'     => $khans,
             ]);
     }
 }

@@ -3,9 +3,13 @@
 @section('title', $keyword)
 
 @section('page-title')
-    @include('partials._page-title', ['title' => 'Result of ' . $keyword])
+    @include('partials._page-title', ['title' => 'Result of ' . '" ' . $keyword . ' "'])
 @endsection
-            
+
+@section('stylesheet')
+  {!! Html::style('css/select2/select2.css') !!}
+@endsection
+
 @section('content')
 
 <div class="container">
@@ -95,12 +99,13 @@
 	          	</div>
           	@endforeach
           	<!-- /.listing-row -->
+            {{$places->url(1)}}
           	<ul class="pagination pull-right">
-            	<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            	<li class="page-item active"><a class="page-link" href="#">1</a></li>
-            	<li class="page-item"><a class="page-link" href="#">2</a></li>
-            	<li class="page-item"><a class="page-link" href="#">3</a></li>
-            	<li class="page-item"><a class="page-link" href="#">Next</a></li>
+              <li class="page-item"><a class="page-link" href="{{$places->previousPageUrl()}}">Previous</a></li>
+              @foreach( range(1, $places->count()) as $page)
+              	<li class="page-item active"><a class="page-link" href="#">{{$page}}</a></li>
+              @endforeach
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
           	</ul>
         </div>
         <!-- /.col -->
@@ -108,7 +113,7 @@
           <div class="sidebar">
             <div class="widget">
               <h3 class="widgettitle">Filter Places</h3>
-              <div class="filter">
+              <div class="filter filter-boxed filter-primary checkbox-light">
                 <form method="GET" action="{{route('search')}}" id="search-form">
                   <input type="hidden" name="sort_by" value="{{old('sort_by')}}" id="sort_by">
                   <input type="hidden" name="sort_order" value="{{old('sort_order')}}" id="sort_order">
@@ -119,12 +124,58 @@
                   </div>
                   <!-- /.form-group -->
                   <div class="form-group">
+                    {{ Form::label('price', 'Price:', ['class' => 'control-label col-form-label'] ) }}
+                    {{ Form::select('price', $prices, null, ['placeholder' => 'Pick a price ...', 'class' => 'form-control form-control-xl form-control-no-border']) }}
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label>Khan or Sangkat</label>
+                    <select class="form-control khanOrSangkat" name="khanOrSangkat" style="width:100%;">
+                      <option></option>
+                      <optgroup label="KHAN">
+                        @foreach($khans as $khan)
+                          <option value="{{$khan->name}}" {{old('khanOrSangkat') == $khan->name ? 'selected' : ''}}>{{ ucwords($khan->name) }}</option>
+                        @endforeach
+                      </optgroup>
+                      <optgroup label="SANGKAT">
+                        @foreach($sangkats as $sangkat)
+                          <option value="{{$sangkat->name}}" {{old('khanOrSangkat') == $sangkat->name ? 'selected' : ''}}>{{ ucwords($sangkat->name) }}</option>
+                        @endforeach
+                      </optgroup>
+                    </select>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
                     <label>City</label>
-                    <select class="form-control" name="city">
+                    <select class="form-control form-control-xl form-control-no-border" name="city">
                       <option value="1" select="true">Phnom Penh</option>
                     </select>
                   </div>
                   <!-- /.form-group -->
+                  <div class="form-group">
+                    <label>Tags <i data-toggle="tooltip" data-placement="top" title="A label attached to resturants for the purpose of identification or to give other information." class="fa fa-question-circle" aria-hidden="true"></i></label>
+                    <select class="form-control filterTags" name="filterTags[]" multiple style="width:100%;">
+                      @foreach($tags as $tag)
+                        @if ( $tag->name !== 'breakfast' && $tag->name !== 'lunch' && $tag->name !== 'dinner' )
+                          <option value="{{ $tag->id }}" {{ in_array($tag->id , old('filterTags', []) ) ? 'selected' : '' }}>{{ $tag->name }}</option>
+                        @endif
+                      @endforeach
+                    </select>
+                  </div>
+                  <!-- /.form-group -->
+                  <h2>Meal</h2>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="breakfast" {{ old('breakfast') ? 'checked' : '' }}>Breakfast</label>
+                  </div>
+                  <!-- /.checkbox -->
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="lunch" {{ old('lunch') ? 'checked' : '' }}>Lunch</label>
+                  </div>
+                  <!-- /.checkbox -->
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="dinner" {{ old('dinner') ? 'checked' : '' }}>Dinner</label>
+                  </div>
+                  <!-- /.checkbox -->
                   <div class="form-group-btn form-group-btn-placeholder-gap">
                     <button type="submit" class="btn btn-primary btn-block">Search</button>
                   </div>
@@ -146,39 +197,65 @@
 @endsection
 
 @section('javascript')
-    <script type="text/javascript">
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
+  {!! Html::script('js/select2/select2.js') !!}
+  
+  <script type="text/javascript">
+      $(function () {
+          
+          $(".filterTags").select2({
+              tags: false,
+              placeholder: 'Filter tags ...',
+          });
 
-            $('div.rating').each(function(){
-              $(this).raty({
-                half: true,
-                starType: 'i',
-                starOn: 'fa fa-star',
-                starHalf: 'fa fa-star-half-o',
-                starOff: 'fa fa-star-o',
-                score: function(){
-                    return $(this).attr('data-score');
-                },
-                readOnly: true
-              });
+          $(".khanOrSangkat").select2({
+              placeholder: 'Filter khan or sangkat ...',
+              allowClear: true,
+          });
+
+          $('[data-toggle="tooltip"]').tooltip();
+
+          $('div.rating').each(function(){
+            $(this).raty({
+              half: true,
+              starType: 'i',
+              starOn: 'fa fa-star',
+              starHalf: 'fa fa-star-half-o',
+              starOff: 'fa fa-star-o',
+              score: function(){
+                  return $(this).attr('data-score');
+              },
+              readOnly: true
             });
-        });
-        
-        $(document).ready(function(){
-
-          $('a#sortBy').click(function(){
-            var sortBy = $(this).html().toLowerCase();
-            $('input#sort_by').val(sortBy);
-            $('form#search-form').submit();
           });
+      });
+      
+      $(document).ready(function(){
 
-          $('a#sortOrder').click(function(){
-            var sortOrder = $(this).attr('data-value');
-            $('input#sort_order').val(sortOrder);
-            $('form#search-form').submit();
-          });
+        $('a#sortBy').click(function(){
+          var sortBy = $(this).html().toLowerCase();
+          $('input#sort_by').val(sortBy);
+          $('form#search-form').submit();
         });
-    </script>
+
+        $('a#sortOrder').click(function(){
+          var sortOrder = $(this).attr('data-value');
+          $('input#sort_order').val(sortOrder);
+          $('form#search-form').submit();
+        });
+
+        // $('form#search-form').submit(function(event){
+        //   $tabKhan = $('div#tab-khan');
+        //   $tabSangkat = $('div#tab-sangkat');
+          
+        //   if ( $tabKhan.hasClass('active') ){
+        //     $('input#sangkat').remove();
+        //   } else {
+        //     $('input#khan').remove();
+        //   }
+        //   // event.preventDefault();
+        // });
+
+      });
+  </script>
 @endsection
 
