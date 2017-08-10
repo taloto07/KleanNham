@@ -99,14 +99,8 @@
 	          	</div>
           	@endforeach
           	<!-- /.listing-row -->
-            {{$places->url(1)}}
-          	<ul class="pagination pull-right">
-              <li class="page-item"><a class="page-link" href="{{$places->previousPageUrl()}}">Previous</a></li>
-              @foreach( range(1, $places->count()) as $page)
-              	<li class="page-item active"><a class="page-link" href="#">{{$page}}</a></li>
-              @endforeach
-              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          	</ul>
+
+            {{ $places->links('vendor.pagination.bootstrap-4') }}
         </div>
         <!-- /.col -->
         <div class="col-md-4 col-lg-3">

@@ -21,6 +21,8 @@ use Carbon\Carbon;
 class PlaceController extends Controller
 {
 
+    private $page_number = 15;
+
     public function __construct(){
         $this->middleware('can:create,App\Place,')
         ->only(['create', 'store', 'edit', 'update', 'delete']);
@@ -181,6 +183,12 @@ class PlaceController extends Controller
         }
 
         return ['minutes' => $minutes, 'hours' => $hours];
+    }
+
+    protected function paginate($places, $fields){
+        $places = $places->paginate($this->page_number);
+        $places->appends($fields);
+        return $places;
     }
 
     /**
@@ -446,8 +454,8 @@ class PlaceController extends Controller
                 $places = $places->orderBy('name', $sort_order);
         }
 
-        // get all places
-        $places = $places->paginate(2);
+        // paginate results - default is 15
+        $places = $this->paginate($places, $request->except('page'));
         
         $places->load(['sangkat', 'khan', 'price']);
 
