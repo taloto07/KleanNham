@@ -1,0 +1,26 @@
+---
+layout: default-boxed
+active: blog
+title: Blog Grid
+page_title: Recent news from Explorer
+slug: pages
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="row">
+    <div class="col-md-8 col-lg-9">
+        <div class="row">
+            {% for i in (1..9) %}
+                <div class="col-sm-4">
+                    {% include components/post-small.html %}
+                </div><!-- /.col-* -->
+            {% endfor %}
+        </div><!-- /.row -->
+        {% include components/pagination.html %}
+    </div><!-- /.col-* -->
+
+    <div class="col-md-4 col-lg-3">
+        {% include components/sidebar-blog.html %}
+    </div><!-- /.col-* -->
+</div><!-- /.row -->

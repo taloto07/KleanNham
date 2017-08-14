@@ -1,0 +1,37 @@
+---
+layout: default-boxed
+title: Frequently Asked Questions
+active: pages 
+page_title: Frequently Asked Questions
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="faq">
+    <div class="row">        
+        {% for i in (1..6) %}
+           <div class="col-sm-6">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h2>Nulla blandit eu eros nec ultrices?</h2>
+                    </div><!-- /.faq-item-question -->
+
+                    <div class="faq-answer">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla blandit eu eros nec ultrices. Aliquam gravida dictum odio sed gravida. Nunc posuere imperdiet lectus, et rutrum arcu bibendum eu. Praesent vitae purus vulputate, mattis dolor non, euismod urna. Vivamus porta et urna ultricies commodo.
+                        </p>
+                    </div><!-- /.faq-item-answer -->
+
+                    <div class="faq-meta">
+                        Was this answer helpful?
+                        <span class="rate">
+                            <a href="#">Yes</a><span class="separator">/</span><a href="#">No</a>
+                        </span><!-- /.rate -->
+                    </div><!-- /.faq-item-meta -->
+                </div><!-- /.faq-item -->            
+            </div><!-- /.col-* -->
+        {% endfor %}        
+    </div><!-- /.row -->
+</div><!-- /.faq -->
+
+{% include components/pagination.html %}

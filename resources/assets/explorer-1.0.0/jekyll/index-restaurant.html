@@ -1,0 +1,49 @@
+---
+layout: homepage-restaurant
+title: Restaurant Homepage
+css: explorer-gold.css
+active: home
+---
+
+<div class="mt-80">
+    {% include components/listings/carousel.html %}
+</div>
+
+<div class="page-header">
+    <h2>Recent Listings</h2>
+    <p>See the most recent listings available in directory catalogue added by our users. All listings are verified by our editors staff.</p>
+</div>
+
+{% include components/listings/boxes.html %}
+
+<div class="block">
+    <div class="block-inner">
+
+        <div class="page-header">
+            <h2>Favorite Listing Categories</h2>
+            <p>Easily assign categories &amp; tags to approved listings and then display categories with icons for better user experience.</p>
+        </div>
+
+        {% include components/categories.html %}
+    </div><!-- /.block-inner -->
+</div><!-- /.block-inner -->
+
+<div class="page-header">
+    <h2>Most Robust Directory Template Ever Made</h2>
+    <p>Duis eget ornare purus, feugiat consequat sem. Nullam non nisl blandit, tincidunt diam id, consequat elit. Nunc augue libero, viverra a odio</p>
+</div>
+
+{% include components/posts.html %}
+
+<div class="page-header">
+    <h2>Most Robust Directory Template Ever Made</h2>
+    <p>Duis eget ornare purus, feugiat consequat sem. Nullam non nisl blandit, tincidunt diam id, consequat elit. Nunc augue libero, viverra a odio</p>
+</div>
+
+{% include components/pricing.html %}
+
+{% include components/testimonials.html %}
+
+{% include components/partners.html %}
+
+{% include components/cta-price.html %}

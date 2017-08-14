@@ -1,0 +1,49 @@
+---
+layout: homepage-automotive
+title: Automotive Homepage
+css: explorer-red.css
+active: home
+---
+
+<div class="row">
+    {% assign listings = site.data.listings | shuffle %}
+    {% for listing in listings limit:12 %}
+        <div class="col-sm-4">
+            {% include components/listings/row-medium.html %}
+        </div><!-- /.col -->
+    {% endfor %}
+</div><!-- /.row -->
+
+<div class="block mb0">
+    <div class="block-inner">
+
+        <div class="page-header">
+            <h2>Favorite Listing Categories</h2>
+            <p>Easily assign categories &amp; tags to approved listings and then display categories with icons for better user experience.</p>
+        </div>
+
+        {% include components/categories.html %}
+    </div><!-- /.block-inner -->
+</div><!-- /.block-inner -->
+
+{% include components/listings/carousel.html %}
+
+<div class="page-header">
+    <h2>Most Robust Directory Template Ever Made</h2>
+    <p>Duis eget ornare purus, feugiat consequat sem. Nullam non nisl blandit, tincidunt diam id, consequat elit. Nunc augue libero, viverra a odio</p>
+</div>
+
+{% include components/posts.html %}
+
+<div class="page-header">
+    <h2>Most Robust Directory Template Ever Made</h2>
+    <p>Duis eget ornare purus, feugiat consequat sem. Nullam non nisl blandit, tincidunt diam id, consequat elit. Nunc augue libero, viverra a odio</p>
+</div>
+
+{% include components/pricing.html %}
+
+{% include components/testimonials.html %}
+
+{% include components/partners.html %}
+
+{% include components/cta-price.html %}

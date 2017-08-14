@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include header.html %}
+
+<body class="{{ page.body_class }}">
+
+<div class="page-wrapper">
+	{% include components/header-boxed.html %}
+
+    <div class="main-wrapper">
+	    <div class="main">
+	        <div class="main-inner">	        		        	
+				{% include components/detail/hero.html %}
+				
+            	<div class="container">            		
+                	{{ content }}
+				</div><!-- /.container-fluid -->	            		
+	        </div><!-- /.main-inner -->
+	    </div><!-- /.main -->
+    </div><!-- /.main-wrapper -->   
+
+	{% include components/footer.html %}    
+</div><!-- /.page-wrapper -->
+
+{% include components/listings/submit.html %}
+
+{% include components/side.html %}
+
+
+{% include scripts.html %}
+</body>
+</html>

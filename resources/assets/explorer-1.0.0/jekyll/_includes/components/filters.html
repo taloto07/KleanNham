@@ -1,0 +1,152 @@
+<h2 class="page-title-small">Tabbed Filter</h2>
+
+<div class="filter-tabs">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" href="#tab-all" data-toggle="tab" aria-expanded="true">All Properties</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#tab-rent" data-toggle="tab" aria-expanded="false">For Rent</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#tab-sale" data-toggle="tab" aria-expanded="false">For Sale</a>
+        </li>    
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab-all">        
+            <div class="filter filter-boxed filter-primary checkbox-light">
+                <form action="?" method="post">
+                    <div class="row">
+                        <div class="col-sm-3 form-group">                               
+                            <input type="text" class="form-control form-control-no-border" placeholder="Search by keyword ...">
+                        </div><!-- /.form-group -->
+
+                        <div class="col-sm-3 form-group">
+                            <select class="form-control form-control-no-border">
+                                <option>Location</option>
+                                <option>Chicago</option>
+                                <option>San Francisco</option>
+                                <option>Seattle</option>
+                                <option>New York</option>
+                                <option>Washington</option>
+                            </select>
+                        </div><!-- /.form-group -->                         
+
+                        <div class="col-sm-3 form-group">
+                            <select class="form-control form-control-no-border">
+                                <option>Category</option>
+                                <option>Chicago</option>
+                                <option>San Francisco</option>
+                                <option>Seattle</option>
+                                <option>New York</option>
+                                <option>Washington</option>
+                            </select>
+                        </div><!-- /.form-group -->                         
+
+                        <div class="col-sm-3 form-group">
+                            <input type="number" class="form-control form-control-no-border" placeholder="Bedrooms">
+                        </div><!-- /.form-group -->                             
+
+                        <div class="col-sm-3 form-group">
+                            <input type="number" class="form-control form-control-no-border" placeholder="Bathrooms">
+                        </div><!-- /.form-group -->                             
+
+                        <div class="col-sm-3 form-group">
+                            <input type="text" class="form-control form-control-no-border" placeholder="Price from">
+                        </div><!-- /.form-group -->                             
+
+                        <div class="col-sm-3 form-group">
+                            <input type="text" class="form-control form-control-no-border" placeholder="Price to">
+                        </div><!-- /.form-group -->                             
+
+                        <div class="col-sm-3">
+                            <button type="submit" class="btn btn-black btn-block">Filter Listings</button>
+                        </div><!-- /.col-->
+                    </div><!-- /.row -->
+                </form>             
+            </div><!-- /.filter -->
+        </div><!-- /.tab-pane -->
+    </div><!-- /.tab-content  -->
+</div><!-- /.filter-tabs -->
+
+<h2 class="page-title-small">Vertical Filter White Background</h2>
+
+<div class="filter filter-boxed">
+    <form method="get" action="?">
+        {% include components/filter-horizontal.html %}
+        {% include components/filter-options.html %}
+    </form>
+</div><!-- /.filter -->
+
+
+<h2 class="page-title-small">Vertical Filter Gray Background</h2>
+
+<div class="filter filter-boxed filter-gray">
+    <form method="get" action="?">
+        {% include components/filter-horizontal.html %}
+        {% include components/filter-options.html %}
+    </form>
+</div><!-- /.filter -->
+
+<h2 class="page-title-small">Vertical Filter Primary Background</h2>
+
+<div class="filter filter-boxed filter-primary checkbox-light">
+    <form method="get" action="?">
+        {% include components/filter-horizontal.html %}
+        {% include components/filter-options.html %}
+    </form>
+</div><!-- /.filter -->
+
+<h2 class="page-title-small">Vertical Filter Secondary Background</h2>
+
+<div class="filter filter-boxed filter-secondary checkbox-light">
+    <form method="get" action="?">
+        {% include components/filter-horizontal.html %}
+        {% include components/filter-options.html %}
+    </form>
+</div><!-- /.filter -->
+
+<div class="row">
+    <div class="col-md-6 col-lg-3">
+        <h3 class="page-title-small">White Background Filter</h3>
+
+        <div class="filter filter-boxed">
+            <form method="get" action="?">
+                {% include components/filter-vertical.html %}
+            </form>
+        </div><!-- /.filter -->
+    </div><!-- /.col-* -->
+
+    <div class="col-md-6 col-lg-3">
+        <h3 class="page-title-small">Gray Background Filter</h3>
+
+        <div class="filter filter-boxed filter-gray">
+            <form method="get" action="?">
+                {% include components/filter-vertical.html %}
+            </form>
+        </div><!-- /.filter -->
+    </div><!-- /.col-* -->
+
+    <div class="col-md-6 col-lg-3">
+        <h3 class="page-title-small">Primary Background Filter</h3>
+
+        <div class="filter filter-boxed filter-primary checkbox-light">
+            <form method="get" action="?">
+                {% include components/filter-vertical.html %}
+            </form>
+        </div><!-- /.filter -->
+    </div><!-- /.col-* -->
+
+    <div class="col-md-6 col-lg-3">
+        <h3 class="page-title-small">Secondary Background Filter</h3>
+
+        <div class="filter filter-boxed filter-secondary checkbox-light">
+            <form method="get" action="?">
+                {% include components/filter-vertical.html %}
+            </form>
+        </div><!-- /.filter -->
+    </div><!-- /.col-* -->
+</div>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="assets/libraries/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/slick/slick-theme.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/trackpad-scroll-emulator.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/chartist.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/jquery.raty.css" rel="stylesheet" type="text/css">
+    <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/nouislider.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/explorer.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <title>Directory Application Kit - Explorer</title>
+  </head>
+  <body class="">
+    <div class="page-wrapper">
+      <div class="header-wrapper header-transparent header-light">
+        <div class="header">
+          <div class="container">
+            <div class="header-inner">
+              <div class="navigation-toggle toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <!-- /.header-toggle -->
+              <div class="header-logo">
+                <a href="index.html">
+                  <img src="assets/img/logo.svg" class="svg" alt="Home">
+                </a>
+                <a href="index.html" class="header-title">Explorer</a>
+              </div>
+              <!-- /.header-logo -->
+              <div class="header-nav">
+                <div class="primary-nav-wrapper">
+                  <ul class="nav">
+                    <li class="nav-item has-sub-menu">
+                      <a href="#" class="nav-link active">Home</a>
+                      <ul class="sub-menu">
+                        <li><a href="index-directory.html"><b>1.</b> &nbsp;&nbsp;Directory Version</a></li>
+                        <li><a href="index-classified.html"><b>2.</b> &nbsp;&nbsp;Classified Version</a></li>
+                        <li><a href="index-job-board.html"><b>3.</b> &nbsp;&nbsp;Job Board Version</a></li>
+                        <li><a href="index-real-estate.html"><b>4.</b> &nbsp;&nbsp;Real Estate Version</a></li>
+                        <li><a href="index-automotive.html"><b>5.</b> &nbsp;&nbsp;Automotive Version</a></li>
+                        <li><a href="index-travel.html"><b>6.</b> &nbsp;&nbsp;Travel &amp; Hotel Version</a></li>
+                        <li><a href="index-restaurant.html"><b>7.</b> &nbsp;&nbsp;Restaurant Version</a></li>
+                        <li><a href="admin-dashboard.html"><b>8.</b> &nbsp;&nbsp;Admin Dashboard</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item has-sub-menu">
+                      <a href="#" class="nav-link ">Listings</a>
+                      <ul class="sub-menu">
+                        <li><a href="listings-google-map.html">Listings Google Map</a></li>
+                        <li><a href="listings-grid.html">Listings Grid</a></li>
+                        <li><a href="listings-rows.html">Listings Rows</a></li>
+                        <li><a href="listings-detail.html">Listing Detail</a></li>
+                        <li><a href="listings-my.html">My Listing</a></li>
+                        <li><a href="listings-compare.html">Listings Compare</a></li>
+                        <li><a href="listings-submit.html">Submit Listing</a></li>
+                        <li><a href="listings-claim.html">Claim Listing</a></li>
+                        <li><a href="listings-favorites.html">Favorite Listings</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item has-sub-menu">
+                      <a href="#" class="nav-link ">Agencies &amp; Agents</a>
+                      <ul class="sub-menu">
+                        <li><a href="agents-row.html">Agents Rows</a></li>
+                        <li><a href="agents-grid.html">Agents Grid</a></li>
+                        <li><a href="agents-submit.html">Agent Submit</a></li>
+                        <li><a href="agents-detail.html">Agent Detail</a></li>
+                        <li><a href="agencies-row.html">Agencies Rows</a></li>
+                        <li><a href="agencies-grid.html">Agencies Grid</a></li>
+                        <li><a href="agencies-submit.html">Agency Submit</a></li>
+                        <li><a href="agencies-detail.html">Agency Detail</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item has-sub-menu has-mega-menu">
+                      <a href="#" class="nav-link ">Pages</a>
+                      <div class="sub-menu mega-menu">
+                        <ul>
+                          <li><strong>Elements I.</strong></li>
+                          <li><a href="pricing.html">Pricing</a></li>
+                          <li><a href="services.html">Services</a></li>
+                          <li><a href="user-profile-edit.html">User Profile Edit</a></li>
+                          <li><a href="testimonials.html">Testimonials</a></li>
+                          <li><a href="author.html">Author Detail</a></li>
+                        </ul>
+                        <ul>
+                          <li><strong>Elements II.</strong></li>
+                          <li><a href="tables.html">Tables</a></li>
+                          <li><a href="invoice.html">Invoice</a></li>
+                          <li><a href="grid.html">Grid</a></li>
+                          <li><a href="filters.html">Filters</a></li>
+                          <li><a href="reservations-extra-features.html">Reservations Features</a></li>
+                        </ul>
+                        <ul>
+                          <li><strong>Elements III.</strong></li>
+                          <li><a href="faq.html">FAQ</a></li>
+                          <li><a href="contact.html">Contact</a></li>
+                          <li><a href="login.html">Login</a></li>
+                          <li><a href="registration.html">Registration</a></li>
+                          <li><a href="checkout.html">Checkout</a></li>
+                        </ul>
+                        <ul>
+                          <li><strong>Elements IV.</strong></li>
+                          <li><a href="forms.html">Forms</a></li>
+                          <li><a href="change-password.html">Change password</a></li>
+                          <li><a href="reset-password.html">Reset password</a></li>
+                          <li><a href="messages.html">Messages</a></li>
+                          <li><a href="sticky-footer.html">Sticky Footer</a></li>
+                        </ul>
+                        <ul>
+                          <li><strong>Elements V.</strong></li>
+                          <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                          <li><a href="403.html">403 - Access not allowed</a></li>
+                          <li><a href="404.html">404 - Page not found</a></li>
+                          <li><a href="500.html">500 - Internal server error</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item has-sub-menu has-mega-menu">
+                      <a href="#" class="nav-link ">Admin</a>
+                      <div class="sub-menu mega-menu">
+                        <ul>
+                          <li>
+                            <strong>Dashboards</strong>
+                          </li>
+                          <li><a href="admin-dashboard.html">Standard Version</a></li>
+                          <li><a href="admin-dashboard-minimal-sidebar.html">Compressed Sidebar</a></li>
+                          <li><a href="admin-dashboard-light-sidebar.html">Light Sidebar</a></li>
+                          <li><a href="admin-dashboard-light-minimal-sidebar.html">Compressed Light Sidebar</a></li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <strong>Listings</strong>
+                          </li>
+                          <li><a href="admin-listings.html">Listings</a></li>
+                          <li><a href="admin-agencies.html">Agencies</a></li>
+                          <li><a href="admin-agents.html">Agents</a></li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <strong>Workflow</strong>
+                          </li>
+                          <li><a href="admin-projects.html">Projects</a></li>
+                          <li><a href="admin-tasks.html">Tasks</a></li>
+                          <li><a href="admin-users.html">Users</a></li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <strong>Template Helpers</strong>
+                          </li>
+                          <li><a href="admin-messages.html">Messages</a></li>
+                          <li><a href="admin-cards.html">Cards</a></li>
+                          <li><a href="admin-forms.html">Forms</a></li>
+                        </ul>
+                        <ul>
+                          <li>
+                            <strong>Template Helpers</strong>
+                          </li>
+                          <li><a href="admin-media.html">Media files</a></li>
+                          <li><a href="admin-tables.html">Tables</a></li>
+                        </ul>
+                      </div>
+                      <!-- /.mega-menu -->
+                    </li>
+                    <li class="nav-item has-sub-menu">
+                      <a href="#" class="nav-link ">Blog</a>
+                      <ul class="sub-menu">
+                        <li><a href="blog.html">Blog Right Sidebar</a></li>
+                        <li><a href="blog-left.html">Blog Left Sidebar</a></li>
+                        <li><a href="blog-grid.html">Blog Grid Right Sidebar</a></li>
+                        <li><a href="blog-grid-left.html">Blog Grid Left Sidebar</a></li>
+                        <li><a href="blog-detail.html">Blog Detail Right Sidebar</a></li>
+                        <li><a href="blog-detail-left.html">Blog Detail Left Sidebar</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.primary-nav-wrapper -->
+              </div>
+              <!-- /.header-nav -->
+              <div class="header-toggle toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <!-- /.header-toggle -->
+              <div class="header-actions header-action-black">
+                <ul class="nav nav-pills">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link modal-submit" id="modal-action-submit" data-toggle="modal" data-target="#modal-submit">
+                      <i class="fa fa-plus"></i> <span>Add Listing</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.header-actions -->
+            </div>
+            <!-- /.header-inner -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.header -->
+      </div>
+      <!-- /.header-wrapper -->
+      <div class="hero-simple">
+        <div id="hero-particles"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="hero-simple-content">
+                <h1>Versatile Directory &amp; Listings HTML Template</h1>
+                <p>
+                  Create modern and beautiful directory websites by using Explorer HTML template which will
+                  speed up development. Explorer is the only template containing all required files to create
+                  awesome directory solutions.
+                </p>
+                <div class="hero-simple-actions">
+                  <a href="index-directory.html" class="btn btn-white">Main Demo</a>
+                  <a href="admin-dashboard.html" class="btn btn-white">Admin Dashboard</a>
+                </div>
+                <!-- /.hero-simple-actions -->
+              </div>
+              <!-- /.her-simple-content -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.hero-simple -->
+      <div class="main-wrapper">
+        <div class="main">
+          <div class="main-inner">
+            <div class="container">
+              <div class="content">
+                <div class="block mt-80">
+                  <div class="block-inner">
+                    <div class="demos">
+                      <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                          <div class="demo">
+                            <div class="demo-image-holder green">
+                              <div class="demo-browser">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <!-- /.demo-browser -->
+                              <a href="index-directory.html">
+                                <img src="assets/img/tmp/demo-directory.jpg" alt="">
+                              </a>
+                            </div>
+                            <!-- /.demo-image-holder -->
+                            <div class="demo-content">
+                              <h3>Directory &amp; Listings</h3>
+                            </div>
+                            <!-- /.demo-content -->
+                          </div>
+                          <!-- /.demo -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                          <div class="demo">
+                            <div class="demo-image-holder blue">
+                              <div class="demo-browser">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <!-- /.demo-browser -->
+                              <a href="index-real-estate.html">
+                                <img src="assets/img/tmp/demo-real-estate.jpg" alt="">
+                              </a>
+                            </div>
+                            <!-- /.demo-image-holder -->
+                            <div class="demo-content">
+                              <h3>Real Estate &amp; Rentals</h3>
+                            </div>
+                            <!-- /.demo-content -->
+                          </div>
+                          <!-- /.demo -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                          <div class="demo">
+                            <div class="demo-image-holder purple">
+                              <div class="demo-browser">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <!-- /.demo-browser -->
+                              <a href="index-job-board.html">
+                                <img src="assets/img/tmp/demo-job-board.jpg" alt="">
+                              </a>
+                            </div>
+                            <!-- /.demo-image-holder -->
+                            <div class="demo-content">
+                              <h3>Job Board</h3>
+                            </div>
+                            <!-- /.demo-content -->
+                          </div>
+                          <!-- /.demo -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                          <div class="demo">
+                            <div class="demo-image-holder red">
+                              <div class="demo-browser">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <!-- /.demo-browser -->
+                              <a href="index-automotive.html">
+                                <img src="assets/img/tmp/demo-automotive.jpg" alt="">
+                              </a>
+                            </div>
+                            <!-- /.demo-image-holder -->
+                            <div class="demo-content">
+                              <h3>Car &amp; Automotive</h3>
+                            </div>
+                            <!-- /.demo-content -->
+                          </div>
+                          <!-- /.demo -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                          <div class="demo">
+                            <div class="demo-image-holder orange">
+                              <div class="demo-browser">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <!-- /.demo-browser -->
+                              <a href="index-travel.html">
+                                <img src="assets/img/tmp/demo-travel.jpg" alt="">
+                              </a>
+                            </div>
+                            <!-- /.demo-image-holder -->
+                            <div class="demo-content">
+                              <h3>Travel &amp; Hotel</h3>
+                            </div>
+                            <!-- /.demo-content -->
+                          </div>
+                          <!-- /.demo -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                          <div class="demo">
+                            <div class="demo-image-holder gold">
+                              <div class="demo-browser">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <!-- /.demo-browser -->
+                              <a href="index-restaurant.html">
+                                <img src="assets/img/tmp/demo-restaurant.jpg" alt="">
+                              </a>
+                            </div>
+                            <!-- /.demo-image-holder -->
+                            <div class="demo-content">
+                              <h3>Restaurant</h3>
+                            </div>
+                            <!-- /.demo-content -->
+                          </div>
+                          <!-- /.demo -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                          <div class="demo">
+                            <div class="demo-image-holder turquoise">
+                              <div class="demo-browser">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <!-- /.demo-browser -->
+                              <a href="index-classified.html">
+                                <img src="assets/img/tmp/demo-classified.jpg" alt="">
+                              </a>
+                            </div>
+                            <!-- /.demo-image-holder -->
+                            <div class="demo-content">
+                              <h3>Classified Ads</h3>
+                            </div>
+                            <!-- /.demo-content -->
+                          </div>
+                          <!-- /.demo -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 col-md-6 col-lg-3">
+                          <div class="demo">
+                            <div class="demo-image-holder">
+                              <div class="demo-browser">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </div>
+                              <!-- /.demo-browser -->
+                              <a href="admin-dashboard.html">
+                                <img src="assets/img/tmp/demo-admin.jpg" alt="">
+                              </a>
+                            </div>
+                            <!-- /.demo-image-holder -->
+                            <div class="demo-content">
+                              <h3>Admin Dashboard</h3>
+                            </div>
+                            <!-- /.demo-content -->
+                          </div>
+                          <!-- /.demo -->
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.row -->
+                    </div>
+                    <!-- /.demos -->
+                  </div>
+                  <!-- /.block-inner -->
+                </div>
+                <!-- /.block -->
+                <div class="page-header">
+                  <h2>Check Most Advanced Explorer's Features</h2>
+                  <p>In the package we are bundling additional great features &amp; components which makes your directory portal development more easier.</p>
+                </div>
+                <div class="features">
+                  <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                      <div class="feature">
+                        <div class="feature-icon"><i class="fa fa-cog"></i></div>
+                        <div class="feature-content">
+                          <h3>7 Unique Niches</h3>
+                          <p>
+                            With the Explorer it is possible to achieve several layouts for different niches. In template we are bundling 7 homepage layouts.
+                          </p>
+                        </div>
+                        <!-- /.feature-content -->
+                      </div>
+                      <!-- /.feature -->
+                    </div>
+                    <!-- /.col-* -->
+                    <div class="col-md-6 col-lg-4">
+                      <div class="feature">
+                        <div class="feature-icon"><i class="fa fa-flask"></i></div>
+                        <div class="feature-content">
+                          <h3>Admin Templates</h3>
+                          <p>
+                            When creating new system, backend is an essential part of project. Template contains basic set of admin templates for directory CMS.
+                          </p>
+                        </div>
+                        <!-- /.feature-content -->
+                      </div>
+                      <!-- /.feature -->
+                    </div>
+                    <!-- /.col-* -->
+                    <div class="col-md-6 col-lg-4">
+                      <div class="feature">
+                        <div class="feature-icon"><i class="fa fa-pie-chart"></i></div>
+                        <div class="feature-content">
+                          <h3>Developer Friendly</h3>
+                          <p>
+                            Explorer is written by keeping in mind that it will be used by other developers so everything is well structured and ready for customizations.
+                          </p>
+                        </div>
+                        <!-- /.feature-content -->
+                      </div>
+                      <!-- /.feature -->
+                    </div>
+                    <!-- /.col-* -->
+                    <div class="col-md-6 col-lg-4">
+                      <div class="feature">
+                        <div class="feature-icon"><i class="fa fa-commenting-o"></i></div>
+                        <div class="feature-content">
+                          <h3>Bootstrap 4 Framework</h3>
+                          <p>
+                            All templates are based on Bootstrap 4 framework so the project is easily understandable for developers familiar with the framework.
+                          </p>
+                        </div>
+                        <!-- /.feature-content -->
+                      </div>
+                      <!-- /.feature -->
+                    </div>
+                    <!-- /.col-* -->
+                    <div class="col-md-6 col-lg-4">
+                      <div class="feature">
+                        <div class="feature-icon"><i class="fa fa-cloud-download"></i></div>
+                        <div class="feature-content">
+                          <h3>SASS Files</h3>
+                          <p>
+                            For large project as the Explorer is, we used SASS to compile all files. Project contains dozens of well structured SASS files which can be easily modified.
+                          </p>
+                        </div>
+                        <!-- /.feature-content -->
+                      </div>
+                      <!-- /.feature -->
+                    </div>
+                    <!-- /.col-* -->
+                    <div class="col-md-6 col-lg-4">
+                      <div class="feature">
+                        <div class="feature-icon"><i class="fa fa-cubes"></i></div>
+                        <div class="feature-content">
+                          <h3>Fully Responsive</h3>
+                          <p>
+                            Template is responsive on all devices from extra large screens to small mobile devices. It is easy to prepare all images for high quality displays as well.
+                          </p>
+                        </div>
+                        <!-- /.feature-content -->
+                      </div>
+                      <!-- /.feature -->
+                    </div>
+                    <!-- /.col-* -->
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.features -->
+                <div class="block mb0">
+                  <div class="block-inner">
+                    <div class="page-header">
+                      <h2><span class="strike">One</span> Four more things</h2>
+                      <p>In the package we are bundling additional great features &amp; components which makes your directory portal development more easier.</p>
+                    </div>
+                    <div class="feature-details">
+                      <div class="feature-detail">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h4>HTML Template</h4>
+                            <h3>Admin Dashboard</h3>
+                            <p>
+                              Creating an admin section for client is an essential functionality for each custom made CMS.
+                              In the Explorer HTML template we are including all basic components for developing backend section
+                              for free in the package available on ThemeForest.
+                            </p>
+                            <p>
+                              In the admin we are covering following parts: tables, dashboard, sidebar, forms and some basic
+                              cards. Admin templates does not contain advanced integrations with third party JavaScript libraries.
+                            </p>
+                            <p class="small">
+                              Before purchasing an item on ThemeForest we recommend to go through all admin files in our demo site
+                              and if you are missing interesting component, feel free to contact us through comments section.
+                            </p>
+                            <a href="admin-dashboard.html" class="btn btn-primary">Explore Admin Area</a>
+                          </div>
+                          <!-- /.col-* -->
+                          <div class="col-md-5 push-md-1">
+                            <div class="feature-detail-image">
+                              <img src="assets/img/tmp/feature-admin.jpg" alt="">
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.feature-detail -->
+                      <div class="feature-detail">
+                        <div class="row">
+                          <div class="col-md-5">
+                            <div class="feature-detail-image">
+                              <img src="assets/img/tmp/feature-angular2.jpg" alt="">
+                            </div>
+                          </div>
+                          <div class="col-md-6 push-md-1">
+                            <h4>Client Side JavaScript</h4>
+                            <h3>Angular 2 Map Application</h3>
+                            <p>
+                              Modern applications are build by using JavaScript frameworks where the business logic is
+                              processed in client browser. In template we are bundling Angular 2 application for listing
+                              objects on the Google Map.
+                            </p>
+                            <p class="small">
+                              All data for application are fetched from REST API. HTML template contains JSON file
+                              with all required data but in the Symfony 3 application we developed an API provider so
+                              you use this application for data storage as well.
+                            </p>
+                            <p class="small">
+                              Please note that application contains only logic for displaying objects on the Google Map. There
+                              is no advanced workflows for searching nor adding new listings.
+                            </p>
+                            <a href="http://explorer-angular.wearecodevision.com" class="btn btn-primary">Angular 2 Application</a>
+                          </div>
+                          <!-- /.col-* -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.feature-detail -->
+                      <div class="feature-detail">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <h4>Simple PHP Boilerplate</h4>
+                            <h3>Symfony 3 Backend</h3>
+                            <p>
+                              Explorer is just static HTML without any business logic so we decided to include to
+                              at least minimal PHP backend for managing listings to speed up your website development.
+                              This is a great value for experienced developers which will reuse bundled source code and
+                              add new business logic required by client.
+                            </p>
+                            <p class="small">
+                              In the backend we are including only screen for managing listings and simple API provider
+                              to expose listings. There is no other logic and support for Symfony framework. We are
+                              expecting that source code will be used only by professional who are aware what they are doing.
+                            </p>
+                          </div>
+                          <!-- /.col-* -->
+                          <div class="col-md-7 push-md-1">
+                            <div class="feature-detail-image">
+                              <img src="assets/img/tmp/feature-symfony3.jpg" alt="" class="no-borde">
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.feature-detail -->
+                      <div class="feature-detail">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="feature-detail-image">
+                              <img src="assets/img/tmp/feature-jekyll.jpg" alt="" class="no-borde">
+                            </div>
+                          </div>
+                          <div class="col-md-5 push-md-1">
+                            <h4>Static Files Generator</h4>
+                            <h3>Jekyll Source Files</h3>
+                            <p>
+                              Jekyll is a simple static site generator. It takes raw HTML templates and then it
+                              passes them through its converter. The result is HTML structure without any business
+                              logic.
+                            </p>
+                            <p>
+                              If you are looking for absolutely fast website without any hack possibilities, this is
+                              the way to go. The hosting requirements are minimal so you can host your website almost
+                              everywhere.
+                            </p>
+                            <p class="small">
+                              As the main example you can check Explorer template where we used Jekyll to generate all
+                              files. In the package you will get all predefined components and files for free. You can see
+                              that with Jekyll you can achieve awesome results with minimal server requirements.
+                            </p>
+                          </div>
+                          <!-- /.col-* -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <!-- /.feature-detail -->
+                    </div>
+                    <!-- /.feature-details -->
+                  </div>
+                  <!-- /.block-inner -->
+                </div>
+                <!-- /.block -->
+              </div>
+              <!-- /.content -->
+            </div>
+            <!-- /.container -->
+          </div>
+          <!-- /.main-inner -->
+        </div>
+        <!-- /.main -->
+      </div>
+      <!-- /.main-wrapper -->
+      <div class="footer-wrapper footer-line">
+        <div class="footer">
+          <div class="footer-inner clearfix">
+            <div class="container">
+              <div class="footer-line-left">
+                &copy; 2017 Created by Code Vision. All rights reserved.
+              </div>
+              <!-- /.footer-line-left -->
+              <div class="footer-line-right">
+                <ul class="nav nav-line">
+                  <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                  <li class="nav-item"><a href="listings-grid.html" class="nav-link">Listings</a></li>
+                  <li class="nav-item"><a href="agents-grid.html" class="nav-link">Agents</a></li>
+                  <li class="nav-item"><a href="agencies-grid.html" class="nav-link">Agencies</a></li>
+                  <li class="nav-item"><a href="terms-conditions.html" class="nav-link">Terms &amp; Conditions</a></li>
+                  <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+              </div>
+              <!-- /.footer-line-right -->
+            </div>
+            <!-- /.container -->
+          </div>
+          <!-- /.footer-inner -->
+        </div>
+        <!-- /.footer -->
+      </div>
+      <!-- /.footer-wrapper -->
+    </div>
+    <!-- /.page-wrapper -->
+    <div id="modal-submit" class="modal fade">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Submit New Listing</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="post" action="?" class="mb80">
+              <fieldset>
+                <legend>Basic Information</legend>
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" class="form-control">
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" rows="6"></textarea>
+                </div>
+                <!-- /.form-group -->
+              </fieldset>
+              <fieldset>
+                <legend>Payment Information</legend>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Package</label>
+                      <select class="form-control">
+                        <option value="">Bronze + $10</option>
+                      </select>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Payment Method</label>
+                      <select class="form-control">
+                        <option value="">Paypal</option>
+                      </select>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Duration</label>
+                      <select class="form-control">
+                        <option value="">1 Year (Save 10%)</option>
+                      </select>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                </div>
+                <!-- /.row -->
+              </fieldset>
+              <fieldset>
+                <legend>Location</legend>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div id="location-google-map" style="height: 450px;"></div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Address</label>
+                      <input type="text" class="form-control location-google-map-search">
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                      <label>Latitude</label>
+                      <input type="text" class="form-control" id="listing_location_latitude">
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                      <label>Longitude</label>
+                      <input type="text" class="form-control" id="listing_location_longitude">
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                      <label>Country</label>
+                      <select class="form-control"></select>
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                      <label>Location</label>
+                      <select class="form-control"></select>
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                      <label>Sublocation</label>
+                      <select class="form-control"></select>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                </div>
+                <!-- /.row -->
+              </fieldset>
+              <fieldset>
+                <legend>Contact Information</legend>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Country</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>City</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Address</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Phone</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>E-mail</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Website</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <!-- /.col-* -->
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Amenities</legend>
+                <div class="checkbox-list">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"> Air conditioning
+                    </label>
+                  </div>
+                  <!-- /.form-check -->
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"> Balcony
+                    </label>
+                  </div>
+                  <!-- /.form-check -->
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"> Bedding
+                    </label>
+                  </div>
+                  <!-- /.form-check -->
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"> Cable TV
+                    </label>
+                  </div>
+                  <!-- /.form-check -->
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"> Cleaning after exit
+                    </label>
+                  </div>
+                  <!-- /.form-check -->
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"> Cofee pot
+                    </label>
+                  </div>
+                  <!-- /.form-check -->
+                </div>
+                <!-- /.checkbox-list -->
+              </fieldset>
+              <fieldset>
+                <legend>Additional Information</legend>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> Send me newsletter
+                  </label>
+                </div>
+                <!-- /.form-check -->
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input"> I agree with terms &amp; conditions
+                  </label>
+                </div>
+                <!-- /.form-check -->
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side-wrapper">
+      <div class="side">
+        <div class="side-inner">
+          <div class="side-user">
+            <span class="avatar" style="background-image: url('../assets/img/tmp/user-10.jpg');"></span>
+            <span class="side-user-avatar-name">
+              <strong>William F. Kane</strong>
+              <span>System administrator</span>
+            </span>
+            <a href="#" class="side-user-avatar-action">
+              <i class="fa fa-cog"></i>
+            </a>
+          </div>
+          <!-- /.side-user -->
+          <ul class="nav flex-column">
+            <li class="nav-item"><a href="admin-dashboard.html" class="nav-link">Author Dashboard</a></li>
+            <li class="nav-item"><a href="admin-listings.html" class="nav-link">Listings Queue</a></li>
+            <li class="nav-item"><a href="admin-projects.html" class="nav-link">Running Projects</a></li>
+            <li class="nav-item"><a href="admin-tasks.html" class="nav-link">Tasks Management</a></li>
+            <li class="nav-item"><a href="admin-users.html" class="nav-link">User Accounts</a></li>
+          </ul>
+          <h3>Welcome Back</h3>
+          <form class="form-dark" method="post" action="?">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Username">
+            </div>
+            <!-- /.form-group -->
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password">
+            </div>
+            <!-- /.form-group -->
+            <button class="btn btn-primary pull-right" type="submit">Login</button>
+          </form>
+        </div>
+        <!-- /.side-inner -->
+      </div>
+      <!-- /.side -->
+    </div>
+    <!-- /.side-wrapper -->
+    <div class="side-overlay"></div>
+    <!-- /.side-overlay -->
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing&key=AIzaSyDmXybAJzoPZ6hH-Jhv7QMCSGgQ6MY8WqY" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/tether.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/chartist.min.js"></script>
+    <script type="text/javascript" src="assets/js/google-map-richmarker.min.js"></script>
+    <script type="text/javascript" src="assets/js/google-map-infobox.min.js"></script>
+    <script type="text/javascript" src="assets/js/google-map-markerclusterer.js"></script>
+    <script type="text/javascript" src="assets/js/google-map.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.trackpad-scroll-emulator.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.inlinesvg.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.affix.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="assets/libraries/slick/slick.min.js"></script>
+    <script type="text/javascript" src="assets/js/nouislider.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.raty.js"></script>
+    <script type="text/javascript" src="assets/js/wNumb.js"></script>
+    <script type="text/javascript" src="assets/js/particles.min.js"></script>
+    <script type="text/javascript" src="assets/js/explorer.js"></script>
+    <script type="text/javascript" src="assets/js/explorer-map-search.js"></script>
+  </body>
+</html>

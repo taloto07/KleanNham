@@ -1,0 +1,25 @@
+<div class="map-wrapper">
+	<div class="map">
+		<div class="map-inner">
+			<div class="map-results">
+				<div class="map-results-inner">									
+					{% include components/maps/list.html %}
+
+					{% include components/maps/detail.html %}
+
+					<div class="map-results-toggle">
+						<i class="fa fa-chevron-left"></i>
+					</div><!-- /.map-results-toggle -->						
+				</div><!-- /.map-results-inner -->			
+			</div><!-- /.map-results -->
+
+			<div class="map-object">
+				<div id="map-object"></div>
+			
+				{% include components/maps/toolbar.html %}
+
+				{% include components/maps/filter.html %}	
+			</div><!-- /#map-object -->					
+		</div><!-- /.map-inner -->
+	</div><!-- /.map -->
+</div><!-- /.map-wrapper -->

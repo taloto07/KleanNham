@@ -1,0 +1,25 @@
+<div class="listing-row-medium">
+    <div class="listing-row-medium-inner">
+        <a href="listings-detail.html" class="listing-row-medium-image" style="background-image: url({{ listing.image_thumbnail }});">
+            {% if listing.featured %}
+                <span class="listing-row-medium-featured">Featured</span><!-- /.listing-row-medium-featured -->
+            {% endif %}
+        </a>
+
+        <div class="listing-row-medium-content">
+            {% if listing.price %}
+            <a class="listing-row-medium-price" href="listings-detail.html">{{ listing.price }}</a>
+            {% endif %}
+
+            {% if listing.category %}
+            <a class="listing-row-medium-category tag" href="listings-detail.html">{{ listing.category }}</a>
+            {% endif %}
+
+            <h4 class="listing-row-medium-title"><a href="listings-detail.html">{{ listing.title }}</a></h4>
+
+            <div class="listing-row-medium-address">
+                {{ listing.address }}
+            </div><!-- /.listing-row-medium-address -->
+        </div><!-- /.listing-row-medium-content -->
+    </div><!-- /.listing-row-medium-inner -->
+</div><!-- /.listings-row-medium -->

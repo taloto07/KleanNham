@@ -1,0 +1,36 @@
+<div class="gallery">
+    {% assign listings = site.data.listings | shuffle %}
+    {% for listing in listings limit:5 %}
+        <div class="gallery-item" style="background-image: url({{ listing.image_thumbnail }});">
+        </div><!-- /.gallery-item -->                      
+    {% endfor %}      
+</div><!-- /.gallery -->
+
+<div class="row">            
+    <div class="col-lg-5">
+        <div class="overview">
+            <h2>Listing Attributes</h2>
+
+            <ul>
+                <li><strong>Price</strong><span>$480 / per week</span></li>
+                <li><strong>Location</strong><span>New York</span></li>
+                <li><strong>Status</strong><span>Rent</span></li>
+                <li><strong>Bedrooms</strong><span>4</span></li>
+                <li><strong>Bathrooms</strong><span>2</span></li>
+                <li><strong>Area</strong><span>180 sqft</span></li>                    
+            </ul>
+        </div><!-- /.overview -->
+    </div><!-- /.col-* -->
+
+    <div class="col-lg-7">
+        <h2>Description</h2>
+
+        <p>
+            Duis suscipit turpis suscipit lectus ultricies, placerat fermentum orci fringilla. Mauris semper magna cursus diam suscipit consectetur.
+        </p>
+
+        <p>
+            Integer condimentum sodales metus, quis pellentesque nisi tempor at. Quisque ornare efficitur risus eu bibendum. Donec feugiat consequat magna in interdum. Donec malesuada orci et mi fermentum, ac tincidunt arcu tincidunt. Ut fringilla tellus sem, quis rhoncus dolor condimentum id. Vivamus ut commodo felis. Fusce in lacus egestas, mattis ex et, molestie est.
+        </p>
+    </div><!-- /.col-* -->
+</div><!-- /.row -->

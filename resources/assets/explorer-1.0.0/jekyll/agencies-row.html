@@ -1,0 +1,26 @@
+---
+layout: default-boxed
+slug: agents-agencies
+title: Agencies Row Version
+page_title: Agencies Row Version
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="row">
+	<div class="col-md-8 col-lg-9">
+		{% include components/sort.html %}
+
+		{% for agency in site.data.agencies %}			
+			<div class="listing-row-simple-image">
+				{% include components/listing-row-agency.html %}			
+			</div><!-- /.listing-row-simple-image -->
+		{% endfor %}	
+
+		{% include components/pagination.html %}					
+	</div><!-- /.col -->
+
+	<div class="col-md-4 col-lg-3">
+		{% include components/sidebar-agency.html %}
+	</div><!-- /.col-* -->		
+</div><!-- /.row -->

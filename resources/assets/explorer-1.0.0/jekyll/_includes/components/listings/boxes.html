@@ -1,0 +1,35 @@
+<div class="listing-boxes">
+    <div class="row">
+        {% assign listings = site.data.listings | shuffle %}
+        {% for listing in listings limit:4 %}
+            <div class="col-sm-3">
+                {% include components/listings/box.html %}
+            </div>
+        {% endfor %}
+    </div><!-- /.row -->
+    
+    <div class="row">
+        {% assign listings = site.data.listings | shuffle %}
+        {% for listing in listings limit:3 %}
+            <div class="col-sm-3">
+                {% include components/listings/box.html %}
+            </div>
+        {% endfor %}
+
+        <div class="col-sm-3">
+            <div class="promo-box" style="height: 408px;">
+                <div class="promo-box-inner">
+                    <h2>Do you want to be here?</h2>
+
+                    <p>
+                        Duis eget ornare purus, feugiat consequat sem. Nullam non nisl blandit.
+                    </p>
+
+                    <a href="#" class="btn btn-primary">Check out more</a>
+                </div><!-- /.promo-box-inner -->
+
+                <div class="promo-box-image"></div><!-- /.promo-box-image -->
+            </div><!-- /.promo-box -->
+        </div><!-- /.col-* -->
+    </div><!-- /.row -->
+</div><!-- /.listing-boxes -->

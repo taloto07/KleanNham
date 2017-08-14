@@ -1,0 +1,68 @@
+---
+layout: default-detail
+active: listings
+title: Listing Detail
+page_title: Listing Detail
+---
+
+{% include components/breadcrumbs.html %} 
+
+<div class="row">
+	<div class="col-md-8 col-lg-9">
+		<div class="listing-detail-section" id="listing-detail-section-description" data-title="Description">
+			{% include components/detail/description.html %}
+		</div><!-- /.listing-detail-section -->
+
+		<div class="listing-detail-section" id="listing-detail-section-amenities" data-title="Amenities">
+			{% include components/detail/amenities.html %}
+		</div><!-- /.listing-detail-section -->
+
+		<div class="listing-detail-section" id="listing-detail-section-contact-information" data-title="Contact">
+			<h2>Contact Information</h2>
+			{% include components/detail/contact.html %}
+		</div><!-- /.listing-detail-section -->
+
+		<div class="listing-detail-section" id="listing-detail-section-menu" data-title="Menu">
+			{% include components/detail/menu.html %}
+		</div><!-- /.listing-detail-section -->
+
+		<div class="listing-detail-section" id="listing-detail-section-valuation" data-title="Valuation">
+			{% include components/detail/valuation.html %}
+		</div><!-- /.listing-detail-section -->
+
+		<div class="listing-detail-section" id="listing-detail-section-opening-hours" data-title="Opening Hours">
+			<h2>Opening Hours</h2>
+			{% include components/opening-hours.html %}
+		</div><!-- /.listing-detail-section -->
+
+		<div class="listing-detail-section" id="listing-detail-section-map-position" data-title="Map Position">
+			<h2>Map Position</h2>
+
+			{% include components/detail/map.html %}
+		</div><!-- /.listing-detail-section -->
+
+		<div class="listing-detail-section" id="listing-detail-section-price" data-title="Price">
+			{% include components/detail/chart.html %}
+		</div><!-- /.listing-detail-section -->
+
+		<div class="listing-detail-section mb80" id="listing-detail-section-reviews" data-title="Reviews">
+			<div class="box">
+				<div class="box-inner">
+					<div class="box-title">
+						<h2>Recent Reviews</h2>
+					</div><!-- /.box-title -->
+
+					{% include components/comments.html %}
+
+					<hr>
+					
+					{% include components/new-comment.html %}
+				</div><!-- /.box-inner -->
+			</div><!-- /.box-->
+		</div><!-- /.listing-detail-section -->		
+	</div><!-- /.col-* -->		
+
+	<div class="col-md-4 col-lg-3">
+		{% include components/sidebar-listing.html %}
+	</div><!-- /.col-* -->
+</div><!-- /.row -->

@@ -1,0 +1,19 @@
+<div class="map-results-list tse-scrollable">
+	<div class="tse-content">
+		<div class="map-results-header">
+			<h3>Best Spots Around</h3>
+
+			<p>
+				Curabitur viverra risus sed tellus eleifend, ut pretium tortor pulvinar. Quisque in neque turpis. Aenean auctor enim vitae.
+			</p>
+
+			<div class="map-results-count">72 items matching search query</div><!-- /.map-results-count -->
+		</div><!-- /.map-results-header -->				
+
+		<div class="map-results-content clickable">		
+			{% for listing in site.data.listings%}	
+				{% include components/listings/row-medium.html %}
+			{% endfor %}					
+		</div><!-- /.map-results-content -->
+	</div><!-- /.tse-content -->
+</div><!-- /.map-results-list -->	

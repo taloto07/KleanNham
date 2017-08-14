@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <title>{% block title %}{% endblock %} | {{ 'Explorer Admin'|trans }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+    {% stylesheets
+    '@AdminBundle/Resources/public/fonts/font-awesome/css/font-awesome.min.css' filter='cssrewrite'
+    '@AdminBundle/Resources/public/css/explorer.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+    {% endstylesheets %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+
+<div class="page-wrapper">
+    <div class="main-wrapper">
+        <div class="main">
+            <div class="main-inner">
+                <div class="container">
+                    {% block content %}{% endblock %}
+                </div><!-- /.container-fluid -->
+            </div>
+        </div><!-- /.main -->
+    </div><!-- /.main-wrapper -->
+</div><!-- /.page-wrapper -->
+{% javascripts
+'@AdminBundle/Resources/public/js/jquery.js'
+'@AdminBundle/Resources/public/js/tether.js'
+'@AdminBundle/Resources/public/js/bootstrap.js'
+'@AdminBundle/Resources/public/js/admin.js'
+%}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+</body>
+</html>

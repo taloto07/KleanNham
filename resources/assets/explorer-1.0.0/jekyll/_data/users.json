@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Craig D. Roman",
+    "image": "assets/img/tmp/user-1.jpg",
+    "total_listings": 1234,
+    "role": "admin",
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "Robert L. Carver",
+    "image": "assets/img/tmp/user-2.jpg",
+    "total_listings": 43,
+    "role": "editor",
+    "active": false
+  },
+  {
+    "id": 3,
+    "name": "Fernando J. Llamas",
+    "image": "assets/img/tmp/user-3.jpg",
+    "total_listings": 432,
+    "role": "subscriber",
+    "active": false
+  },
+  {
+    "id": 4,
+    "name": "Sylvia P. Turner",
+    "image": "assets/img/tmp/user-4.jpg",
+    "total_listings": 432,
+    "role": "author",
+    "active": true
+  },
+  {
+    "id": 5,
+    "name": "Reba H. Deal",
+    "image": "assets/img/tmp/user-5.jpg",
+    "total_listings": 3545,
+    "role": "subscriber",
+    "active": true
+  },
+  {
+    "id": 6,
+    "name": "William L. Riley",
+    "image": "assets/img/tmp/user-6.jpg",
+    "total_listings": 32,
+    "role": "admin",
+    "active": false
+  },
+  {
+    "id": 7,
+    "name": "Lou A. Taylor",
+    "image": "assets/img/tmp/user-7.jpg",
+    "total_listings": 235,
+    "role": "editor",
+    "active": true
+  },
+  {
+    "id": 8,
+    "name": "Alfred M. Sparks",
+    "image": "assets/img/tmp/user-8.jpg",
+    "total_listings": 534,
+    "role": "author",
+    "active": true
+  },
+  {
+    "id": 9,
+    "name": "Lucille K. Sheppard",
+    "image": "assets/img/tmp/user-9.jpg",
+    "total_listings": 748,
+    "role": "subscriber",
+    "active": false
+  },
+  {
+    "id": 10,
+    "name": "Lucille K. Sheppard",
+    "image": "assets/img/tmp/user-10.jpg",
+    "total_listings": 346,
+    "role": "admin",
+    "active": true
+  }
+]

@@ -3,7 +3,11 @@
 @section('title', 'About')
 
 @section('content')
-
-	This is about page.
-
+	
+	<div class="container" id="app">
+		This is about page.
+		
+		<lession-axious></lession-axious>
+	</div>
+	
 @endsection

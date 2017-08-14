@@ -1,0 +1,57 @@
+<div class="listing-row">
+	<div class="listing-row-inner">
+		<a class="listing-row-image" href="listings-detail.html">
+			<span class="listing-row-image-content" style="background-image: url({{ listing.image_thumbnail }})"></span>
+
+			{% if listing.info %}
+				<span class="listing-box-info">{{ listing.info }}</span><!-- /.listing-box-info -->
+			{% endif %}					
+		</a>
+
+		<div class="listing-row-content">
+			<div class="listing-row-content-header">				
+				<h3><a href="listings-detail.html">{{ listing.title }}</a></h3>
+				<h4>{{ listing.address }}</h4>	
+
+				{% include components/listings/actions.html %}
+			</div><!-- /.listing-row-content-header -->
+
+			<div class="listing-row-content-meta">	
+				<div class="listing-row-content-meta-item listing-row-content-meta-rating">
+					<span class="listing-row-rating">
+						{% assign count = (1..5)|random %}
+
+						{% for i in (1..count) %}
+							<i class="fa fa-star"></i>
+						{% endfor %}
+
+						{% if count != 5 %}
+							{% assign new = 5 | minus:count %}
+							{% for i in (1..new) %}
+								<i class="fa fa-star-o"></i>
+							{% endfor %}
+						{% endif %}
+					</span>
+				</div><!-- /.listing-row-meta-item -->
+
+				{% if listing.price %}								
+					<div class="listing-row-content-meta-item listing-row-content-meta-category">
+						<span class="tag tag-black">{{ listing.price }}</span>
+					</div><!-- /.listing-row-meta-item -->
+				{% endif %}
+
+				<div class="listing-row-content-meta-item listing-row-content-meta-category">
+					<span class="tag">{{ listing.category }}</span>
+				</div><!-- /.listing-row-meta-item -->
+			</div><!-- /.listing-row-meta-item -->
+
+			<div class="listing-row-content-body">
+				{{ listing.excerpt }}
+				
+				<div class="listing-row-content-read-more">
+					<a href="listings-detail.html">Read more</a>
+				</div><!-- /.listing-row-content-read-more -->			
+			</div><!-- /.listing-row-content-body -->
+		</div><!-- /.listing-row-content -->
+	</div><!-- /.listing-row-inner -->
+</div><!-- /.listing-row -->

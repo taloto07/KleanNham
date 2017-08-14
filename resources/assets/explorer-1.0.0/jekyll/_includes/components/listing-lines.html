@@ -1,0 +1,6 @@
+<div class="listing-lines">
+	{% assign listings = site.data.listings | shuffle %}
+	{% for listing in listings limit:6 %}
+		{% include components/listings/line.html %}
+	{% endfor %}
+</div><!-- /.listing-lines -->

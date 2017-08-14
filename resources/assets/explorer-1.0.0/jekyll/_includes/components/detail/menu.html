@@ -1,0 +1,26 @@
+<h2>Restaurant Menu</h2>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th class="min-width center">Weight</th>
+			<th>Name</th>
+			<th class="min-width center price">Price</th>
+		</tr>
+	</thead>
+
+	<tbody>		
+		{% for menu_item in site.data.menu %}
+			<tr>				
+				<td class="min-width center">{{ menu_item.weight }}</td>
+				<td>
+					<h2>
+						<img src="{{ menu_item.image }}" alt="{{ menu_item.title }}"> 
+						<span class="inline-block va-middle">{{ menu_item.title }}</span>
+					</h2>
+				</td>
+				<td class="min-width center price">{{ menu_item.price }}</td>
+			</tr>	
+		{% endfor %}
+	</tbody>
+</table>

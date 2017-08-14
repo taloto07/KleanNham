@@ -1,0 +1,43 @@
+<div class="hero-carousel-wrapper">
+    <div class="hero-carousel" style="background-image: url('assets/img/tmo/hero.jpg');">
+        <div class="hero-carousel-inner">
+            <div class="hero-carousel-filter">
+                <div class="container">
+                    <h1>Find the best fitting job carrer for you</h1>
+
+                    <p>
+                        We have available more than <strong>3500 job positions</strong> for <strong>8000 registered candidates</strong> provided by over <strong>1200 companies</strong>.
+                    </p>
+
+                    {% include components/filter-horizontal.html %}
+                </div><!-- /.container -->
+            </div><!-- /.hero-carousel-filter -->
+			
+            <div class="hero-carousel-items">                
+            	{% for job in site.data.jobs %}
+	                <div class="hero-carousel-item">
+	                	{% if job.featured %}
+		                    <div class="hero-carousel-item-featured">
+		                        <i class="fa fa-star"></i>
+		                    </div>
+	                    {% endif %}
+
+	                    <h3 class="hero-carousel-item-title">
+	                        <a href="listings-detail.html">{{ job.title }}</a>
+	                    </h3>
+
+	                    <div class="hero-carousel-item-company">
+	                        <a href="listing-detail.html">{{ job.author }}</a>, {{ job.created }}
+	                    </div>
+
+	                    <div class="hero-carousel-item-categories">
+	                    	{% for category in job.categories limit:2 %}
+	                        	<a class="hero-carousel-item-category" href="listings-detail.html">{{ category }}</a>	                        
+	                        {% endfor %}
+	                    </div>
+	                </div><!-- /.hero-carousel-item -->
+                {% endfor %}
+            </div><!-- /.hero-jobs -->
+        </div><!-- /.hero-inner -->
+    </div><!-- /.hero -->
+</div><!-- /.hero-wrapper -->

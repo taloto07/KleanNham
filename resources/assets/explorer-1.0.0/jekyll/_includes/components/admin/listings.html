@@ -1,0 +1,73 @@
+<div class="table-wrapper">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th class="min-width center"><input type="checkbox"></th>
+            <th class="min-width center">ID</th>
+            <th>Title</th>
+            <th class="min-width center">Category</th>
+            <th class="min-width center">Price</th>
+            <th class="min-width center">Featured</th>
+            <th class="min-width center">Verified</th>
+            <th class="min-width"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% assign listings = site.data.listings | shuffle %}
+        {% for listing in listings | limit:10 %}
+        <tr>
+            <td class="min-width center"><input type="checkbox"></td>
+
+            <td class="min-width center id">#{{ listing.id }}</td>
+
+            <td>
+                <div class="avatar squared" style="background-image: url({{ listing.image_thumbnail }})"></div>
+
+                <h2>
+                    <a href="#">{{ listing.title }}</a>
+                    <span>{{ listing.address }}</span>
+                </h2>
+            </td>
+
+
+            <td class="min-width no-wrap center">
+                <span class="tag">{{ listing.category }}</span>
+            </td>
+
+            <td class="min-width price">
+                {% if listing.price %}
+                    {{ listing.price }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+
+            <td class="min-width center">
+                <div class="status">
+                    {% if listing.featured %}
+                        <i class="fa fa-check"></i>
+                    {% else %}
+                        <i class="fa fa-times"></i>
+                    {% endif %}
+                </div><!-- /.status -->
+            </td>
+
+            <td class="min-width center">
+                <div class="status">
+                    {% if listing.verified %}
+                        <i class="fa fa-check"></i>
+                    {% else %}
+                        <i class="fa fa-times"></i>
+                    {% endif %}
+                </div><!-- /.status -->
+            </td>
+
+            <td class="min-width">
+                {% include components/admin/actions.html %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div><!-- /.table-wrapper -->

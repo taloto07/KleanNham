@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <title>{% block title %}{% endblock %} | {{ 'Explorer Admin'|trans }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+    {% stylesheets
+    '@AdminBundle/Resources/public/fonts/font-awesome/css/font-awesome.css' filter='cssrewrite'
+    '@AdminBundle/Resources/public/css/explorer.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+    {% endstylesheets %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+
+<div class="admin-wrapper">
+    <div class="admin-main">
+        <div class="admin-header">
+            <div class="container">
+                <div class="primary-nav-wrapper">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="{{ path('admin_listings_list') }}" class="nav-link ">{{ 'Listings'|trans }}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ path('admin_categories_list') }}" class="nav-link ">{{ 'Categories'|trans }}</a>
+                        </li>
+                    </ul>
+                </div><!-- /.primary-nav-wrapper -->
+            </div><!-- /.container -->
+        </div>
+
+        <div class="admin-page-title">
+            <div class="container">
+                <a href="{{ path('admin_listings_list') }}" class="admin-page-title-back">
+                    <i class="fa fa-long-arrow-left"></i>
+                </a>
+
+                <h1>{% block page_title %}{% endblock %}</h1>
+            </div><!-- /.container-fluid -->
+        </div>
+
+        <div class="admin-content">
+            <div class="container">
+                {{ include('AdminBundle::Helpers/messages.html.twig') }}
+
+                {% block content %}{% endblock %}
+            </div><!-- /.container-fluid -->
+        </div><!-- /.admin-content -->
+    </div><!-- /.admin-main -->
+</div><!-- /.admin-wrapper -->
+
+{% javascripts
+'@AdminBundle/Resources/public/js/jquery.js'
+'@AdminBundle/Resources/public/js/tether.js'
+'@AdminBundle/Resources/public/js/bootstrap.js'
+'@AdminBundle/Resources/public/js/admin.js'
+%}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
+
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+---
+layout: default-boxed
+active: listings
+title: Compare Listings
+page_title: Compare Listings
+---
+
+<div class="listing-compare-wrapper">
+	<div class="row">
+		<div class="listing-compare-description-wrapper col-md-3">
+			<div class="listing-compare-description">
+				<ul>
+					<li>Location</li>
+					<li>Sale</li>
+					<li>Price</li>
+					<li>Baths</li>
+					<li>Beds</li>
+					<li>Conditioning</li>
+					<li>Cleaning</li>
+					<li>Dishwasher</li>
+					<li>Grill</li>
+					<li>Internet</li>
+					<li>Microwave</li>
+					<li>Pool</li>
+					<li>Terrace</li>
+				</ul>
+			</div><!-- /.listing-compare-description -->
+		</div><!-- /.col-sm-3 -->
+
+		{% assign listings = site.data.listings | shuffle %}
+		{% for listing in listings limit:3 %}
+			<div class="listing-compare-col-wrapper col-md-3">
+				<div class="listing-compare-col">
+					<div class="listing-compare-image">
+						<a href="properties-detail-standard.html" class="listing-compare-image-link" style="background-image: url('{{ listing.image_thumbnail }}');">
+						</a>
+					</div><!-- /.listing-compare-image -->
+
+					<div class="listing-compare-title">
+						<h2><a href="properties-detail-standard.html">Emerson Street 12312</a></h2>
+						<h3>$ 304.000,00</h3>
+					</div><!-- /.listing-compare-title -->
+
+					<ul class="listing-compare-list">
+						<li>New York</li>
+						<li>Sale</li>
+						<li>{{ listing.price }}</li>
+						<li>2</li>
+						<li>4</li>
+						<li class="yes"><i class="fa fa-check"></i></li>
+						<li class="yes"><i class="fa fa-check"></i></li>
+						<li class="no"><i class="fa fa-times"></i></li>
+						<li class="yes"><i class="fa fa-check"></i></li>
+						<li class="yes"><i class="fa fa-check"></i></li>
+						<li class="yes"><i class="fa fa-check"></i></li>
+						<li class="no"><i class="fa fa-times"></i></li>
+						<li class="yes"><i class="fa fa-check"></i></li>
+					</ul><!-- /.listing-compare-list -->
+				</div><!-- /.listing-compare-col -->
+			</div><!-- /.listing-compare-col-wrapper -->
+		{% endfor %}
+	</div><!-- /.row -->
+</div><!-- /.listing-compare-wrapper -->

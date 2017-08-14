@@ -200,6 +200,9 @@ class PlaceController extends Controller
     {
         $places = Place::all();
 
+        if (request()->ajax())
+            return $places->load('sangkat', 'khan', 'city', 'pictures', 'comments', 'price', 'tags');
+
         return view('places.index', compact('places'));
     }
 

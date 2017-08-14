@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include header.html %}
+
+<body class="{{ page.body_class }}">
+<div class="admin-wrapper">
+	{% include components/admin/sidebar.html %}	
+	
+	<div class="admin-main">
+		{% include components/admin/header.html %}
+
+		{% include components/admin/title.html %}
+
+		<div class="admin-content">
+			<div class="container-fluid">
+				{% include components/breadcrumbs.html %}
+
+				{{ content }}
+			</div><!-- /.container -->
+		</div><!-- /.admin-content -->
+
+		{% include components/admin/footer.html %}
+	</div><!-- /.admin-main -->
+</div><!-- /.admin-wrapper -->
+
+{% include scripts.html %}
+</body>
+</html>

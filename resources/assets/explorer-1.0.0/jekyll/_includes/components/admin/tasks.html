@@ -1,0 +1,106 @@
+<div class="box">
+    <div class="box-inner">
+        <div class="box-title clearfix">
+            <h2>Task Managment</h2>
+
+            {% include components/admin/actions.html %}
+        </div><!-- /.box-title -->
+
+        <div class="table-wrapper">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="min-width center">
+                            <input type="checkbox">
+                        </th>
+                        <th class="min-width">Status</th>
+                        <th>Assigned</th>
+                        <th>Title</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="separator">
+                        <td colspan="4">
+                            193 completed tasks from 829
+                        </td>
+                    </tr>
+
+                    {% assign tasks = site.data.tasks | shuffle %}
+                    {% for task in tasks %}
+                        <tr>
+                            <td class="min-width center">
+                                <input type="checkbox">
+                            </td>
+
+                            <td class="min-width center status"><i class="fa fa-check"></i></td>
+                            
+                            <td class="title">
+                                <div class="avatar" style="background-image: url('assets/img/tmp/user-{{ task.user_id }}.jpg')"></div>
+                                <h2>
+                                    <a href="#">{{ task.user_name }}</a>
+                                    <span class="label label-success">Needs Review</span>
+                                </h2>
+                            </td>
+
+                            <td>
+                                <h2>
+                                    <a href="#">[#{{ task.id }}] {{ task.title }}</a>
+                                    <span>{{ task.description }}</span>
+                                </h2>
+                            </td>
+
+                            <td class="min-width">
+                                <div class="btn-group" role="group">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                                        Actions
+                                    </button>
+
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Workflow Action</a>
+                                        <a class="dropdown-item" href="#">Change Values</a>
+                                        <a class="dropdown-item" href="#">Delete Item</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    <tr class="separator">
+                        <td colspan="4">
+                            492 tasks are behind the deadline
+                        </td>
+                    </tr>
+                    {% assign tasks = site.data.tasks | shuffle %}
+                    {% for task in tasks %}
+                        <tr>
+                            <td class="min-width center">
+                                <input type="checkbox">
+                            </td>
+                            <td class="min-width center status"><i class="fa fa-times"></i></td>
+                            <td>
+                                <div class="avatar" style="background-image: url('assets/img/tmp/user-{{ task.user_id }}.jpg')"></div>
+                                <h2>
+                                    <a href="#">{{ task.user_name}}</a>
+                                    <span class="label label-danger">Overdue</span>
+                                </h2>
+                            </td>
+
+                            <td>
+                                <h2>
+                                    <a href="#">[#{{ task.id}}] {{ task.title }}</a>
+                                    <span>{{ task.description }}</span>
+                                </h2>
+                            </td>
+
+                            <td class="min-width">
+                                {% include components/admin/actions.html %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div><!-- /.table-wrapper -->            
+    </div><!-- /.box-inner -->
+</div><!-- /.box -->

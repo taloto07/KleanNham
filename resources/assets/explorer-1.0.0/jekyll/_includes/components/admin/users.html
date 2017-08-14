@@ -1,0 +1,71 @@
+<div class="box">
+    <div class="box-inner">
+        <div class="box-title clearfix">
+            <h2>Users</h2>
+
+            {% include components/admin/actions.html %}
+        </div><!-- /.box-title -->
+
+        <div class="table-wrapper">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="min-width center">
+                            <input type="checkbox">
+                        </th>
+
+                        <th class="min-width center">ID</th>
+
+                        <th>Title</th>
+
+                        <th class="min-width no-wrap">Total Listings</th>
+
+                        <th class="min-width center">Active</th>
+
+                        <th class="min-width center">Role</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                {% for user in site.data.users %}
+                <tr>
+                    <td class="min-width center">
+                        <input type="checkbox">
+                    </td>
+
+                    <td class="min-width center id">
+                        #{{ user.id }}
+                    </td>
+
+                    <td>
+                        <div class="avatar" style="background-image: url({{ user.image }})"></div>
+                        <h2>
+                            <a href="#">{{ user.name }}</a>
+                        </h2>
+                    </td>
+
+
+                    <td class="min-width number">{{ user.total_listings }}</td>
+
+                    <td class="min-width center status">
+                        {% if user.active %}
+                            <i class="fa fa-check"></i>
+                        {% else %}
+                            <i class="fa fa-times"></i>
+                        {% endif %}
+                    </td>
+
+                    <td class="min-width center">{{ user.role }}</td>
+
+                    <td class="min-width">
+                        {% include components/admin/actions.html %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div><!-- /.table-wrapper -->
+    </div><!-- /.box-inner -->
+</div><!-- /.box -->

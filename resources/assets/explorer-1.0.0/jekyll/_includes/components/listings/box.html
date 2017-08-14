@@ -1,0 +1,60 @@
+<div class="listing-box">
+	<div class="listing-box-inner">
+		{% if listing.info %}
+			<div class="listing-box-info">
+				{{ listing.info }}
+			</div><!-- /.listing-box-info -->
+		{% endif %}
+
+		{% if listing.featured %}
+			<span class="listing-box-featured">Featured</span>
+		{% endif %}
+
+		<a href="listings-detail.html" class="listing-box-image">			
+			<span class="listing-box-image-content" style="background-image: url({{ listing.image_thumbnail }})"></span><!-- /.listing-box-image-content -->
+
+			<span class="listing-box-category tag">{{ listing.category }}</span>
+			
+			<span class="listing-box-rating">
+				{% assign count = (1..5)|random %}
+
+				{% for i in (1..count) %}
+					<i class="fa fa-star"></i>
+				{% endfor %}
+
+				{% if count != 5 %}
+					{% assign new = 5 | minus:count %}
+					{% for i in (1..new) %}
+						<i class="fa fa-star-o"></i>
+					{% endfor %}
+				{% endif %}
+			</span>
+		</a><!-- /.listing-box-image -->
+
+		<div class="listing-box-content">			
+			<h2><a href="listings-detail.html">{{ listing.title }}</a></h2>
+			<h3>{{ listing.address }}</h3>
+
+			{% include components/listings/actions.html %}			
+		</div><!-- /.listing-box-content -->
+
+		<div class="listing-box-attributes">
+			<dl>
+				<dt>Miles</dt>
+				<dd>128K</dd>
+				<dt>Engine</dt>
+				<dd>Diesel</dd>
+				<dt>Type</dt>
+				<dd>Aston Martin</dd>
+			</dl>
+		</div><!-- /.listing-box-attributes -->
+
+		<div class="listing-box-attributes-icons">
+			<ul>
+				<li><i class="fa fa-arrows"></i> <span>182sqft</span></li>
+				<li><i class="fa fa-shower"></i> <span>2</span></li>
+				<li><i class="fa fa-car"></i> <span>1</span></li>
+			</ul>
+		</div><!-- /.listing-box-attributes -->		
+	</div><!-- /.listing-box-inner -->
+</div><!-- /.listing-box -->

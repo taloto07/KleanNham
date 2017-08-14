@@ -1,0 +1,95 @@
+---
+layout: default-boxed
+active: agents-agencies
+title: Agency Detail Page
+page_title: Agency Detail Page
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="row">
+    <div class="listing-detail col-md-8 col-lg-9">
+        <div class="row mb30">
+            <div class="col-lg-5">
+                <div class="overview">
+                    <h2>Information</h2>
+
+                    <ul>
+                        <li><strong>Name</strong><span>Estate Agency, Inc.</span></li>
+                        <li><strong>Phone</strong><span>+0-123-456-789</span></li>
+                        <li><strong>E-mail</strong><span>sample@example.com</span></li>
+                        <li><strong>Website</strong><span>www.example.com</span></li>
+                    </ul>
+                </div><!-- /.overview -->
+            </div><!-- col-* -->
+
+            <div class="col-lg-7">
+                <h2>About Agency</h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel sem ut magna posuere tincidunt non ut magna. Proin ac massa at arcu semper consectetur ut eget est. Praesent dignissim consectetur mollis. Mauris tristique interdum luctus. Fusce sed arcu pretium, elementum lorem sed, pellentesque ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel sem ut magna posuere tincidunt non ut magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel sem ut magna posuere tincidunt non ut magna.
+                </p>
+            </div><!-- /.col-* -->
+        </div><!-- /.row -->
+
+        <div class="box">
+            <div class="box-inner">
+                <div class="box-title">
+                    <h2>Contact Agency</h2>
+
+                    <p>
+                        In dictum fringilla sem vitae condimentum. Maecenas venenatis odio et eros venenatis, vel bibendum mauris elementum. Maecenas id lobortis tortor. Nam condimentum pulvinar odio eget tincidunt. Curabitur in mattis enim.
+                    </p>
+                </div><!-- /.box-title -->
+
+                <form method="post" action="?">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control">
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input type="text" class="form-control">
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" class="form-control">
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea class="form-control" rows="9" placeholder="Please keep your message as simple as possible."></textarea>
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+
+                        <div class="col-sm-12">
+                            <div class="form-group-btn">
+                                <button class="btn btn-primary pull-right">Send Message</button>
+                            </div><!-- /.form-group-btn -->
+                        </div><!-- /.col-* -->
+                    </div><!-- /.row -->
+                </form>
+            </div><!-- /.box-title-small -->
+        </div><!-- /.box -->
+
+        <h3 class="page-title-small">Assigned Agents</h3>
+
+        {% assign agents = site.data.agents | shuffle %}
+
+        {% for agent in agents limit:3 %}
+            {% include components/listing-row-agent.html %}
+        {% endfor %}
+
+        {% include components/pagination.html %}
+    </div><!-- /.col-* -->
+
+    <div class="col-md-4 col-lg-3">
+        {% include components/sidebar-agency.html %}
+    </div>    
+</div><!-- /.row -->

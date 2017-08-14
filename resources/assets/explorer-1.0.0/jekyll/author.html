@@ -1,0 +1,17 @@
+---
+layout: default-boxed
+active: pages
+title: Author Detail Page
+page_title: Author Detail Page
+---
+
+{% include components/breadcrumbs.html %}
+
+{% include components/author.html %}
+
+{% assign listings = site.data.listings | shuffle %}
+{% for listing in listings limit:5 %}
+		{% include components/listings/row.html %}
+{% endfor %}
+
+{% include components/pagination.html %}	

@@ -1,0 +1,29 @@
+.listing-hero address{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+	.primary-nav-wrapper-right{
+		top: 109px; /* each line is 42px + nav-bar: 60px + 1px to see line */
+	}
+
+	.primary-nav-wrapper-default ul > li:last-child {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+	}
+}
+
+@media (min-width: 768px) {
+	.primary-nav-wrapper-right{
+		top: 121px; /* each line is 60px + nav-bar: 60px + 2px to see line*/
+	}
+}
+
+.primary-nav-wrapper-right {
+	float: right;
+}
+
+.m-b-40 {
+	margin: 0 0 40px 0;
+}

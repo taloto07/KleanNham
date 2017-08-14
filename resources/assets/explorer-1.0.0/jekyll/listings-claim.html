@@ -1,0 +1,32 @@
+---
+layout: default-boxed
+active: listings
+title: Claim Listing
+page_title: Claim Listing
+---
+
+{% include components/breadcrumbs.html %}
+
+<form method="post" action="?" class="mb80">
+	<div class="form-group">
+		<label for="claim-form-name">Name<span class="required">*</span></label>
+		<input id="claim-form-name" class="form-control" name="name" type="text" required="required">
+	</div><!-- /.form-group -->
+
+	<div class="form-group">
+		<label for="claim-form-email">E-mail<span class="required">*</span></label>
+		<input id="claim-form-email" class="form-control" name="email" type="email" required="required">
+	</div><!-- /.form-group -->
+
+	<div class="form-group">
+		<label for="claim-form-phone">Phone<span class="required">*</span></label>
+		<input id="claim-form-phone" class="form-control" name="phone" type="text" required="required">
+	</div><!-- /.form-group -->
+
+	<div class="form-group">
+		<label for="claim-form-message">Message<span class="required">*</span></label>
+		<textarea id="claim-form-message" class="form-control" name="message" required="required" placeholder="" rows="4"></textarea>
+	</div><!-- /.form-group -->
+
+	<button type="submit" class="btn btn-primary" name="claim_form">Claim Listing</button>
+</form>

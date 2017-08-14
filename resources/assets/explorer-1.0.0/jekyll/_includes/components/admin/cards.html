@@ -1,0 +1,45 @@
+<div class="cards-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="box">
+                <div class="box-inner">
+                    <div class="box-title clearfix">
+                        <h2>Most recent listings</h2>
+                    </div><!-- /.box-title -->
+
+                    <div class="cards">
+                        <div class="row">
+                            {% assign cards = site.data.cards | shuffle %}
+                            {% for card in cards | limit:4 %}
+                                <div class="col-sm-6">
+                                    {% include components/card.html %}
+                                </div><!-- /.col-* -->
+                            {% endfor %}
+                        </div><!-- /.row -->
+                    </div><!-- /.cards -->
+                </div><!-- /.box-inner -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+
+        <div class="col-lg-6">
+            <div class="box">
+                <div class="box-inner">
+                    <div class="box-title clearfix">
+                        <h2>Files uploaded in media</h2>
+                    </div><!-- /.box-title -->
+
+                    <div class="cards">
+                        <div class="row">
+                            {% assign cards = site.data.files | shuffle %}
+                            {% for card in cards | limit:4 %}
+                                <div class="col-sm-6">
+                                    {% include components/card.html %}
+                                </div><!-- /.col-* -->
+                            {% endfor %}
+                        </div><!-- /.row -->
+                    </div><!-- /.cards -->
+                </div><!-- /.box-inner -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->        
+    </div><!-- /.row -->
+</div><!-- /.cards-wrapper -->

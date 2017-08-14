@@ -1,0 +1,74 @@
+---
+layout: homepage-real-estate
+title: Real Estate Homepage
+css: explorer-blue.css
+active: home
+---
+
+<div class="listing-tabs mt-80">
+    <div class="listing-tabs-header">
+        <h2>Search for the <strong>best properties</strong></h2>
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="#tab-all" data-toggle="tab">All Properties</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#tab-rent" data-toggle="tab">For Rent</a>
+            </li>
+
+            <li class="nav-item">  
+                <a class="nav-link" href="#tab-sale" data-toggle="tab">For Sale</a>
+            </li>    
+        </ul>
+    </div><!-- /.listing-tabs-headser -->
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab-all" role="tabpanel">            
+            {% include components/listings/boxes.html %}
+        </div><!-- /.tab-pane -->
+
+        <div class="tab-pane" id="tab-rent" role="tabpanel">
+            {% include components/listings/boxes.html %}
+        </div><!-- /.tab-pane -->
+
+        <div class="tab-pane" id="tab-sale" role="tabpanel">
+            {% include components/listings/boxes.html %}
+        </div><!-- /.tab-pane -->                
+    </div><!-- /.listing-tabs-content -->
+</div><!-- /.listing-tabs -->
+
+<div class="block mb0">
+    <div class="block-inner">
+
+        <div class="page-header">
+            <h2>Favorite Listing Categories</h2>
+            <p>Easily assign categories &amp; tags to approved listings and then display categories with icons for better user experience.</p>
+        </div>
+
+        {% include components/categories.html %}
+    </div><!-- /.block-inner -->
+</div><!-- /.block-inner -->
+
+{% include components/listings/carousel.html %}
+
+<div class="page-header">
+    <h2>Most Robust Directory Template Ever Made</h2>
+    <p>Duis eget ornare purus, feugiat consequat sem. Nullam non nisl blandit, tincidunt diam id, consequat elit. Nunc augue libero, viverra a odio</p>
+</div>
+
+{% include components/posts.html %}
+
+<div class="page-header">
+    <h2>Most Robust Directory Template Ever Made</h2>
+    <p>Duis eget ornare purus, feugiat consequat sem. Nullam non nisl blandit, tincidunt diam id, consequat elit. Nunc augue libero, viverra a odio</p>
+</div>
+
+{% include components/pricing.html %}
+
+{% include components/testimonials.html %}
+
+{% include components/partners.html %}
+
+{% include components/cta-price.html %}

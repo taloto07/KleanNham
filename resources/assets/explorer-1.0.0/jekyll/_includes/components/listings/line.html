@@ -1,0 +1,28 @@
+<div class="listing-line">
+	<div class="listing-line-title">
+		<div class="listing-line-image" style="background-image: url('{{ listing.image_thumbnail }}');">
+		</div><!-- /.listing-line-image -->
+
+		<div class="listing-line-title-content">
+			<h3><a href="listings-detail.html">{{ listing.title }}</a></h3>
+			<address>{{ listing.address }}</address>
+		</div><!-- /.listing-line-title-content -->
+	</div><!-- /.listing-line-title -->
+
+	<div class="listing-line-category">
+		<span class="tag">{{ listing.category }}</span>
+	</div><!-- /.listing-line-category -->
+
+
+	<div class="listing-line-price">
+		{% if listing.price %}
+			<strong>Salary</strong> <span>{{ listing.price }}</span>
+		{% else %}
+			<strong>Not provided</strong>
+		{% endif %}
+	</div><!-- /.listing-line-category -->
+
+	<div class="listing-line-read-more">
+		<a href="listings-detail.html" class="btn btn-primary">View Detail</a>
+	</div><!-- /.listing-line-read-more -->
+</div><!-- /.listing-line -->

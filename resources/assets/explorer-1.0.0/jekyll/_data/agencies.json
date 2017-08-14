@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "featured": false,
+        "verified": true,
+        "title": "Warehouse Club, Inc.",
+        "address": "726 Nancy Street, Durham, NC 27704",
+        "image": "assets/img/tmp/partner-1.png",
+        "email": "info@example.com",        
+        "excerpt": "In hac habitasse platea dictumst. Donec placerat quis dui eu accumsan. In fermentum massa non nunc posuere iaculis sed vel nulla. Fusce dapibus neque a hendrerit dignissim. ",
+        "location": "New York"
+    },    
+    {
+        "id": 2,
+        "featured": true,
+        "verified": true,
+        "title": "First Choice Yard Help",
+        "address": "726 Nancy Street, Durham, NC 27704",
+        "image": "assets/img/tmp/partner-2.png",
+        "email": "info@example.com",        
+        "excerpt": "In hac habitasse platea dictumst. Donec placerat quis dui eu accumsan. In fermentum massa non nunc posuere iaculis sed vel nulla. Fusce dapibus neque a hendrerit dignissim. ",
+        "location": "New York"
+    },    
+    {
+        "id": 3,
+        "featured": false,
+        "verified": true,
+        "title": "Second Time Around",
+        "address": "726 Nancy Street, Durham, NC 27704",
+        "image": "assets/img/tmp/partner-3.png",
+        "email": "info@example.com",        
+        "excerpt": "In hac habitasse platea dictumst. Donec placerat quis dui eu accumsan. In fermentum massa non nunc posuere iaculis sed vel nulla. Fusce dapibus neque a hendrerit dignissim. ",
+        "location": "New York"
+    },    
+    {
+        "id": 4,
+        "featured": false,
+        "verified": false,
+        "title": "Suadela Investment",
+        "address": "726 Nancy Street, Durham, NC 27704",
+        "image": "assets/img/tmp/partner-4.png",
+        "email": "info@example.com",   
+        "excerpt": "In hac habitasse platea dictumst. Donec placerat quis dui eu accumsan. In fermentum massa non nunc posuere iaculis sed vel nulla. Fusce dapibus neque a hendrerit dignissim. ",
+        "location": "New York"
+    },    
+    {
+        "id": 5,
+        "featured": false,
+        "verified": true,
+        "title": "Multi Tech Development",
+        "address": "726 Nancy Street, Durham, NC 27704",
+        "image": "assets/img/tmp/partner-5.png",
+        "email": "info@example.com",       
+        "excerpt": "In hac habitasse platea dictumst. Donec placerat quis dui eu accumsan. In fermentum massa non nunc posuere iaculis sed vel nulla. Fusce dapibus neque a hendrerit dignissim. ",
+        "location": "New York"
+    }                        
+]

@@ -14,7 +14,20 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('lession1', require('./components/Lession1.vue'));
+Vue.component('lession2', require('./components/Lession2.vue'));
+Vue.component('lessionAxious', require('./components/LessionAxious.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+    	data: ''
+    },
+
+    methods: {
+    	invokedFromLession1: function(val){
+    		this.data = val;
+    	}
+    }
 });

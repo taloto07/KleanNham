@@ -1,0 +1,10 @@
+<div class="widget">
+    <h3 class="widgettitle">Recent Listings</h3>
+
+	<div>
+		{% assign listings = site.data.listings | shuffle %}
+		{% for listing in listings limit:4 %}
+		    {% include components/listings/row-medium-minimal.html %}
+		{% endfor %}
+	</div>
+</div><!-- /.widget -->

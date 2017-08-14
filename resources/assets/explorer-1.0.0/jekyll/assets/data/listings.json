@@ -1,0 +1,20 @@
+---
+layout: empty
+---
+
+[
+  {% for listing in site.data.listings %}
+    {
+      "id": {{ listing.id }},
+      "title": "{{ listing.title }}",
+      "address": "{{ listing.address }}",
+      "price": "{{ listing.price }}",
+      "thumbnail": "{{ listing.image_thumbnail }}",
+      "verified": {{ listing.verified }},
+      "latitude": {{ listing.gps.latitude }},
+      "longitude": {{ listing.gps.longitude }}
+    }
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
+

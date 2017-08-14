@@ -1,0 +1,58 @@
+<div class="table-wrapper">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th class="min-width center"><input type="checkbox"></th>
+            <th class="min-width center">ID</th>
+            <th>Title</th>
+            <th class="min-width center">Featured</th>
+            <th class="min-width center">Verified</th>
+            <th class="min-width"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for agent in site.data.agents %}
+        <tr>
+            <td class="min-width center"><input type="checkbox"></td>
+
+            <td class="min-width center id">#{{ agent.id }}</td>
+
+            <td class="title">
+                <div class="avatar" style="background-image: url({{ agent.image }})"></div>
+
+                <h2>
+                    <a href="#">{{ agent.title }}</a>
+                    <span>{{ agent.address }}</span>
+                </h2>
+            </td>
+
+
+            <td class="min-width center">
+                <div class="status">
+                    {% if agent.featured %}
+                        <i class="fa fa-check"></i>
+                    {% else %}
+                      <i class="fa fa-times"></i>
+                    {% endif %}
+                </div><!-- /.status -->
+            </td>
+
+            <td class="min-width center">
+                <div class="status">
+                    {% if agent.verified %}
+                        <i class="fa fa-check"></i>
+                    {% else %}
+                        <i class="fa fa-times"></i>
+                    {% endif %}
+                </div><!-- /.status -->
+            </td>
+
+            <td class="min-width">
+                {% include components/admin/actions.html %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div><!-- /.table-wrapper -->    

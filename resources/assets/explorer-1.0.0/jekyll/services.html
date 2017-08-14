@@ -1,0 +1,34 @@
+---
+layout: default-boxed
+title: Services
+active: pages
+page_title: Services
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="posts-small">
+    <div class="row">
+        {% for service in site.data.services limit:8 %}
+            <div class="col-sm-3">
+                <div class="post-small">
+                    <div class="post-small-image">
+                        <a href="#">
+                            <img src="{{ service.image }}" alt="">
+                        </a>
+                    </div><!-- /.post-small-image -->
+
+                    <h3><a href="#">{{ service.name }}</a></h3>
+
+                    <p>
+                        Phasellus et vulputate orci, vitae mollis ligula. Etiam ut tempor tellus, eu hendrerit
+                    </p>
+
+                    <a href="#" class="btn btn-simple">Read Post</a>
+                </div><!-- /.post-small -->
+            </div><!-- /.col-* -->
+        {% endfor %}
+    </div><!-- /.row -->
+</div>
+
+{% include components/pagination.html %}

@@ -1,0 +1,19 @@
+---
+layout: admin
+title: Cards - Admin
+active: admin
+active_admin: cards
+page_title: Cards
+page_title_description: Your listings headquarters
+---
+
+<div class="cards">
+    <div class="row">
+        {% assign cards = site.data.cards|shuffle %}
+        {% for card in cards limit:18 %}
+        <div class="col-sm-2">
+            {% include components/card.html %}
+        </div><!-- /.col-* -->
+        {% endfor %}
+    </div><!-- /.row -->
+</div><!-- /.cards -->

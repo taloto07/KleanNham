@@ -1,0 +1,10 @@
+gems: [jekyll-tidy]
+exclude:
+- node_modules
+- fabfile.py
+- fabfile.pyc
+- README.md
+include: ['_scss', '*.scss', '*.json']
+webrick:
+  headers:
+    Access-Control-Allow-Origin: '*'

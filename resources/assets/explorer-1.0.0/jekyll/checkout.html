@@ -1,0 +1,152 @@
+---
+layout: default-boxed
+title: Checkout
+active: pages
+page_title: Checkout
+---
+
+{% include components/breadcrumbs.html %}
+
+{% include components/progress.html %}
+
+<div class="row">
+    <div class="col-md-8 col-lg-9">          
+        <form method="post" action="#">
+            <div class="box"> 
+                <div class="box-inner">            
+                    <div class="box-title">    
+                        <h2>Personal Information</h2>                
+                    </div><!-- /.box-title -->
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>First name</label>
+                                <input class="form-control" type="text">
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <input class="form-control" type="text">
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col -->
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Surname</label>
+                                <input class="form-control" type="text">
+                            </div><!-- /.form-group -->
+
+                            <div class="form-group">
+                                <label>Phone number</label>
+                                <input class="form-control" type="text">
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.box-inner -->
+            </div><!-- /.box -->
+        
+            <div class="box">
+                <div class="box-inner">
+                    <div class="box-title">
+                        <h2>Payment Information</h2>
+                    </div><!-- /.box-title -->
+
+                    <div class="form-group">
+                        <ul class="credit-cards">
+                            <li><i class="fa fa-cc-stripe"></i></li>
+                            <li><i class="fa fa-cc-discover"></i></li>
+                            <li><i class="fa fa-cc-paypal"></i></li>
+                            <li><i class="fa fa-cc-visa"></i></li>
+                        </ul><!-- /.credit-cards -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-5">
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input class="form-control" size="20" type="text" placeholder="XXXX-XXXX-XXXX-XXXX">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Name on card</label>
+                                <input class="form-control" size="28" type="text">
+                            </div>
+                        </div><!-- /.col -->
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Expiration date</label>
+                                <input class="form-control" size="3" type="text">
+                            </div>
+                        </div><!-- /.col -->
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label>CVV</label>
+                                <input class="form-control" size="3" type="text">
+                            </div>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.box-inner -->
+            </div><!-- /.box -->
+
+            <div class="box">
+                <div class="box-inner">                
+                    <div class="box-title">
+                        <h2>Billing address</h2>
+                    </div><!-- /.box-title -->
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input class="form-control" size="20" type="text">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select class="form-control"></select>
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input class="form-control" size="5" type="text">
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                    </div><!-- /.row -->
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Street and number</label>
+                                <input class="form-control" size="28" type="text">
+                            </div><!-- /.form-group -->
+                        </div><!-- /.col-* -->
+                    </div><!-- /.row -->
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="terms" >I accept terms &amp; conditions</label>
+                        </div>
+                    </div><!-- /.form-group -->
+
+                </div><!-- /.box-inner -->
+            </div><!-- /.box -->
+        </form>
+
+        {% include components/next-prev.html %}
+    </div>
+
+    <div class="col-md-4 col-lg-3">
+        {% include components/sidebar-checkout.html %}
+    </div>
+</div><!-- /.row  -->

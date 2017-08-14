@@ -1,0 +1,25 @@
+---
+layout: default-boxed
+title: Listings Rows
+active: listings
+page_title: Listings Rows
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="row">
+	<div class="col-md-8 col-lg-9">
+		{% include components/sort.html %}
+
+		{% assign listings = site.data.listings | shuffle %}
+		{% for listing in listings limit:6 %}			
+			{% include components/listings/row.html %}			
+		{% endfor %}
+
+		{% include components/pagination.html %}
+	</div><!-- /.col -->
+
+	<div class="col-md-4 col-lg-3"> 
+		{% include components/sidebar-filter.html %}
+	</div><!-- /.col-* -->
+</div><!-- /.row -->

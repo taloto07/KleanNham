@@ -1,0 +1,34 @@
+<div class="listing-row">
+	<div class="listing-row-inner">
+		<a class="listing-row-image listing-row-image-simple" href="agencies-detail.html">
+			<span class="listing-row-image-content" style="background-image: url({{ agency.image }});"></span>
+		</a>
+ 
+		<div class="listing-row-content">
+			<div class="listing-row-content-header">				
+				<h3><a href="agencies-detail.html">{{ agency.title }}</a></h3>
+				<h4>{{ agency.address }}</h4>	
+
+				{% include components/listings/actions.html %}
+			</div><!-- /.listing-row-content-header -->
+
+			<div class="listing-row-content-meta">			
+				<div class="listing-row-content-meta-item">
+					Location: {{ agency.location }}
+				</div><!-- /.listing-row-meta-item -->
+
+				<div class="listing-row-content-meta-item">
+					E-mail: <a href="mailto:{{ agency.email }}">{{ agency.email }}</a>
+				</div><!-- /.listing-row-meta-item -->
+			</div><!-- /.listing-row-meta-item -->
+
+			<div class="listing-row-content-body">
+				{{ agency.excerpt }} 
+				
+				<div class="listing-row-content-read-more">
+					<a href="agencies-detail.html">Read more</a>
+				</div><!-- /.listing-row-content-read-more -->			
+			</div><!-- /.listing-row-content-body -->
+		</div><!-- /.listing-row-content -->
+	</div><!-- /.listing-row-inner -->
+</div><!-- /.listing-row -->

@@ -1,0 +1,11 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block title %}{{ 'Create Listing'|trans }}{% endblock %}
+
+{% block page_title %}{{ 'Create Listing'|trans }}{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

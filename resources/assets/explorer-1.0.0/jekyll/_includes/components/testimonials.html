@@ -1,0 +1,23 @@
+<div class="testimonials-wrapper">	
+	<div class="row">
+		<div class="col-lg-7 push-lg-2">
+			<div class="testimonials">		
+				{% for i in (1..5) %}
+					<div class="testimonial-inner">
+						<blockquote>
+							Aenean porta sem a nulla vehicula commodo. Quisque eleifend mollis tincidunt. Phasellus purus leo, facilisis in egestas non, gravida non felis. Nullam sit amet vestibulum leo.
+						</blockquote>
+
+						<div class="testimonial-user">
+							<span class="testimonial-user-avatar" style="background-image: url('assets/img/tmp/user-{{ i }}.jpg');"></span>
+							<span class="testimonial-user-name">
+								<strong>Barbara B. Reid</strong>
+								<span>CEO at Super Company</span>
+							</span>
+						</div><!-- /.testimonial-user -->
+					</div><!-- /.testimonial-inner -->
+				{% endfor %}
+			</div><!-- /.testimonials -->
+		</div><!-- /.col-* -->
+	</div><!-- /.row -->
+</div><!-- /.testimonials-wrapper  -->

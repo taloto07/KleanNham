@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Social Networks",
+		"image": "assets/img/tmp/service-1.jpg"
+	},
+	{
+		"name": "Inbound Marketing",
+		"image": "assets/img/tmp/service-2.jpg"
+	},
+	{
+		"name": "Intranet Apps",
+		"image": "assets/img/tmp/service-3.jpg"
+	},
+	{
+		"name": "iOS Applications",
+		"image": "assets/img/tmp/service-4.jpg"
+	},
+	{
+		"name": "UI Wireframing",
+		"image": "assets/img/tmp/service-5.jpg"
+	},
+	{
+		"name": "Website Design",
+		"image": "assets/img/tmp/service-6.jpg"
+	},
+	{
+		"name": "CRM Consulting",
+		"image": "assets/img/tmp/service-7.jpg"
+	},
+	{
+		"name": "Data Mining",
+		"image": "assets/img/tmp/service-8.jpg"
+	},
+	{
+		"name": "Website Development",
+		"image": "assets/img/tmp/service-9.jpg"
+	},								
+]

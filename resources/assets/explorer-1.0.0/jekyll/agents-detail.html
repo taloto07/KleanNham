@@ -1,0 +1,116 @@
+---
+layout: default-boxed
+active: agents-agencies
+title: Agent Detail Page
+page_title: Agent Detail Page
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="row">
+	<div class="listing-detail col-md-8 col-lg-9">
+		<div class="listing-user">
+				<a href="#" class="avatar" style="background-image: url('assets/img/tmp/user-large-1.jpg');"></a>
+
+			<div class="listing-user-title">
+				<h2>Anita D. Smith</h2>
+				<h3>Senior Directory Manager</h3>
+			</div><!-- /.listing-user-title -->
+
+			<ul class="social">
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+				<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+				<li><a href="#"><i class="fa fa-foursquare"></i></a></li>
+			</ul>
+		</div><!-- /.listing-user -->
+
+		<div class="row">
+			<div class="col-lg-5">
+		        <div class="overview">
+		            <h3 class="page-title-small">Information</h3>
+
+		            <ul>
+		            	<li><strong>Name</strong><span>John Doe</span></li>
+		                <li><strong>Phone</strong><span>+0-123-456-789</span></li>
+		                <li><strong>E-mail</strong><span><a href="#">sample@example.com</a></span></li>			                
+		                <li><strong>Website</strong><span><a href="#">www.example.com</a></span></li>			                
+		                <li><strong>Real Estate</strong><span>Estate Agency, Inc.</span></li>                
+		            </ul>
+		        </div><!-- /.overview -->				
+			</div><!-- col-* -->
+
+			<div class="col-lg-7">
+				<h3 class="page-title-small">About Agent</h3>
+
+				<p class="mb30">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel sem ut magna posuere tincidunt non ut magna. Proin ac massa at arcu semper consectetur ut eget est. Praesent dignissim consectetur mollis. Mauris tristique interdum luctus. Fusce sed arcu pretium, elementum lorem sed, pellentesque ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel sem ut magna posuere tincidunt non ut magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel sem ut magna posuere tincidunt non ut magna. 
+				</p>
+			</div><!-- /.col-* -->
+		</div><!-- /.row -->
+		
+		<div class="box">
+			<div class="box-inner">
+				<div class="box-title">
+					<h2>Contact Agent</h2>
+
+					<p>
+						In dictum fringilla sem vitae condimentum. Maecenas venenatis odio et eros venenatis, vel bibendum mauris elementum. Maecenas id lobortis tortor. Nam condimentum pulvinar odio eget tincidunt. Curabitur in mattis enim.					
+					</p>						
+				</div><!-- /.box-title -->
+
+				<form method="post" action="?">
+					<div class="row">					
+						<div class="col-sm-5">
+							<div class="form-group">
+								<label>Name</label>
+								<input type="text" class="form-control">
+							</div><!-- /.form-group -->					
+
+							<div class="form-group">
+								<label>E-mail</label>
+								<input type="text" class="form-control">
+							</div><!-- /.form-group -->											
+
+							<div class="form-group">
+								<label>Subject</label>
+								<input type="text" class="form-control">
+							</div><!-- /.form-group -->																	
+						</div><!-- /.col-* -->
+
+						<div class="col-sm-7">
+							<div class="form-group">
+								<label>Message</label>
+								<textarea class="form-control" rows="10" placeholder="Please keep your message as simple as possible."></textarea>
+							</div><!-- /.form-group -->
+						</div><!-- /.col-* -->
+
+						<div class="col-sm-12">
+							<div class="form-group-btn">
+								<button class="btn btn-primary pull-right">Send Message</button>
+							</div><!-- /.form-group-btn -->
+						</div><!-- /.col-* -->										
+					</div><!-- /.row -->
+				</form>
+			</div><!-- /.box-inner -->
+		</div><!-- /.box -->
+
+		<h3 class="page-title-small">Agent Assigned Listings</h3>
+
+		<div class="row">
+			{% assign listings = site.data.listings | shuffle %}
+			{% for listing in listings limit:3 %}
+				<div class="col-md-6 col-lg-4">
+					{% include components/listings/box.html %}
+				</div><!-- /.col-* -->
+			{% endfor %}
+		</div><!-- /.row -->
+
+		{% include components/pagination.html %}	
+	</div><!-- /.col-* -->
+
+	<div class="col-md-4 col-lg-3">
+		{% include components/sidebar-agency.html %}
+	</div>
+</div><!-- /.row -->

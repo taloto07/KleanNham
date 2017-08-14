@@ -1,0 +1,23 @@
+<div class="listing-box">
+	<div class="listing-box-inner">
+		<a href="agents-detail.html" class="listing-box-image">			
+			<span class="listing-box-image-content" style="background-image: url({{ agent.image }})"></span><!-- /.listing-box-image-content -->			
+		</a><!-- /.listing-box-image -->
+
+		<div class="listing-box-content">			
+			<h2><a href="agents-detail.html">{{ agent.title }}</a></h2>
+			<h3>{{ agent.address }}</h3>
+			
+			{% include components/listings/actions.html %}			
+		</div><!-- /.listing-box-content -->
+
+		<div class="listing-box-attributes">
+			<dl>
+				<dt>E-mail</dt>
+				<dd><a href="mailto:{{ agent.email }}">{{ agent.email }}</a></dd>
+				<dt>Location</dt>
+				<dd>{{ agent.location }}</dd>
+			</dl>
+		</div><!-- /.listing-box-attributes -->
+	</div><!-- /.listing-box-inner -->
+</div><!-- /.listing-box -->

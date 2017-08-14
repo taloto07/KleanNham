@@ -1,0 +1,78 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block title %}{{ 'Categories'|trans }}{% endblock %}
+
+{% block page_title %}{{ 'Categories'|trans }}{% endblock %}
+
+{% block content %}
+    <div class="table-header clearfix">
+        <div class="table-header-count">
+            {% set count = categories.getTotalItemCount %}
+            {% transchoice count %}
+            {0} <span>%count%</span> categories matching query|{1} <span>%count%</span> category matching query|]1,Inf[<span>%count%</span> categories matching query
+            {% endtranschoice %}
+        </div><!-- /.table-header-count -->
+
+        <div class="table-header-actions">
+            <a href="{{ path('admin_categories_create') }}" class="btn btn-primary">
+                <i class="fa fa-plus"></i> {{ 'Create Category'|trans }}
+            </a>
+        </div><!-- /.table-header-actions -->
+    </div><!-- /.table-header -->
+
+    <div class="box">
+        <div class="box-inner">
+            <div class="box-title">
+                <h2>{{ 'Categories'|trans }}</h2>
+            </div><!-- /.box-title -->
+        
+            {% if categories|length %}
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="min-width center">{{ 'ID'|trans }}</th>
+                        <th>{{ 'Title'|trans }}</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for category in categories %}
+                            <tr>
+                                <td class="min-width center id">#{{ category.getId }}</td>
+
+                                <td>
+                                    <h2>
+                                        {{ category.getName }}
+                                        <span>{{ 'Slug'|trans }}: {{ category.getSlug }}</span>
+                                    </h2>
+                                </td>
+
+                                <td class="min-width">
+                                    <div class="btn-group" role="group">
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                            {{ 'Actions'|trans }}
+                                        </button>
+
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ path('admin_categories_update', {'id': category.getId}) }}">{{ 'Update'|trans }}</a>
+                                            <a class="dropdown-item" href="{{ path('admin_categories_delete', {'id': category.getId}) }}">{{ 'Delete'|trans }}</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="mb0">
+                    {{ 'No categories found.'|length }}
+                </p>
+            {% endif %}
+        </div><!-- /.box-inner -->
+    </div><!-- /.box -->
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(categories) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="assets/libraries/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/slick/slick-theme.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/trackpad-scroll-emulator.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/chartist.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/jquery.raty.css" rel="stylesheet" type="text/css">
+    <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/nouislider.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/explorer.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <title>Users - Admin - Explorer</title>
+  </head>
+  <body class="">
+    <div class="admin-wrapper">
+      <div class="admin-sidebar">
+        <div class="admin-sidebar-header">
+          <div class="admin-sidebar-logo">
+            <a href="admin-dashboard.html">
+              <img src="assets/img/logo.svg" class="svg" alt="Home">
+            </a>
+            <a href="admin-dashboard.html" class="admin-sidebar-logo-title">
+              <strong>Explorer</strong>
+              <span>Directory Template</span>
+            </a>
+          </div>
+          <!-- /.admin-sidebar-logo -->
+        </div>
+        <!-- /.admin-sidebar-header -->
+        <div class="admin-sidebar-content">
+          <h3>General Objects</h3>
+          <ul class="nav flex-column">
+            <li class="nav-item has-sub-menu">
+              <a href="admin-dashboard.html" class="nav-link ">
+                <i class="fa fa-tachometer"></i><span>Dashboard</span>
+              </a>
+              <ul>
+                <li><a href="admin-dashboard.html">Dark Expanded Sidebar</a></li>
+                <li><a href="admin-dashboard-light-sidebar.html">Light Sidebar</a></li>
+                <li><a href="admin-dashboard-minimal-sidebar.html">Compressed Sidebar</a></li>
+                <li><a href="admin-dashboard-light-minimal-sidebar.html">Light Compressed Sidebar</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="admin-listings.html" class="nav-link ">
+                <i class="fa fa-align-justify"></i><span>Listings</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-agencies.html" class="nav-link ">
+                <i class="fa fa-building"></i><span>Agencies</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-agents.html" class="nav-link ">
+                <i class="fa fa-briefcase"></i><span>Agents</span>
+              </a>
+            </li>
+          </ul>
+          <h3>Management Tools</h3>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="admin-projects.html" class="nav-link ">
+                <i class="fa fa-folder"></i><span>Projects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-tasks.html" class="nav-link ">
+                <i class="fa fa-file-text"></i><span>Tasks</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-cards.html" class="nav-link ">
+                <i class="fa fa-th-large"></i><span>Cards</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-media.html" class="nav-link ">
+                <i class="fa fa-file-image-o"></i><span>Media</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-users.html" class="nav-link ">
+                <i class="fa fa-users"></i><span>Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-messages.html" class="nav-link ">
+                <i class="fa fa-bell"></i><span>Messages</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-tables.html" class="nav-link ">
+                <i class="fa fa-table"></i><span>Tables</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-forms.html" class="nav-link ">
+                <i class="fa fa-check-square"></i><span>Forms</span>
+              </a>
+            </li>
+          </ul>
+          <!-- /.nav -->
+        </div>
+        <!-- /.admin-sidebar-content -->
+        <div class="admin-sidebar-footer">
+          <strong>Need a help?</strong>
+          <span>Call us +0-123-456-789</span>
+        </div>
+        <!-- /.admin-sidebar-footer -->
+      </div>
+      <!-- /.admin-sidebar -->
+      <div class="admin-main">
+        <div class="admin-header">
+          <div class="container-fluid">
+            <div class="admin-header-sidebar-toggle toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="primary-nav-wrapper">
+              <ul class="nav">
+                <li class="nav-item has-sub-menu">
+                  <a href="#" class="nav-link ">Home</a>
+                  <ul class="sub-menu">
+                    <li><a href="index-directory.html"><b>1.</b> &nbsp;&nbsp;Directory Version</a></li>
+                    <li><a href="index-classified.html"><b>2.</b> &nbsp;&nbsp;Classified Version</a></li>
+                    <li><a href="index-job-board.html"><b>3.</b> &nbsp;&nbsp;Job Board Version</a></li>
+                    <li><a href="index-real-estate.html"><b>4.</b> &nbsp;&nbsp;Real Estate Version</a></li>
+                    <li><a href="index-automotive.html"><b>5.</b> &nbsp;&nbsp;Automotive Version</a></li>
+                    <li><a href="index-travel.html"><b>6.</b> &nbsp;&nbsp;Travel &amp; Hotel Version</a></li>
+                    <li><a href="index-restaurant.html"><b>7.</b> &nbsp;&nbsp;Restaurant Version</a></li>
+                    <li><a href="admin-dashboard.html"><b>8.</b> &nbsp;&nbsp;Admin Dashboard</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item has-sub-menu">
+                  <a href="#" class="nav-link ">Listings</a>
+                  <ul class="sub-menu">
+                    <li><a href="listings-google-map.html">Listings Google Map</a></li>
+                    <li><a href="listings-grid.html">Listings Grid</a></li>
+                    <li><a href="listings-rows.html">Listings Rows</a></li>
+                    <li><a href="listings-detail.html">Listing Detail</a></li>
+                    <li><a href="listings-my.html">My Listing</a></li>
+                    <li><a href="listings-compare.html">Listings Compare</a></li>
+                    <li><a href="listings-submit.html">Submit Listing</a></li>
+                    <li><a href="listings-claim.html">Claim Listing</a></li>
+                    <li><a href="listings-favorites.html">Favorite Listings</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item has-sub-menu">
+                  <a href="#" class="nav-link ">Agencies &amp; Agents</a>
+                  <ul class="sub-menu">
+                    <li><a href="agents-row.html">Agents Rows</a></li>
+                    <li><a href="agents-grid.html">Agents Grid</a></li>
+                    <li><a href="agents-submit.html">Agent Submit</a></li>
+                    <li><a href="agents-detail.html">Agent Detail</a></li>
+                    <li><a href="agencies-row.html">Agencies Rows</a></li>
+                    <li><a href="agencies-grid.html">Agencies Grid</a></li>
+                    <li><a href="agencies-submit.html">Agency Submit</a></li>
+                    <li><a href="agencies-detail.html">Agency Detail</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item has-sub-menu has-mega-menu">
+                  <a href="#" class="nav-link ">Pages</a>
+                  <div class="sub-menu mega-menu">
+                    <ul>
+                      <li><strong>Elements I.</strong></li>
+                      <li><a href="pricing.html">Pricing</a></li>
+                      <li><a href="services.html">Services</a></li>
+                      <li><a href="user-profile-edit.html">User Profile Edit</a></li>
+                      <li><a href="testimonials.html">Testimonials</a></li>
+                      <li><a href="author.html">Author Detail</a></li>
+                    </ul>
+                    <ul>
+                      <li><strong>Elements II.</strong></li>
+                      <li><a href="tables.html">Tables</a></li>
+                      <li><a href="invoice.html">Invoice</a></li>
+                      <li><a href="grid.html">Grid</a></li>
+                      <li><a href="filters.html">Filters</a></li>
+                      <li><a href="reservations-extra-features.html">Reservations Features</a></li>
+                    </ul>
+                    <ul>
+                      <li><strong>Elements III.</strong></li>
+                      <li><a href="faq.html">FAQ</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="login.html">Login</a></li>
+                      <li><a href="registration.html">Registration</a></li>
+                      <li><a href="checkout.html">Checkout</a></li>
+                    </ul>
+                    <ul>
+                      <li><strong>Elements IV.</strong></li>
+                      <li><a href="forms.html">Forms</a></li>
+                      <li><a href="change-password.html">Change password</a></li>
+                      <li><a href="reset-password.html">Reset password</a></li>
+                      <li><a href="messages.html">Messages</a></li>
+                      <li><a href="sticky-footer.html">Sticky Footer</a></li>
+                    </ul>
+                    <ul>
+                      <li><strong>Elements V.</strong></li>
+                      <li><a href="terms-conditions.html">Terms &amp; Conditions</a></li>
+                      <li><a href="403.html">403 - Access not allowed</a></li>
+                      <li><a href="404.html">404 - Page not found</a></li>
+                      <li><a href="500.html">500 - Internal server error</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item has-sub-menu has-mega-menu">
+                  <a href="#" class="nav-link active">Admin</a>
+                  <div class="sub-menu mega-menu">
+                    <ul>
+                      <li>
+                        <strong>Dashboards</strong>
+                      </li>
+                      <li><a href="admin-dashboard.html">Standard Version</a></li>
+                      <li><a href="admin-dashboard-minimal-sidebar.html">Compressed Sidebar</a></li>
+                      <li><a href="admin-dashboard-light-sidebar.html">Light Sidebar</a></li>
+                      <li><a href="admin-dashboard-light-minimal-sidebar.html">Compressed Light Sidebar</a></li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <strong>Listings</strong>
+                      </li>
+                      <li><a href="admin-listings.html">Listings</a></li>
+                      <li><a href="admin-agencies.html">Agencies</a></li>
+                      <li><a href="admin-agents.html">Agents</a></li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <strong>Workflow</strong>
+                      </li>
+                      <li><a href="admin-projects.html">Projects</a></li>
+                      <li><a href="admin-tasks.html">Tasks</a></li>
+                      <li><a href="admin-users.html">Users</a></li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <strong>Template Helpers</strong>
+                      </li>
+                      <li><a href="admin-messages.html">Messages</a></li>
+                      <li><a href="admin-cards.html">Cards</a></li>
+                      <li><a href="admin-forms.html">Forms</a></li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <strong>Template Helpers</strong>
+                      </li>
+                      <li><a href="admin-media.html">Media files</a></li>
+                      <li><a href="admin-tables.html">Tables</a></li>
+                    </ul>
+                  </div>
+                  <!-- /.mega-menu -->
+                </li>
+                <li class="nav-item has-sub-menu">
+                  <a href="#" class="nav-link ">Blog</a>
+                  <ul class="sub-menu">
+                    <li><a href="blog.html">Blog Right Sidebar</a></li>
+                    <li><a href="blog-left.html">Blog Left Sidebar</a></li>
+                    <li><a href="blog-grid.html">Blog Grid Right Sidebar</a></li>
+                    <li><a href="blog-grid-left.html">Blog Grid Left Sidebar</a></li>
+                    <li><a href="blog-detail.html">Blog Detail Right Sidebar</a></li>
+                    <li><a href="blog-detail-left.html">Blog Detail Left Sidebar</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <!-- /.primary-nav-wrapper -->
+            <div class="admin-header-avatar">
+              <span class="avatar" style="background-image: url('../assets/img/tmp/user-10.jpg');"></span>
+              <span class="admin-header-avatar-name">John Kane <i class="fa fa-chevron-down"></i></span>
+              <ul class="admin-header-avatar-menu">
+                <li><a href="#">Your Profile</a></li>
+                <li><a href="#">Change Password</a></li>
+                <li><a href="#">Sign Out</a></li>
+              </ul>
+              <!-- /.admin-header-avatar-menu -->
+            </div>
+            <!-- /.admin-header-avatar -->
+            <div class="admin-header-actions">
+              <div class="admin-header-action">
+                <a href="#"><i class="fa fa-cog"></i></a>
+              </div>
+              <!-- /.admin-header-action -->
+              <div class="admin-header-action">
+                <a href="#">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="active"></span>
+                </a>
+              </div>
+              <!-- /.admin-header-action -->
+            </div>
+            <!-- /.admin-header-actions -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.admin-header -->
+        <div class="admin-page-title">
+          <div class="container-fluid">
+            <a href="admin-dashboard.html" class="admin-page-title-back">
+              <i class="fa fa-long-arrow-left"></i>
+            </a>
+            <h1>Reviews <small>Manage reviews</small></h1>
+            <div class="admin-page-title-actions">
+              <a href="#" class="btn btn-secondary"><i class="fa fa-cog"></i> Settings</a>
+            </div>
+            <!-- /.admin-page-title-actions -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.admin-page-title -->
+        <div class="admin-content">
+          <div class="container-fluid">
+            <nav class="breadcrumb">
+              <a class="breadcrumb-item" href="#">Home</a>
+              <a class="breadcrumb-item" href="#">Library</a>
+              <a class="breadcrumb-item" href="#">Data</a>
+              <span class="breadcrumb-item active">Bootstrap</span>
+            </nav>
+            <div class="table-header clearfix">
+              <div class="table-header-count">
+                <strong>2082</strong> results matching query
+              </div>
+              <!-- /.table-header-count -->
+              <div class="table-header-actions">
+                <a href="#" class="btn btn-primary"><i class="fa fa-filter"></i> Apply filters</a>
+                <a href="#" class="btn"><i class="fa fa-download"></i> Export All</a>
+              </div>
+              <!-- /.table-header-actions -->
+            </div>
+            <!-- /.table-header -->
+            <div class="box">
+              <div class="box-inner">
+                <div class="box-title clearfix">
+                  <h2>Users</h2>
+                  <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                      Actions
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Workflow Action</a>
+                      <a class="dropdown-item" href="#">Change Values</a>
+                      <a class="dropdown-item" href="#">Delete Item</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.box-title -->
+                <div class="table-wrapper">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th class="min-width center">
+                          <input type="checkbox">
+                        </th>
+                        <th class="min-width center">ID</th>
+                        <th>Title</th>
+                        <th class="min-width no-wrap">Total Listings</th>
+                        <th class="min-width center">Active</th>
+                        <th class="min-width center">Role</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #1
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-1.jpg)"></div>
+                          <h2>
+                            <a href="#">Craig D. Roman</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">1234</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-check"></i>
+                        </td>
+                        <td class="min-width center">admin</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #2
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-2.jpg)"></div>
+                          <h2>
+                            <a href="#">Robert L. Carver</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">43</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-times"></i>
+                        </td>
+                        <td class="min-width center">editor</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #3
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-3.jpg)"></div>
+                          <h2>
+                            <a href="#">Fernando J. Llamas</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">432</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-times"></i>
+                        </td>
+                        <td class="min-width center">subscriber</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #4
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-4.jpg)"></div>
+                          <h2>
+                            <a href="#">Sylvia P. Turner</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">432</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-check"></i>
+                        </td>
+                        <td class="min-width center">author</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #5
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-5.jpg)"></div>
+                          <h2>
+                            <a href="#">Reba H. Deal</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">3545</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-check"></i>
+                        </td>
+                        <td class="min-width center">subscriber</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #6
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-6.jpg)"></div>
+                          <h2>
+                            <a href="#">William L. Riley</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">32</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-times"></i>
+                        </td>
+                        <td class="min-width center">admin</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #7
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-7.jpg)"></div>
+                          <h2>
+                            <a href="#">Lou A. Taylor</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">235</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-check"></i>
+                        </td>
+                        <td class="min-width center">editor</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #8
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-8.jpg)"></div>
+                          <h2>
+                            <a href="#">Alfred M. Sparks</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">534</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-check"></i>
+                        </td>
+                        <td class="min-width center">author</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #9
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-9.jpg)"></div>
+                          <h2>
+                            <a href="#">Lucille K. Sheppard</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">748</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-times"></i>
+                        </td>
+                        <td class="min-width center">subscriber</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="min-width center">
+                          <input type="checkbox">
+                        </td>
+                        <td class="min-width center id">
+                          #10
+                        </td>
+                        <td>
+                          <div class="avatar" style="background-image: url(assets/img/tmp/user-10.jpg)"></div>
+                          <h2>
+                            <a href="#">Lucille K. Sheppard</a>
+                          </h2>
+                        </td>
+                        <td class="min-width number">346</td>
+                        <td class="min-width center status">
+                          <i class="fa fa-check"></i>
+                        </td>
+                        <td class="min-width center">admin</td>
+                        <td class="min-width">
+                          <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" >
+                              Actions
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Workflow Action</a>
+                              <a class="dropdown-item" href="#">Change Values</a>
+                              <a class="dropdown-item" href="#">Delete Item</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.table-wrapper -->
+              </div>
+              <!-- /.box-inner -->
+            </div>
+            <!-- /.box -->
+            <ul class="pagination pull-right">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.admin-content -->
+        <div class="admin-footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                &copy; 2017 Created by <a href="http://wearecodevision.com">Code Vision</a>. All rights reserved.
+              </div>
+              <!-- /.col-* -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+      </div>
+      <!-- /.admin-main -->
+    </div>
+    <!-- /.admin-wrapper -->
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing&key=AIzaSyDmXybAJzoPZ6hH-Jhv7QMCSGgQ6MY8WqY" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/tether.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/chartist.min.js"></script>
+    <script type="text/javascript" src="assets/js/google-map-richmarker.min.js"></script>
+    <script type="text/javascript" src="assets/js/google-map-infobox.min.js"></script>
+    <script type="text/javascript" src="assets/js/google-map-markerclusterer.js"></script>
+    <script type="text/javascript" src="assets/js/google-map.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.trackpad-scroll-emulator.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.inlinesvg.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.affix.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="assets/libraries/slick/slick.min.js"></script>
+    <script type="text/javascript" src="assets/js/nouislider.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.raty.js"></script>
+    <script type="text/javascript" src="assets/js/wNumb.js"></script>
+    <script type="text/javascript" src="assets/js/particles.min.js"></script>
+    <script type="text/javascript" src="assets/js/explorer.js"></script>
+    <script type="text/javascript" src="assets/js/explorer-map-search.js"></script>
+  </body>
+</html>

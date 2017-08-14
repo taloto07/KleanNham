@@ -1,0 +1,26 @@
+[
+	{
+		"title": "Chicago",
+		"image": "assets/img/tmp/location-1.jpg"
+	},
+	{
+		"title": "New York",
+		"image": "assets/img/tmp/location-2.jpg"
+	},	
+	{
+		"title": "Boston",
+		"image": "assets/img/tmp/location-3.jpg"
+	},
+	{
+		"title": "Washington",
+		"image": "assets/img/tmp/location-4.jpg"
+	},
+	{
+		"title": "Prague",
+		"image": "assets/img/tmp/location-5.jpg"
+	},	
+	{
+		"title": "Rome",
+		"image": "assets/img/tmp/location-6.jpg"
+	}	
+]

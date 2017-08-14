@@ -1,0 +1,38 @@
+[
+	{
+		"image": "assets/img/tmp/menu-1.jpg",
+		"title": "Stuffed Basil &amp; Cinnamon Beef",
+		"price": "$8.90",
+		"weight": "320g"
+	},
+	{
+		"image": "assets/img/tmp/menu-2.jpg",
+		"title": "Blanched Oregano Duck",
+		"price": "$95.90",
+		"weight": "540g"
+	},
+	{
+		"image": "assets/img/tmp/menu-3.jpg",
+		"title": "Smoked Northern-Style Cod",
+		"price": "$35.90",
+		"weight": "120g"
+	},
+	{
+		"image": "assets/img/tmp/menu-4.jpg",
+		"title": "Peach and Saffron Ice Lollies",
+		"price": "$52.00",
+		"weight": "340g"
+	},
+	{
+		"image": "assets/img/tmp/menu-5.jpg",
+		"title": "Chestnut Bombe",
+		"price": "$43.90",
+		"weight": "750g"
+	},
+	{
+		"image": "assets/img/tmp/menu-6.jpg",
+		"title": "Dark Chocolate Whip",
+		"price": "$48.90",
+		"weight": "150g"
+	}	
+]

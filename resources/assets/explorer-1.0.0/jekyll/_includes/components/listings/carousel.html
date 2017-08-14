@@ -1,0 +1,14 @@
+<div class="carousel-fullwidth">
+    <div class="carousel-fullwidth-inner">
+        <div class="listing-boxes">
+            <div class="row mb-30 carousel-items">
+                {% assign listings = site.data.listings | shuffle %}
+                {% for listing in listings limit:14 %}
+                    <div class="col">
+                        {% include components/listings/box.html %}
+                    </div>
+                {% endfor %}
+            </div><!-- /.row -->
+        </div><!-- /.listing-boxes -->
+    </div><!-- /.carousel-fullwidth-inner -->
+</div><!-- /.carousel-fullwidth -->

@@ -1,0 +1,13 @@
+{% if page.page_title %}
+	<div class="page-title">
+	    <div class="container-fluid">
+	        <h1>{{ page.page_title }}
+	        	{% if page.page_description %}
+	        		<small>{{ page.page_description }}</small>
+	        	{% endif %}
+	        </h1>
+
+			{% include components/title-actions.html %}			        		        
+	    </div><!-- /.container-fluid -->
+	</div><!-- /.page-title -->
+{% endif %}

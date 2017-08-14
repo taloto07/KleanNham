@@ -1,0 +1,10 @@
+<div class="row">
+	{% for location in site.data.locations %}
+		<div class="col-sm-4">
+			<a class="image-item" href="listings-detail.html">
+				<span class="image-item-background" style="background-image: url('{{ location.image }}')"></span>
+				<strong>{{ location.title }}</strong>
+			</a><!-- /.image-item -->
+		</div><!-- /.col-* -->
+	{% endfor %}
+</div><!-- /.row -->

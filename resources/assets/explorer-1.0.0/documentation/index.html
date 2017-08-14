@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Explorer - Directory Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Explorer - Directory Template&rdquo; Documentation by &ldquo;Code Vision&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Explorer - Directory Template&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 03/24/2017<br>
+					By: Code Vision<br>
+					Email: <a href="mailto:info@wearecodevision.com">info@wearecodevision.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our template. If you have any questions that are beyond the scope of this help file, please feel free to email us via our user page contact form <a href="http://themeforest.net/user/codevisionthemes">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#file-structure">General Information</a></li>	
+			<li><a href="#file-structure">File Structure</a></li>	
+			<li><a href="#installation">Application Installation</a></li>	
+			<li><a href="#demo-content">Demo Content</a></li>
+			<li><a href="#nginx-configuration">Nginx Configuration</a></li>	
+		</ol>
+
+		<hr>
+		
+		<h3 id="general-information"><strong>General Information</strong> - <a href="#toc">top</a></h3>
+
+		<p>
+			Before starting to work with template, there are some basic concepts/technologies you need to be familiar with. Please check the Bootstrap framework and SASS for more information. These two technologies and the core of the template.
+		</p>
+
+		<p>
+			There are some other essentials technologies used across the template files. Font Awesome is used for displaying the icons or jQuery for basic DOM manipulation. However these technogies are not mandatory to use. But learning these technologies will make easier site creation.
+		</p>
+
+		<h3 id="file-structure"><strong>File Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>
+			All CSS files are located inside assets/css folder. Template oriented files are generated from SASS source codes. You can find the SASS files insidede assets/scss. It is recommended to edit SASS files instead of CSS files because if you compile the SASS, you will loose all your changes.
+		</p>
+
+		<p>
+			Images are located in assets/img. The tmp folder container sample images. In the package which you downloaded are situated the compressed images with the placeholders only.
+		</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%">
+<col width="61%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Folder</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>assets/css</td>
+<td>CSS files</td>
+</tr>
+<tr class="row-odd"><td>assets/data</td>
+<td>JSON data for eg. maps</td>
+</tr>
+<tr class="row-even"><td>assets/fonts</td>
+<td>Font families</td>
+</tr>
+<tr class="row-odd"><td>assets/img</td>
+<td>Images</td>
+</tr>
+<tr class="row-even"><td>assets/libraries</td>
+<td>Libraries</td>
+</tr>
+<tr class="row-odd"><td>assets/scss</td>
+<td>SASS files</td>
+</tr>
+</tbody>
+</table>
+
+		<h3 id="install"><strong>Application Installation</strong> - <a href="#toc">top</a></h3>
+
+		<p><strong><a href="http://symfony.com/doc/current/reference/requirements.html">Symfony Application Requirements</a></strong></p>
+
+		<p><strong>Installing on the local machine</strong></p>
+
+		<p>Please note that we will be working in terminal. Mac or Linux users have already terminal available in OS but Windows users must look for third party solution</p>
+
+		<ol>
+			<li><code>cd backend</code></li>
+			<li><code>composer install</code> # Install all dependencies and configure parameters</li>			
+			<li><code>php bin/console doctrine:database:create</code> # Create new database</li>
+			<li><code>php bin/console doctrine:schema:update</code> # Create database schema</li>
+			<li><code>php bin/console server:run</code></li>			
+		</ol>
+
+		<p>Now you can access <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p>
+		
+		<p><strong>Installing on the hosting</strong></p>
+
+		<p>
+			When installing application on the hosting you can replicate almost all steps from the previous guide how to install it on the local machine but the last command (server:run) is not recommended to run. You must configure your own webserver. For example our demo is running on nginx and php-fpm. Below we attached our nginx configuration and some other guides how to install symfony application
+		</p>
+
+		<ul>
+			<li><a href="http://blog.jaumesola.com/symfony-3-on-mamp-with-mercurial-vcs-and-eclipse-ide-part-1">Symfony 3 on MAMP</a></li>
+			<li><a href="http://symfony.com/doc/2.0/book/installation.html">Official Installation Guide</a></li>
+			<li><a href="http://symfony.com/doc/current/deployment.html">Deployment</a></li>
+			<li><a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-symfony-application-to-production-on-ubuntu-14-04">Digital Ocean</a></li>
+		</ul>
+
+<h3 id="demo-content"><strong>Demo Content</strong> - <a href="#toc">top</a></h3>
+
+<ol>
+	<li>Locate the Symfony project root</li>
+	<li><code>php bin/console doctrine:query:sql "`cat database.sql`"</code>Import database.sql into your database</li>
+</ol>
+
+<h3 id="nginx-configuration"><strong>Nginx Configuration</strong> - <a href="#toc">top</a></h3>
+<pre><code>server {
+    listen 80;
+    listen [::]:80;
+
+    server_name YOUR_DOMAIN_HERE; # example: example.com
+    root PATH_TO_SYMFONY_WEB_FOLDER; # example: /home/my-project/public_html/backend/web
+    index index.php;
+    client_max_body_size 20M;
+
+    location / {
+        try_files $uri /app.php$is_args$args;
+    }
+
+    location ~ ^/app\.php(/|$) {
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        fastcgi_param DOCUMENT_ROOT $realpath_root;
+        internal;
+    }
+
+    location ~ \.php$ {
+        return 404;
+    }
+}</code></pre>
+
+		<h4><strong>Importing sample database content</strong></h4>
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

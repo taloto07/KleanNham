@@ -1,0 +1,30 @@
+<div class="box">
+    <div class="box-inner">
+        <div class="box-title clearfix">
+            <h2>Current Campaigns</h2>
+
+            {% include components/admin/actions.html %}
+        </div><!-- /.box-title -->
+
+        <div class="row">
+            {% for i in (1..4) %}
+                <div class="col-sm-6 col-md-3">
+                    {% assign campaigns = site.data.campaigns|shuffle %}
+                    {% for campaign in campaigns|limit:2 %}                
+                        <div class="stat-progress">
+                            {% assign size = (1..100)|random %}
+
+                            <div class="stat-progress-label">
+                                {{ campaign.name }} <span>{{ size }}%</span>
+                            </div>
+
+                            <div class="stat-progress-bar">
+                                <div class="stat-progress-bar-inner" style="width: {{ size }}%"></div><!-- /.stat-progress-inner -->
+                            </div><!-- /.stat-progress -->
+                        </div>                    
+                    {% endfor %}                                    
+                </div>
+            {% endfor %}
+        </div>
+    </div><!-- /.box-inner -->
+</div><!-- /.box -->

@@ -1,0 +1,35 @@
+---
+layout: default-fullwidth
+title: Listings Grid
+page_title: Listings Grid
+footer: line
+---
+
+<div class="row">
+    <div class="col-sm-4 col-md-3 sidebar-wrapper-col">
+        <div class="sidebar">
+            <div class="filter">
+                {% include components/filter-vertical.html %}
+            </div><!-- /.filter -->
+        </div><!-- /.sidebar -->
+    </div><!-- /.col-* -->
+
+    <div class="col-sm-8 col-md-9">
+        <div class="content">            
+            <div class="row">
+                {% assign listings = site.data.listings | shuffle %}
+                {% for listing in listings limit:12 %}
+                    <div class="col-md-6 col-lg-3">
+                        {% include components/listings/box.html %}
+                    </div><!-- /.col-* -->     
+                {% endfor %}
+            </div><!-- /.row -->
+
+            <div class="row">
+                <div class="col-sm-12">
+                    {% include components/pagination.html %}
+                </div><!-- /.col-* -->
+            </div>
+        </div><!-- /.content -->
+    </div><!-- /.col-* -->
+</div><!-- /.row -->

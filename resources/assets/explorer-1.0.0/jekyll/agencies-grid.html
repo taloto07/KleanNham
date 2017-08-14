@@ -1,0 +1,28 @@
+---
+layout: default-boxed
+active: agents-agencies
+title: Agencies Grid Version
+page_title: Agencies Grid Version
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="row">
+	<div class="col-md-8 col-lg-9">
+		{% include components/sort.html %}
+
+		<div class="row">
+			{% for agency in site.data.agencies %}						
+				<div class="col-md-6 col-lg-4">
+					{% include components/listing-grid-agency.html %}
+				</div><!-- /.col-* -->
+			{% endfor %}	
+		</div><!-- /.row -->
+
+		{% include components/pagination.html %}					
+	</div><!-- /.col -->
+
+	<div class="col-md-4 col-lg-3">
+		{% include components/sidebar-agency.html %}
+	</div><!-- /.col-* -->		
+</div><!-- /.row -->

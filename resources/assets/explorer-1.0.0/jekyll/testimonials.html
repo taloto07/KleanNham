@@ -1,0 +1,28 @@
+---
+layout: default-boxed
+title: Testimonials
+active: pages
+page_title: Testimonials
+---
+
+{% include components/breadcrumbs.html %}
+
+<div class="row">
+	{% for i in (1..6) %}
+		<div class="col-md-12 col-lg-6">
+			<div class="testimonial-block">
+				<div class="testimonial-block-inner">
+					<div class="testimonial-block-content">
+						<p>Nunc posuere velit sit amet diam dapibus, at venenatis enim tempor. Nulla facilisi. Maecenas eu ante lacus. Sed sapien lacus, congue in turpis non, hendrerit gravida nibh. Curabitur aliquet erat in vestibulum aliquam.</p>
+					</div>
+
+					<div class="testimonial-block-author">
+						<div class="avatar" style="background-image: url('assets/img/tmp/user-1.jpg');"></div> <span>Thomas M. Callis</span>
+					</div>
+				</div><!-- /.testimonial-block-inner -->
+			</div><!-- /.testimonial -->
+		</div><!-- /.col-* -->
+	{% endfor %}
+</div><!-- /.row -->
+
+{% include components/pagination.html %}

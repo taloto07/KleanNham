@@ -1,0 +1,16 @@
+explorer_admin:
+    resource: "@AdminBundle/Controller/"
+    type: annotation
+    prefix: /admin
+
+explorer_api:
+    resource: "@ApiBundle/Controller/"
+    type: rest
+    prefix: /api
+
+explorer_front:
+    resource: "@FrontBundle/Controller/"
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

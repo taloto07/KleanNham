@@ -1,0 +1,53 @@
+<div class="table-wrapper">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th class="min-width center"><input type="checkbox"></th>
+            <th class="min-width center">ID</th>
+            <th>Title</th>
+            <th>Users</th>
+            <th class="min-width">Created</th>
+            <th class="min-width"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+            {% for project in site.data.projects %}
+                <tr>
+                    <td class="min-width center"><input type="checkbox"></td>
+                    <td class="min-width center id">#{{ project.id }}</td>
+                    <td class="no-wrap">
+                        <div class="avatar">{{ project.monogram }}</div>
+
+                        <h2>
+                            <a href="#">{{ project.title }}</a>
+                            <span>{{ project.description }}</span>
+                        </h2>
+                    </td>
+
+                    <td class="no-wrap">
+                        <div class="avatar-compressed">
+                            {% assign avatars_max = (1..8)|random %}
+                            {% assign avatars_other = (2..30)|random %}
+                            {% assign avatars = (1..avatars_max)|shuffle %}
+
+                            {% for i in avatars %}
+                                <a href="#" class="avatar" style="background-image: url('assets/img/tmp/user-{{ i }}.jpg');"></a>
+                            {% endfor %}
+
+                            <span class="avatar-more">+ {{ avatars_other }} other</span>
+                        </div>
+                    </td>
+
+                    <td class="min-width no-wrap small">
+                        23 January 2017
+                    </td>
+
+                    <td class="min-width">
+                        {% include components/admin/actions.html %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div><!-- /.table-wrapper -->

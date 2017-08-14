@@ -26,4 +26,6 @@
 {{ Html::script('assets/js/explorer.js') }}
 {{ Html::script('assets/js/explorer-map-search.js') }}
 
+{{ Html::script( mix('js/app.js') ) }}
+
 @yield("javascript")

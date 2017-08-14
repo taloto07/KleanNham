@@ -1,0 +1,138 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block title %}{{ 'Listings'|trans }}{% endblock %}
+
+{% block page_title %}{{ 'Listings'|trans }}{% endblock %}
+
+{% block content %}
+    <div class="table-header clearfix">
+        <div class="table-header-count">
+            {% set count = listings.getTotalItemCount %}
+            {% transchoice count %}
+            {0} <span>%count%</span> listings matching query|{1} <span>%count%</span> listing matching query|]1,Inf[<span>%count%</span> listings matching query
+            {% endtranschoice %}
+        </div><!-- /.table-header-count -->
+
+        <div class="table-header-actions">
+            <a href="{{ path('admin_listings_create') }}" class="btn btn-primary">
+                <i class="fa fa-plus"></i> {{ 'Create Listing'|trans }}
+            </a>
+        </div><!-- /.table-header-actions -->
+    </div><!-- /.table-header -->
+
+    <div class="box">
+        <div class="box-inner">
+            <div class="box-title">
+                <h2>{{ 'Listings'|trans }}</h2>
+            </div><!-- /.box-title -->
+
+            {% if listings|length %}
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="min-width center">{{ 'ID'|trans }}</th>
+                            <th>{{ 'Title'|trans }}</th>
+                            <th class="min-width center">{{ 'Category'|trans }}</th>
+                            <th class="min-width price">{{ 'Price'|trans }}</th>
+                            <th class="min-width center">{{ 'Published'|trans }}</th>
+                            <th class="min-width center">{{ 'Verified'|trans }}</th>
+                            <th class="min-width center">{{ 'Featured'|trans }}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for listing in listings %}
+                            <tr>
+                                <td class="min-width center id">#{{ listing.getId }}</td>
+                                <td>
+                                    {% if listing.featuredName %}
+                                        <div class="avatar squared"
+                                             style="background-image: url('{{ vich_uploader_asset(listing, 'featuredImage') }}');">
+                                        </div><!-- /.avatar -->
+                                    {% endif %}
+
+                                    <h2>
+                                        {{ listing.getName }}
+                                        {% if listing.getAddress %}
+                                            <span>{{ listing.getAddress }}</span>
+                                        {% endif %}
+                                    </h2>
+                                </td>
+
+                                <td class="min-width no-wrap center">
+                                    {% if listing.categories|length %}
+                                        {% for category in listing.categories %}
+                                            <span class="tag">{{ category.getName }}</span>
+                                        {% endfor %}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+
+                                <td class="min-width price">
+                                    {% if listing.getPrice %}
+                                        {{ listing.getPrice|localizedcurrency("USD") }}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+
+                                <td class="min-width center">
+                                    <div class="status">
+                                        {% if listing.getIsPublished %}
+                                            <i class="fa fa-check"></i>
+                                        {% else %}
+                                            <i class="fa fa-times"></i>
+                                        {% endif %}
+                                    </div><!-- /.status -->
+                                </td>
+
+                                <td class="min-width center">
+                                    <div class="status">
+                                        {% if listing.getIsVerified %}
+                                            <i class="fa fa-check"></i>
+                                        {% else %}
+                                            <i class="fa fa-times"></i>
+                                        {% endif %}
+                                    </div><!-- /.status -->
+                                </td>
+
+                                <td class="min-width center">
+                                    <div class="status">
+                                        {% if listing.getIsFeatured %}
+                                            <i class="fa fa-check"></i>
+                                        {% else %}
+                                            <i class="fa fa-times"></i>
+                                        {% endif %}
+                                    </div><!-- /.status -->
+                                </td>
+
+                                <td class="min-width">
+                                    <div class="btn-group" role="group">
+                                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                                            {{ 'Actions'|trans }}
+                                        </button>
+
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ path('admin_listings_update', {'id': listing.getId}) }}">{{ 'Update'|trans }}</a>
+                                            <a class="dropdown-item" href="{{ path('admin_listings_delete', {'id': listing.getId}) }}">{{ 'Delete'|trans }}</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="mb0">
+                    {{ 'No listings found.'|trans }}
+                </p>
+            {% endif %}
+        </div><!-- /.box-inner -->
+    </div><!-- /.box -->
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(listings) }}
+    </div>
+{% endblock %}

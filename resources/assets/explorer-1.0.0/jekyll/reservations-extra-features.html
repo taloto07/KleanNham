@@ -1,0 +1,70 @@
+---
+layout: default-boxed
+title:  Reservations Extra Features
+active: pages
+page_title: Reservations Extra Features
+---
+
+{% include components/breadcrumbs.html %}
+
+{% include components/progress.html %}
+
+<div class="row">
+    <div class="col-sm-9">
+        {% assign listings = site.data.listings | shuffle %}
+        {% for listing in listings limit:2 %}
+            {% include components/listings/row.html %}
+        {% endfor %}
+
+        <div class="box">
+            <div class="box-inner">
+                <div class="box-title">
+                    <h2>Extra Features</h2>
+                </div><!-- /.box-title -->
+
+                <div class="extras">
+                    {% for i in (1..3) %}
+                        <div class="extras-item">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-2 col-md-2">
+                                    <div class="extra-icon">
+                                        <i class="fa fa-diamond"></i>
+                                    </div>
+                                </div><!-- /.col -->
+
+                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                    <div class="title">Baby Seat</div>
+                                    <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p></div>
+                                    <div class="price">25,50$ / per day</div>
+                                </div><!-- /.col -->
+
+                                <div class="col-xs-push-4 col-xs-4 col-sm-push-0 col-sm-4 col-md-4">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Select Option</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                        </div><!-- /.form-group -->
+
+                                        <div class="checkbox">
+                                            <label><input class="form-control" checked="checked" type="checkbox"></label>
+                                        </div><!-- /.checkbox -->
+                                    </form>
+                                </div><!-- /.col -->
+                            </div><!-- /.row -->
+                        </div><!-- /.extras-item -->
+                    {% endfor %}
+                </div><!-- /.extras -->
+            </div><!-- /.box-inner -->
+        </div><!-- /.box -->
+
+        {% include components/next-prev.html %}
+    </div><!-- /.col -->
+
+    <div class="col-sm-3">
+        {% include components/sidebar-checkout.html %}
+    </div><!-- /.col-* -->
+</div><!-- /.row -->

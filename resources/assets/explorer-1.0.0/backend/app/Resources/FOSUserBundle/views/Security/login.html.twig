@@ -1,0 +1,13 @@
+{% extends "AdminBundle::simple.html.twig" %}
+
+{% block title %}{{ 'Sign In'|trans }}{% endblock %}
+
+{% block content %}
+    <div class="row mt80 mb80">
+        <div class="col-sm-4 offset-sm-4">
+            <h3 class="page-title-small">{{ 'Login'|trans }}</h3>
+
+            {{ include('FOSUserBundle:Security:login_content.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

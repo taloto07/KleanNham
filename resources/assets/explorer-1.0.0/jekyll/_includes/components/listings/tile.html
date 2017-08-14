@@ -1,0 +1,14 @@
+{% assign listings = site.data.listings | shuffle %}
+
+{% for listing in listings limit:1 %}
+	<div class="listing-tile">
+		<div class="listing-tile-image" style="background-image: url('{{ listing.image_thumbnail }}');">		
+		</div><!-- /.listing-tile-image -->
+
+		<div class="listing-tile-content">
+			<span class="tag">{{ listing.category }}</span>
+			<h2>{{ listing.title }}</h2>
+			<address>{{ listing.address }}</address>		
+		</div><!-- /.listing-tile-content -->
+	</div><!-- /.listing-tile -->
+{% endfor %}

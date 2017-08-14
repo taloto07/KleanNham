@@ -2,6 +2,11 @@
 <html lang="en">
     <head>
         @include("partials._head")
+        <script>
+            window.Laravel = {!! json_encode([
+                'csrfToken' => csrf_token(),
+            ]) !!};
+        </script>
     </head>
 
     <body>

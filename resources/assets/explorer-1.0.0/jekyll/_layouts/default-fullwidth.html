@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include header.html %}
+
+<body class="{{ page.body_class }}">
+
+<div class="page-wrapper">
+	{% include components/header.html %}
+
+    <div class="main-wrapper">
+	    <div class="main">
+	        <div class="main-inner">	        		        	
+	        	{% include components/title.html %}
+	        	
+            	<div class="container-fluid">
+                	{{ content }}
+				</div><!-- /.container-fluid -->	            		
+	        </div><!-- /.main-inner -->
+	    </div><!-- /.main -->
+    </div><!-- /.main-wrapper -->   
+
+	{% if page.footer == 'line' %}	
+		{% include components/footer-line-fullwidth.html %}    
+	{% else %}
+		{% include components/footer.html %}    
+	{% endif %}
+</div><!-- /.page-wrapper -->
+
+{% include components/listings/submit.html %}
+
+{% include components/side.html %}
+
+{% include scripts.html %}
+</body>
+</html>

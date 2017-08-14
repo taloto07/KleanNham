@@ -1,0 +1,13 @@
+{% extends "AdminBundle::simple.html.twig" %}
+
+{% block title %}
+    {{ 'Forgot Password?'|trans }}
+{% endblock %}
+
+{% block content %}
+    <div class="row mt80 mb80">
+        <div class="col-sm-4 offset-sm-4">
+            <h3 class="page-title-small">{{ 'Reset Password'|trans }}</h3>
+
+            {% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+{% endblock %}
