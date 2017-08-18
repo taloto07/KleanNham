@@ -21,7 +21,9 @@
                 <ul class="nav">
                   <li class="nav-item">
                     <form class="form-inline nav-link" method="GET" action="{{route('search')}}">
-                      <input class="form-control search-bar" type="text" name="keyword" placeholder="search ...">
+                      <div class="search-wrapper">
+                        <input class="form-control search-bar" type="text" name="keyword" placeholder="Looking for ...">  
+                      </div>
                     </form>
                   </li>
                 </ul>
