@@ -2,4 +2,4 @@
 
 ## About KleanNham
 
-KleanNham is a web application that allows users to search for a place to eat in a easily manner fashion.
+KleanNham is a web application that allows users to search for a place to eat in an easily manner fashion.
