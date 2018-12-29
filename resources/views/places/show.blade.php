@@ -142,8 +142,8 @@
             </div>
             <!-- /. listing-detail-section contact information -->
             <div class="listing-detail-section" id="listing-detail-section-map-position" data-title="Map Position">
-                <h2>Map Position</h2>
-                <iframe class="mb30" style="height:320px;width:100%;border:0;" src="https://www.google.com/maps/embed/v1/place?q={{ $place->latitude }},{{ $place->longitude }}&key=AIzaSyB1rhBa5RxvE6mSIBXEvCE_3DOeKj3oG3U">
+                <h2>Map Position</h2> 
+                <iframe class="mb30" style="height:320px;width:100%;border:0;" src="https://www.google.com/maps/embed/v1/place?q={{ $place->latitude }},{{ $place->longitude }}&key={{env('GOOGLE_MAP_KEY')}}">
                 </iframe>
             </div>
             <!-- /.listing-detail-section map position-->

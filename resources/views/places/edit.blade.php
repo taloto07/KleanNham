@@ -279,7 +279,7 @@
 	{!! Html::script('js/file-input/plugins/purify.js') !!}
 	{!! Html::script('js/file-input/fileinput.js') !!}
 	{!! Html::script('js/google-map/autocomplete.js') !!}
-  	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1rhBa5RxvE6mSIBXEvCE_3DOeKj3oG3U&libraries=places&callback=initAutocomplete"
+  	<script src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAP_KEY')}}&libraries=places&callback=initAutocomplete"
          async defer></script>
 	
 	{!! Html::script('js/tag.js') !!}
