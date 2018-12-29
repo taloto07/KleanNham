@@ -60,6 +60,11 @@
                             {{ csrf_field() }}
                         </form>
                       </li>
+                      @can('create', 'App\Place')
+                        <li>
+                          <a href="{{action('PlaceController@create')}}">Create Place</a>
+                        </li>
+                      @endcan
                     </ul>
                   </li>
                 @endif

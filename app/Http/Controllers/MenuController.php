@@ -9,6 +9,9 @@ use App\Menu;
 
 class MenuController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:create,App\Place');
+    }
 
 	protected function saveMenu($menu){
         $menu = strtolower($menu);

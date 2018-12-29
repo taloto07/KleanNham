@@ -148,7 +148,12 @@
             </div>
             <!-- /.listing-detail-section map position-->
             <div class="listing-detail-section" id="listing-detail-section-menu" data-title="Menu">
-                <h2>Menu</h2>
+                <h2>
+                    Menu 
+                    @can('create', $place)
+                         (<a href="{{route('places.menus.create', ['id' => $place->id])}}">Add Menu</a>)
+                    @endcan
+                </h2>
                 <div class="filter-tabs">
                     <ul class="nav nav-tabs" role="tablist">
                         @foreach($menus as $index => $menu)
@@ -324,6 +329,13 @@
 			<div class="sidebar">
 				<div class="widget">
                     <ul class="nav actions flex-column">
+                        @can('update', $place)
+                            <li class="nav-item">
+                                <a href="{{action('PlaceController@edit', $place)}}" class="nav-link">
+                                    <i class="fa fa-file-text-o"></i> Update Place
+                                </a>
+                            </li>
+                        @endcan
                         <li class="nav-item featured">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-file-text-o"></i> Claim Listing
