@@ -13,5 +13,6 @@ return [
 	'SendPasswordResetLink'	=> 'Send Password Reset Link',
 	'Logout'				=> 'Logout',
 	'Language'				=> 'Language',
-	'AlreadyHaveAnAccount'	=> 'Already have an account?'
+	'AlreadyHaveAnAccount'	=> 'Already have an account?',
+	'DontHaveAccountYet' 	=> 'Don\'t have accout yet?',
 ];

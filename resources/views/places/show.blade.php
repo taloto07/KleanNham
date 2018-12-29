@@ -331,7 +331,7 @@
                     <ul class="nav actions flex-column">
                         @can('update', $place)
                             <li class="nav-item">
-                                <a href="{{action('PlaceController@edit', $place)}}" class="nav-link">
+                                <a href="{{route('places.edit', $place)}}" class="nav-link">
                                     <i class="fa fa-file-text-o"></i> Update Place
                                 </a>
                             </li>

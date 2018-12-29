@@ -62,7 +62,7 @@
                       </li>
                       @can('create', 'App\Place')
                         <li>
-                          <a href="{{action('PlaceController@create')}}">Create Place</a>
+                          <a href="{{ route('places.create') }}">Create Place</a>
                         </li>
                       @endcan
                     </ul>

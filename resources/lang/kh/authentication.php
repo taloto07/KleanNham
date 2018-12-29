@@ -13,5 +13,6 @@ return [
 	'SendPasswordResetLink'	=> 'ផ្ញេីរអាសយ័ដ្ថានប្តូលេខសំងាត់',
 	'Logout'				=> 'លកអាវ',
 	'Language'				=> 'ភាសា',
-	'AlreadyHaveAnAccount'	=> 'មានគណនេយ្យហេីយ?'
+	'AlreadyHaveAnAccount'	=> 'មានគណនេយ្យហេីយ?',
+	'DontHaveAccountYet' 	=> 'មិនទាន់មានគណនេយ្យទេ?',
 ];

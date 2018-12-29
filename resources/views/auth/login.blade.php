@@ -37,9 +37,14 @@
                 <!-- /.form-group -->
             {!! Form::close() !!}
 
-            <h6><a href="{{ route('password.request') }}" class="text-muted">
-                @lang('authentication.ForgotPassword')
-            </a></h6>
+            <h6>
+                <a href="{{ route('password.request') }}" class="text-muted">
+                    @lang('authentication.ForgotPassword')
+                </a>
+                <a href="{{ route('register') }}" class="text-muted">
+                    @lang('authentication.DontHaveAccountYet')
+                </a>
+            </h6>
         </div>
         <!-- /.col-sm-4 -->
     </div>
