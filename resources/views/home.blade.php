@@ -40,6 +40,7 @@
         <!-- /.hero-image-content -->
       </div>
       <!-- /.hero-image-inner -->
+      {{-- 
       <div class="hero-image-categories">
         <a href="#" class="hero-image-category">
           <i class="fa fa-commenting-o"></i>
@@ -70,6 +71,7 @@
           <strong>Businesses</strong>
         </a><!-- /.hero-image-category -->
       </div>
+       --}}
       <!-- /.hero-image-categories -->
     </div>
     <!-- /.hero-image -->
